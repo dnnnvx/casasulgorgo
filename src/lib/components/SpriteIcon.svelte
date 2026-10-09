@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { type Sprite, sprite } from '#lib/pixel.ts';
-	import Pixels from './Pixels.svelte';
+	import { type Sprite, sprite } from '#lib/pixel.ts'
+	import Pixels from './Pixels.svelte'
 
-	let { art, label }: { art: Sprite; label: string } = $props();
+	let { art, label }: { art: Sprite; label: string } = $props()
 
-	let width = $derived(Math.max(...art.rows.map((r) => r.length)));
-	let height = $derived(art.rows.length);
-	let size = $derived(Math.max(width, height) + 2);
+	let width = $derived(Math.max(...art.rows.map((r) => r.length)))
+	let height = $derived(art.rows.length)
+	let size = $derived(Math.max(width, height) + 2)
 </script>
 
 <svg viewBox="0 0 {size} {size}" shape-rendering="crispEdges" role="img" aria-label={label}>

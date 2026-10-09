@@ -1,4 +1,4 @@
-import type { Sprite } from './pixel.ts';
+import type { Sprite } from './pixel.ts'
 
 // Airone cenerino (Ardea cinerea), facing left.
 export const heron: Sprite = {
@@ -37,7 +37,7 @@ export const heron: Sprite = {
 		'...........l.l......',
 		'...........l.l......'
 	]
-};
+}
 
 // Germano reale (Anas platyrhynchos), facing right.
 export const duck: Sprite = {
@@ -59,7 +59,7 @@ export const duck: Sprite = {
 		'bBBBBBbbbbb',
 		'.bbbbbbbbb.'
 	]
-};
+}
 
 // Martin pescatore (Alcedo atthis), perched, facing right.
 export const kingfisher: Sprite = {
@@ -80,7 +80,7 @@ export const kingfisher: Sprite = {
 		'BBB.ooo.....',
 		'....k.k.....'
 	]
-};
+}
 
 // Gallinella d'acqua (Gallinula chloropus), facing right.
 export const moorhen: Sprite = {
@@ -103,17 +103,17 @@ export const moorhen: Sprite = {
 		'...g..g....',
 		'..gg.gg....'
 	]
-};
+}
 
 export const birdUp: Sprite = {
 	palette: { k: '#3b2a2a' },
 	rows: ['k.....k', '.k...k.', '..kkk..']
-};
+}
 
 export const birdDown: Sprite = {
 	palette: { k: '#3b2a2a' },
 	rows: ['..kkk..', '.k...k.', 'k.....k']
-};
+}
 
 // Scene-scale versions, sized for the isometric gorgo.
 export const heronSmall: Sprite = {
@@ -135,14 +135,14 @@ export const heronSmall: Sprite = {
 		'.....l....',
 		'....l.l...'
 	]
-};
+}
 
 export const drake: Sprite = {
 	palette: duck.palette,
 	rows: ['.....mm.', '.....mky', '.bbbbww.', 'bBBBbbb.', '.bbbbb..']
-};
+}
 
 export const hen: Sprite = {
 	palette: { h: '#8a6a48', k: '#1f2226', y: '#d08a30', b: '#a07a52', B: '#7d5c3c' },
 	rows: ['.....hh.', '.....hky', '.bbbbhh.', 'bBBBbbb.', '.bbbbb..']
-};
+}

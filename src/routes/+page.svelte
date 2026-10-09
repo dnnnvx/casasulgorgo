@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Scene from '#lib/components/Scene.svelte';
-	import SpriteIcon from '#lib/components/SpriteIcon.svelte';
-	import { duck, heron, kingfisher, moorhen } from '#lib/sprites.ts';
+	import Scene from '#lib/components/Scene.svelte'
+	import SpriteIcon from '#lib/components/SpriteIcon.svelte'
+	import { duck, heron, kingfisher, moorhen } from '#lib/sprites.ts'
 
 	const birds = [
 		{
@@ -28,12 +28,12 @@
 			latin: 'Gallinula chloropus',
 			note: 'Cammina sulle foglie galleggianti e sparisce nel canneto al primo rumore.'
 		}
-	];
+	]
 
-	const site = 'https://casasulgorgo.net/';
-	const title = 'Casa sul Gorgo · Gorgo Della Sposa';
+	const site = 'https://casasulgorgo.net/'
+	const title = 'Casa sul Gorgo · Gorgo Della Sposa'
 	const description =
-		"La pianura, le campagne, uno specchio d'acqua dove tanti uccelli trovano casa. Viviamo accanto al Gorgo Della Sposa e vogliamo prendercene cura.";
+		"La pianura, le campagne, uno specchio d'acqua dove tanti uccelli trovano casa. Viviamo accanto al Gorgo Della Sposa e vogliamo prendercene cura."
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'WebSite',
@@ -41,10 +41,10 @@
 		url: site,
 		inLanguage: 'it',
 		description
-	};
+	}
 
-	const year = new Date().getFullYear();
-	const stripes = ['#ff9150', '#ffab62', '#ffc581', '#86b257', '#4f8f4f', '#4589b8', '#33709f'];
+	const year = new Date().getFullYear()
+	const stripes = ['#ff9150', '#ffab62', '#ffc581', '#86b257', '#4f8f4f', '#4589b8', '#33709f']
 </script>
 
 <svelte:head>

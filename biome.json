@@ -15,6 +15,7 @@
 	"javascript": {
 		"formatter": {
 			"quoteStyle": "single",
+			"semicolons": "asNeeded",
 			"trailingCommas": "none"
 		}
 	},
@@ -31,7 +32,24 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"preset": "recommended"
+			"preset": "all",
+			"complexity": {
+				"useMaxParams": { "level": "error", "options": { "max": 7 } }
+			},
+			"correctness": {
+				"noUnresolvedImports": "off",
+				"useQwikValidLexicalScope": "off"
+			},
+			"style": {
+				"noHexColors": "off",
+				"noIncrementDecrement": "off",
+				"noMagicNumbers": "off",
+				"noTernary": "off",
+				"useConsistentTypeDefinitions": { "level": "error", "options": { "style": "type" } }
+			},
+			"suspicious": {
+				"noEmptySource": { "level": "error", "options": { "allowComments": true } }
+			}
 		}
 	},
 	"assist": {
@@ -42,6 +60,40 @@
 		}
 	},
 	"overrides": [
+		{
+			"includes": ["src/lib/components/**"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useFilenamingConvention": {
+							"level": "error",
+							"options": { "filenameCases": ["PascalCase"] }
+						}
+					}
+				}
+			}
+		},
+		{
+			"includes": ["src/lib/components/Scene.svelte", "src/lib/iso.ts"],
+			"linter": {
+				"rules": {
+					"complexity": { "noExcessiveLinesPerFunction": "off" },
+					"style": { "noExcessiveLinesPerFile": "off" }
+				}
+			}
+		},
+		{
+			"includes": ["src/app.d.ts"],
+			"linter": { "rules": { "style": { "noNamespace": "off" } } }
+		},
+		{
+			"includes": ["vite.config.ts"],
+			"linter": { "rules": { "style": { "noDefaultExport": "off" } } }
+		},
+		{
+			"includes": ["src/lib/sprites.ts"],
+			"linter": { "rules": { "style": { "useNamingConvention": "off" } } }
+		},
 		{
 			"includes": ["**/*.svelte"],
 			"linter": {

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Run } from '#lib/pixel.ts';
+	import type { Run } from '#lib/pixel.ts'
 
-	let { runs, class: className }: { runs: Run[]; class?: string } = $props();
+	let { runs, class: className }: { runs: Run[]; class?: string | undefined } = $props()
 </script>
 
 <g class={className}>
