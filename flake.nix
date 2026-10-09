@@ -16,10 +16,10 @@
     in
     {
       devShells = forAllSystems (pkgs: {
-        # Biome, TypeScript & co. come from package.json so versions stay in sync with CI/Docker
         default = pkgs.mkShellNoCC {
-          packages = [ pkgs.nodejs_26 ];
-
+          packages = [
+            pkgs.nodejs_26
+          ];
           shellHook = ''
             export PATH="$PWD/node_modules/.bin:$PATH"
           '';
