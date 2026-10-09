@@ -30,13 +30,45 @@
 		}
 	];
 
+	const site = 'https://casasulgorgo.net/';
+	const title = 'Casa sul Gorgo · Gorgo Della Sposa';
+	const description =
+		"La pianura, le campagne, uno specchio d'acqua dove tanti uccelli trovano casa. Viviamo accanto al Gorgo Della Sposa e vogliamo prendercene cura.";
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: 'Casa sul Gorgo',
+		url: site,
+		inLanguage: 'it',
+		description
+	};
+
 	const year = new Date().getFullYear();
 	const stripes = ['#ff9150', '#ffab62', '#ffc581', '#86b257', '#4f8f4f', '#4589b8', '#33709f'];
 </script>
 
 <svelte:head>
-	<title>Casa sul Gorgo</title>
-	<meta name="description" content="Gorgo Della Sposa. Lo abitiamo e vogliamo proteggerlo.">
+	<title>{title}</title>
+	<meta name="description" content={description}>
+	<link rel="canonical" href={site}>
+	<meta name="theme-color" content="#1f3a2a">
+
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="it_IT">
+	<meta property="og:site_name" content="Casa sul Gorgo">
+	<meta property="og:url" content={site}>
+	<meta property="og:title" content={title}>
+	<meta property="og:description" content={description}>
+	<meta property="og:image" content="{site}og.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta
+		property="og:image:alt"
+		content="Il gorgo in pixel art isometrica: la casa, il pontile e gli uccelli nell'acqua"
+	>
+	<meta name="twitter:card" content="summary_large_image">
+
+	{@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 </svelte:head>
 
 <header class="site">
