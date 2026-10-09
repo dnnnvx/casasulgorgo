@@ -25,3 +25,14 @@ vite.config.ts.timestamp-*
 # direnv / nix
 .direnv
 result
+
+# dotfiles
+.*
+!.gitignore
+!.npmrc
+!.envrc
+!.dockerignore
+
+# temporary notes, docs and todos
+/*.md
+!README.md
