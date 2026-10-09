@@ -11,7 +11,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 	<link
 		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400..600&display=swap"
 	>
 </svelte:head>
 
@@ -24,26 +24,23 @@
 
 	:global(html) {
 		color-scheme: light dark;
-		font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-		line-height: 1.5;
+		font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
 
-		--font-pixel: "Pixelify Sans", ui-monospace, monospace;
-		--ink: light-dark(#1d2a1f, #f3ead6);
-		--muted: light-dark(#4a5547, #c9c0ac);
-		--accent: light-dark(#c4561f, #ffab62);
-		--card: light-dark(#fffaf0, #1b2219);
-		--line: light-dark(#1d2a1f, #0a0d09);
-		--icon-bg: light-dark(#ffeccb, #2a3326);
-		--footer-bg: #1f3a2a;
-		--footer-ink: #ffeccb;
-		--sun: #ffab62;
-		--water: #4589b8;
-		--reed: #6f8f4c;
+		--font-display: Fraunces, Georgia, "Times New Roman", serif;
+		--ink: light-dark(#1c2a21, #ece6d8);
+		--muted: light-dark(#55615a, #a9b0a6);
+		--accent: light-dark(#a8481f, #e59a6b);
+		--bg: light-dark(#f8f6f0, #121612);
+		--surface: light-dark(#ffffff, #1a201a);
+		--tile: light-dark(#f1ede3, #232a22);
+		--line: light-dark(#e3dfd4, #2a3229);
 	}
 
 	:global(body) {
 		margin: 0;
-		background: light-dark(#fff6e5, #12160f);
+		background: var(--bg);
 		color: var(--ink);
 	}
 </style>

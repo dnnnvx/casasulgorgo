@@ -115,7 +115,34 @@ export const birdDown: Sprite = {
 	rows: ['..kkk..', '.k...k.', 'k.....k']
 };
 
-export const lilyPad: Sprite = {
-	palette: { g: '#4f8f4f', G: '#3d7440', p: '#f29bb5' },
-	rows: ['.gggp.', 'ggGg.g', '.gggg.']
+// Scene-scale versions, sized for the isometric gorgo.
+export const heronSmall: Sprite = {
+	palette: heron.palette,
+	rows: [
+		'..kk......',
+		'.wwwkkk...',
+		'yywkw.....',
+		'..www.....',
+		'...ww.....',
+		'...w......',
+		'...ww.....',
+		'...wgg....',
+		'..wwgggG..',
+		'..wgggGGG.',
+		'...ggGGGkk',
+		'....gGGk..',
+		'.....l....',
+		'.....l....',
+		'....l.l...'
+	]
+};
+
+export const drake: Sprite = {
+	palette: duck.palette,
+	rows: ['.....mm.', '.....mky', '.bbbbww.', 'bBBBbbb.', '.bbbbb..']
+};
+
+export const hen: Sprite = {
+	palette: { h: '#8a6a48', k: '#1f2226', y: '#d08a30', b: '#a07a52', B: '#7d5c3c' },
+	rows: ['.....hh.', '.....hky', '.bbbbhh.', 'bBBBbbb.', '.bbbbb..']
 };

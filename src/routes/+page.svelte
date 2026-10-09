@@ -30,46 +30,46 @@
 		}
 	];
 
+	const year = new Date().getFullYear();
 	const stripes = ['#ff9150', '#ffab62', '#ffc581', '#86b257', '#4f8f4f', '#4589b8', '#33709f'];
 </script>
 
 <svelte:head>
 	<title>Casa sul Gorgo</title>
-	<meta
-		name="description"
-		content="Gorgo Della Sposa. Lo abitiamo e vogliamo proteggerlo."
-	>
+	<meta name="description" content="Gorgo Della Sposa. Lo abitiamo e vogliamo proteggerlo.">
 </svelte:head>
 
-<header class="wrap">
-	<a class="brand" href="/">
-		<span class="dot" aria-hidden="true"></span>
-		Casa sul Gorgo
-	</a>
+<header class="site">
+	<div class="wrap bar">
+		<a class="brand" href="/">Casa sul Gorgo</a>
+		<nav aria-label="Principale">
+			<a href="#chi-abita">Chi abita il gorgo</a>
+		</nav>
+	</div>
 </header>
 
 <main>
 	<section class="hero wrap">
-		<p class="eyebrow">Accanto all'acqua, dalla parte degli uccelli</p>
-		<h1>Casa sul Gorgo</h1>
-		<p class="lead">
-			La pianura, le campagne, uno specchio d'acqua. Tanti uccelli qui trovano casa.
-			Viviamo accanto al Gorgo Della Sposa e vogliamo prendercene cura.
-		</p>
+		<div class="intro">
+			<p class="eyebrow">Gorgo Della Sposa</p>
+			<h1>Accanto all'acqua, dalla parte degli uccelli.</h1>
+			<p class="lead">
+				La pianura, le campagne, uno specchio d'acqua. Tanti uccelli qui trovano casa. Viviamo
+				accanto al Gorgo Della Sposa e vogliamo prendercene cura.
+			</p>
+			<a class="button" href="#chi-abita">Scopri chi lo abita</a>
+		</div>
+
+		<figure class="scene">
+			<Scene />
+		</figure>
 	</section>
 
-	<figure class="scene wrap">
-		<Scene />
-	</figure>
-
-	<div class="stripes" aria-hidden="true">
-		{#each stripes as c (c)}
-			<span style:background={c}></span>
-		{/each}
-	</div>
-
-	<section class="birds wrap" aria-labelledby="chi-abita">
-		<h2 id="chi-abita">Chi abita il gorgo</h2>
+	<section id="chi-abita" class="birds wrap" aria-labelledby="chi-abita-title">
+		<header>
+			<p class="eyebrow">Fauna</p>
+			<h2 id="chi-abita-title">Chi abita il gorgo</h2>
+		</header>
 		<ul>
 			{#each birds as bird (bird.name)}
 				<li>
@@ -92,106 +92,132 @@
 		{/each}
 	</div>
 	<div class="wrap foot">
-		<span>Casa sul Gorgo</span>
-		<span>Accanto all'acqua, dalla parte degli uccelli.</span>
+		<span class="brand">Casa sul Gorgo</span>
+		<span>© {year} · Gorgo Della Sposa</span>
 	</div>
 </footer>
 
 <style>
 	.wrap {
-		width: min(72rem, 100% - 2rem);
+		width: min(72rem, 100% - 3rem);
 		margin-inline: auto;
 	}
 
-	header {
-		padding-block: 1.25rem;
+	.site {
+		border-bottom: 1px solid var(--line);
+	}
+
+	.bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-block: 1.1rem;
 	}
 
 	.brand {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.6rem;
-		font-family: var(--font-pixel);
-		font-size: 1.1rem;
+		font-family: var(--font-display);
+		font-size: 1.15rem;
+		font-weight: 600;
+		letter-spacing: -0.01em;
 		color: inherit;
 		text-decoration: none;
 	}
 
-	.dot {
-		width: 0.9rem;
-		height: 0.9rem;
-		background: var(--sun);
-		box-shadow:
-			0.45rem 0.45rem 0 var(--water),
-			-0.45rem 0.45rem 0 var(--reed);
-		margin-right: 0.45rem;
+	nav a {
+		font-size: 0.925rem;
+		color: var(--muted);
+		text-decoration: none;
+	}
+
+	nav a:hover {
+		color: var(--ink);
 	}
 
 	.hero {
-		padding-block: clamp(2rem, 8vw, 5rem) clamp(1.5rem, 4vw, 2.5rem);
+		display: grid;
+		grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+		align-items: center;
+		gap: clamp(2rem, 5vw, 4rem);
+		padding-block: clamp(3rem, 8vw, 6rem);
+	}
+
+	@media (max-width: 52rem) {
+		.hero {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.eyebrow {
 		margin: 0 0 1rem;
-		font-family: var(--font-pixel);
-		font-size: 0.95rem;
+		font-size: 0.8rem;
+		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.12em;
 		color: var(--accent);
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-display);
+		font-weight: 500;
+		letter-spacing: -0.015em;
+		text-wrap: balance;
 	}
 
 	h1 {
 		margin: 0;
-		font-family: var(--font-pixel);
-		font-size: clamp(3rem, 11vw, 7.5rem);
-		font-weight: 600;
-		line-height: 0.95;
-		letter-spacing: -0.01em;
+		font-size: clamp(2.4rem, 5vw, 3.75rem);
+		line-height: 1.08;
 	}
 
 	.lead {
-		max-width: 36rem;
-		margin: 1.5rem 0 0;
-		font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+		max-width: 34rem;
+		margin: 1.5rem 0 2rem;
+		font-size: clamp(1.05rem, 1.6vw, 1.2rem);
 		color: var(--muted);
 	}
 
-	.scene {
-		margin-block: 0;
-		padding: 0;
-		clip-path: polygon(
-			0 8px,
-			8px 8px,
-			8px 0,
-			calc(100% - 8px) 0,
-			calc(100% - 8px) 8px,
-			100% 8px,
-			100% calc(100% - 8px),
-			calc(100% - 8px) calc(100% - 8px),
-			calc(100% - 8px) 100%,
-			8px 100%,
-			8px calc(100% - 8px),
-			0 calc(100% - 8px)
-		);
+	.button {
+		display: inline-block;
+		padding: 0.75rem 1.25rem;
+		border-radius: 999px;
+		background: var(--ink);
+		color: var(--bg);
+		font-size: 0.95rem;
+		font-weight: 500;
+		text-decoration: none;
+		transition: opacity 0.15s;
 	}
 
-	.stripes {
-		display: grid;
-		grid-template-columns: repeat(7, 1fr);
-		height: 1rem;
-		margin-block: clamp(3rem, 8vw, 5rem);
+	.button:hover {
+		opacity: 0.85;
+	}
+
+	.scene {
+		margin: 0;
+		overflow: hidden;
+		border: 1px solid var(--line);
+		border-radius: 1rem;
+		box-shadow:
+			0 1px 2px rgb(0 0 0 / 0.04),
+			0 12px 32px -12px rgb(28 42 33 / 0.18);
+	}
+
+	.birds {
+		padding-block: clamp(3rem, 7vw, 5rem);
+		border-top: 1px solid var(--line);
 	}
 
 	.birds h2 {
-		margin: 0 0 2rem;
-		font-family: var(--font-pixel);
-		font-size: clamp(1.8rem, 4vw, 2.6rem);
-		font-weight: 600;
+		margin: 0 0 2.5rem;
+		font-size: clamp(1.8rem, 3.5vw, 2.4rem);
 	}
 
 	ul {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 		gap: 1.25rem;
 		margin: 0;
 		padding: 0;
@@ -200,41 +226,40 @@
 
 	li {
 		padding: 1.5rem;
-		background: var(--card);
-		border: 2px solid var(--line);
-		box-shadow: 6px 6px 0 var(--line);
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: 0.75rem;
 	}
 
 	.icon {
-		width: 4.5rem;
-		margin-bottom: 1rem;
+		width: 3.5rem;
+		margin-bottom: 1.25rem;
 		padding: 0.25rem;
-		background: var(--icon-bg);
+		border-radius: 0.5rem;
+		background: var(--tile);
 	}
 
 	h3 {
 		margin: 0;
-		font-family: var(--font-pixel);
-		font-size: 1.3rem;
-		font-weight: 500;
+		font-size: 1.25rem;
 	}
 
 	li p {
 		margin: 0.5rem 0 0;
+		font-size: 0.95rem;
 		color: var(--muted);
 	}
 
 	li .latin {
-		margin-top: 0.15rem;
+		margin-top: 0.1rem;
+		font-family: var(--font-display);
 		font-style: italic;
-		font-size: 0.9rem;
 		color: var(--accent);
 	}
 
 	footer {
-		margin-top: clamp(4rem, 10vw, 7rem);
-		background: var(--footer-bg);
-		color: var(--footer-ink);
+		background: #1f3a2a;
+		color: #ffeccb;
 	}
 
 	.stairs {
@@ -251,8 +276,12 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 		gap: 0.5rem 2rem;
+		align-items: center;
 		padding-block: 1.5rem 2rem;
-		font-family: var(--font-pixel);
-		font-size: 0.95rem;
+		font-size: 0.875rem;
+	}
+
+	.foot .brand {
+		font-size: 1rem;
 	}
 </style>

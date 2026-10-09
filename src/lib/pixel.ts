@@ -28,15 +28,3 @@ export function ellipse(cx: number, cy: number, rx: number, ry: number, c: strin
 	}
 	return runs;
 }
-
-/** Skyline from a height function, merging equal neighbouring columns. */
-export function skyline(width: number, base: number, top: (x: number) => number, c: string): Run[] {
-	const runs: Run[] = [];
-	for (let x = 0; x < width; x++) {
-		const y = Math.round(top(x));
-		const last = runs.at(-1);
-		if (last && last.y === y) last.w++;
-		else runs.push({ x, y, w: 1, h: base - y, c });
-	}
-	return runs;
-}
