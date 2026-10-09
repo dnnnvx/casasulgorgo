@@ -1,0 +1,13 @@
+node_modules
+build
+.svelte-kit
+.git
+.env
+.env.*
+Dockerfile
+.dockerignore
+.direnv
+result
+flake.lock
+flake.nix
+.envrc
