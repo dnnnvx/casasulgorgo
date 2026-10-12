@@ -4,6 +4,9 @@
 	import { birdDown, birdUp, drake, hen, heronSmall } from '#lib/sprites.ts'
 	import Pixels from './Pixels.svelte'
 
+	/** Without a sky the island floats on whatever is behind it, casting a translucent shadow. */
+	let { label, withSky = true }: { label: string; withSky?: boolean } = $props()
+
 	type Item = { depth: number; runs: Run[]; cls?: string | undefined }
 
 	/** Cycles through a non-empty list. */
@@ -154,7 +157,9 @@
 		...box(0, 0, -1, S, S, 1, { left: '#9cc46c', right: '#7fa957' }),
 		...paint(W / 2 - S, OY, W / 2 + S, OY + S + 1, surface)
 	]
-	const islandShadow = ellipse(W / 2, OY + S + 22, 76, 3, '#e3e3d2')
+	let islandShadow = $derived(
+		ellipse(W / 2, OY + S + 22, 76, 3, withSky ? '#e3e3d2' : 'rgb(28 38 16 / 0.18)')
+	)
 
 	// Light on the water, and lily pads.
 	const onWater = (x: number, y: number) => at(x, y, -pond.depth)
@@ -415,27 +420,24 @@
 	]
 </script>
 
-<svg
-	viewBox="0 0 {W} {H}"
-	shape-rendering="crispEdges"
-	role="img"
-	aria-label="Il gorgo in pixel art isometrica: la casa con l'orto, il pontile, un airone cenerino e una coppia di germani reali nell'acqua, canneti, pioppi e campi intorno"
->
-	<defs>
-		{#each seams as seam, i (seam.y)}
-			<pattern id="dither-{i}" width="2" height="2" patternUnits="userSpaceOnUse">
-				<rect width="2" height="2" fill={seam.above} />
-				<rect x="1" width="1" height="1" fill={seam.below} />
-				<rect y="1" width="1" height="1" fill={seam.below} />
-			</pattern>
-		{/each}
-	</defs>
+<svg viewBox="0 0 {W} {H}" shape-rendering="crispEdges" role="img" aria-label={label}>
+	{#if withSky}
+		<defs>
+			{#each seams as seam, i (seam.y)}
+				<pattern id="dither-{i}" width="2" height="2" patternUnits="userSpaceOnUse">
+					<rect width="2" height="2" fill={seam.above} />
+					<rect x="1" width="1" height="1" fill={seam.below} />
+					<rect y="1" width="1" height="1" fill={seam.below} />
+				</pattern>
+			{/each}
+		</defs>
 
-	<Pixels runs={skyRuns} />
-	{#each seams as seam, i (seam.y)}
-		<rect x="0" y={seam.y - 2} width={W} height="2" fill="url(#dither-{i})" />
-	{/each}
-	<Pixels runs={sun} />
+		<Pixels runs={skyRuns} />
+		{#each seams as seam, i (seam.y)}
+			<rect x="0" y={seam.y - 2} width={W} height="2" fill="url(#dither-{i})" />
+		{/each}
+		<Pixels runs={sun} />
+	{/if}
 	<Pixels class="cloud slow" runs={cloud(150, 14)} />
 	<Pixels class="cloud" runs={cloud(196, 36)} />
 	<Pixels runs={islandShadow} />

@@ -1,0 +1,159 @@
+/*
+ * Casa sul Gorgo design tokens.
+ * The identity colour is --primary: change it here and the whole site follows.
+ * It is a light green, so it is a fill colour (with --on-primary text on it);
+ * --primary-ink is the readable shade of the same green for text and links.
+ */
+:root {
+	color-scheme: light dark;
+
+	--primary: #acc456;
+	--primary-hover: #9db648;
+	--on-primary: #1c2610;
+	--primary-ink: light-dark(#4b6618, #c3d885);
+	--primary-soft: light-dark(#eef3dd, #252e18);
+	/* Behind pixel-art sprites: always pale, so dark sprites stay visible. */
+	--tile: light-dark(#eef3dd, #dfe6c6);
+
+	--accent: light-dark(#a3541c, #e6a061);
+	--bg: light-dark(#f7f5ee, #11150e);
+	--surface: light-dark(#fffdf8, #191e15);
+	--surface-2: light-dark(#f0ede2, #20271b);
+	--ink: light-dark(#1d2819, #ebeadf);
+	--muted: light-dark(#596254, #a3ab9a);
+	--line: light-dark(#e3dfd2, #2c3426);
+	--forest: #1f3a2a;
+
+	/* Plain panels instead of outlined boxes: a step away from the page colour. */
+	--panel: light-dark(#eeebe0, #1b2117);
+	--panel-hover: light-dark(#e7e3d6, #222a1d);
+	--chip: light-dark(#eeebe0, #27311e);
+	--chip-hover: light-dark(#e7e3d6, #303c25);
+	/* Chips sitting on a panel step back towards the page in light mode, forward in dark. */
+	--chip-on-panel: light-dark(#f7f5ee, #2c3722);
+
+	/* Film grain, layered over gradients with background-blend-mode: soft-light. */
+	--noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 .6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	--on-forest: #f3efdf;
+
+	/* Seasons */
+	--winter: #9db8c6;
+	--spring: #acc456;
+	--summer: #e8b94a;
+	--autumn: #cc7a42;
+
+	/* Calendar phases */
+	--phase-present: #acc456;
+	--phase-breeding: #5d8a26;
+	--phase-passage: #e8b94a;
+	--phase-wintering: #8fb3c9;
+	--phase-dormant: light-dark(#d9d3c4, #3a4133);
+	--phase-absent: transparent;
+	--phase-leaf: light-dark(#cfe0a0, #5c7034);
+	--phase-flowering: #e08fb4;
+	--phase-fruiting: #cc7a42;
+
+	--radius-s: 8px;
+	--radius-m: 14px;
+	--radius-l: 22px;
+	--radius-pill: 999px;
+	--shadow: 0 1px 2px rgb(29 40 25 / 0.06), 0 10px 28px -14px rgb(29 40 25 / 0.22);
+
+	--font-display: Fraunces, Georgia, "Times New Roman", serif;
+	--font-body: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--wrap: 76rem;
+
+	font-family: var(--font-body);
+	font-size: 100%;
+	line-height: 1.55;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* A chosen theme overrides the system preference. */
+:root[data-theme="light"] {
+	color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--ink);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: 500;
+	letter-spacing: -0.015em;
+	line-height: 1.15;
+	text-wrap: balance;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: var(--primary-ink);
+	text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+	outline: 2px solid var(--primary-ink);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+.wrap {
+	width: min(var(--wrap), 100% - 2.5rem);
+	margin-inline: auto;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* Calendar swatches: hatched when resting, outlined when away. */
+.swatch-dormant {
+	background-image: repeating-linear-gradient(135deg, transparent 0 3px, rgb(0 0 0 / 0.09) 3px 5px);
+}
+
+.swatch-absent {
+	box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.page-head {
+	padding-block: clamp(1.75rem, 4vw, 2.75rem) 1.25rem;
+}
+
+.page-head h1 {
+	font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.page-head p {
+	max-width: 40rem;
+	margin-top: 0.5rem;
+	color: var(--muted);
+}
+
+.section {
+	padding-block: clamp(1.5rem, 3.5vw, 2.5rem);
+}

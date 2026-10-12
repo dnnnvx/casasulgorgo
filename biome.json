@@ -34,7 +34,12 @@
 		"rules": {
 			"preset": "all",
 			"complexity": {
-				"useMaxParams": { "level": "error", "options": { "max": 7 } }
+				"useMaxParams": {
+					"level": "error",
+					"options": {
+						"max": 7
+					}
+				}
 			},
 			"correctness": {
 				"noUnresolvedImports": "off",
@@ -45,10 +50,33 @@
 				"noIncrementDecrement": "off",
 				"noMagicNumbers": "off",
 				"noTernary": "off",
-				"useConsistentTypeDefinitions": { "level": "error", "options": { "style": "type" } }
+				"useConsistentTypeDefinitions": {
+					"level": "error",
+					"options": {
+						"style": "type"
+					}
+				},
+				"useNamingConvention": {
+					"level": "error",
+					"options": {
+						"conventions": [
+							{
+								"selector": {
+									"kind": "objectLiteralProperty"
+								},
+								"formats": ["camelCase", "CONSTANT_CASE"]
+							}
+						]
+					}
+				}
 			},
 			"suspicious": {
-				"noEmptySource": { "level": "error", "options": { "allowComments": true } }
+				"noEmptySource": {
+					"level": "error",
+					"options": {
+						"allowComments": true
+					}
+				}
 			}
 		}
 	},
@@ -67,7 +95,9 @@
 					"style": {
 						"useFilenamingConvention": {
 							"level": "error",
-							"options": { "filenameCases": ["PascalCase"] }
+							"options": {
+								"filenameCases": ["PascalCase"]
+							}
 						}
 					}
 				}
@@ -77,22 +107,47 @@
 			"includes": ["src/lib/components/Scene.svelte", "src/lib/iso.ts"],
 			"linter": {
 				"rules": {
-					"complexity": { "noExcessiveLinesPerFunction": "off" },
-					"style": { "noExcessiveLinesPerFile": "off" }
+					"complexity": {
+						"noExcessiveLinesPerFunction": "off"
+					},
+					"style": {
+						"noExcessiveLinesPerFile": "off"
+					}
 				}
 			}
 		},
 		{
 			"includes": ["src/app.d.ts"],
-			"linter": { "rules": { "style": { "noNamespace": "off" } } }
+			"linter": {
+				"rules": {
+					"style": {
+						"noNamespace": "off"
+					}
+				}
+			}
 		},
 		{
 			"includes": ["vite.config.ts"],
-			"linter": { "rules": { "style": { "noDefaultExport": "off" } } }
+			"linter": {
+				"rules": {
+					"style": {
+						"noDefaultExport": "off"
+					}
+				}
+			}
 		},
 		{
-			"includes": ["src/lib/sprites.ts"],
-			"linter": { "rules": { "style": { "useNamingConvention": "off" } } }
+			"includes": ["src/lib/sprites.ts", "src/lib/nature/species/**"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useNamingConvention": "off"
+					},
+					"security": {
+						"noSecrets": "off"
+					}
+				}
+			}
 		},
 		{
 			"includes": ["**/*.svelte"],

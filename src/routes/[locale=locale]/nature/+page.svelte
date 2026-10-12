@@ -1,0 +1,133 @@
+<script lang="ts">
+	import SpeciesCard from '#lib/components/nature/SpeciesCard.svelte'
+	import Seo from '#lib/components/site/Seo.svelte'
+	import Chip from '#lib/components/ui/Chip.svelte'
+	import SectionHeading from '#lib/components/ui/SectionHeading.svelte'
+	import { getI18n } from '#lib/i18n/index.ts'
+	import { inGroup, isActive } from '#lib/nature/catalog.ts'
+	import { groups, kindOf } from '#lib/nature/groups.ts'
+	import { groupPath } from '#lib/nature/labels.ts'
+	import { months } from '#lib/seasons.ts'
+	import type { PageProps } from './$types'
+
+	let { data }: PageProps = $props()
+	const i18n = getI18n()
+
+	/** The month to filter by; null shows the whole year. */
+	let month = $state<number | null>(null)
+
+	let sections = $derived(
+		groups.map((group) => ({
+			group,
+			species: inGroup(group).filter((s) => month === null || isActive(s, month))
+		}))
+	)
+</script>
+
+<Seo title={i18n.m.nature.title} description={i18n.m.nature.lead} />
+
+<div class="wrap page-head">
+	<h1>{i18n.m.nature.title}</h1>
+	<p>{i18n.m.nature.lead}</p>
+</div>
+
+<div class="wrap filters">
+	<nav class="row" aria-label={i18n.m.nature.title}>
+		{#each groups as group (group)}
+			<Chip href={i18n.path(groupPath(group))} count={inGroup(group).length}>
+				{i18n.m.groups[group].name}
+			</Chip>
+		{/each}
+	</nav>
+	<fieldset class="row">
+		<legend class="filter-label">{i18n.m.nature.filter}</legend>
+		<Chip
+			active={month === null}
+			onclick={() => {
+				month = null
+			}}
+		>
+			{i18n.m.common.allYear}
+		</Chip>
+		{#each months as key, i (key)}
+			<Chip
+				active={month === i}
+				onclick={() => {
+					month = i
+				}}
+			>
+				{i18n.m.monthsShort[key]}{i === data.today.month ? ' •' : ''}
+			</Chip>
+		{/each}
+	</fieldset>
+</div>
+
+{#each sections as section (section.group)}
+	<section class="wrap section" aria-labelledby="group-{section.group}">
+		<SectionHeading
+			id="group-{section.group}"
+			eyebrow={i18n.m.kinds[kindOf(section.group)]}
+			title={i18n.m.groups[section.group].name}
+			lead={i18n.m.groups[section.group].description}
+			action={{ href: i18n.path(groupPath(section.group)), label: i18n.m.common.details }}
+		/>
+		{#if section.species.length}
+			<div class="grid">
+				{#each section.species as species (species.slug)}
+					<SpeciesCard {species} current={month ?? data.today.month} />
+				{/each}
+			</div>
+		{:else}
+			<p class="empty">{i18n.m.nature.empty}</p>
+		{/if}
+	</section>
+{/each}
+
+<style>
+	.filters {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		position: sticky;
+		top: 3.8rem;
+		z-index: 2;
+		padding-block: 0.75rem;
+		background: var(--bg);
+	}
+
+	.row {
+		display: flex;
+		gap: 0.35rem;
+		overflow-x: auto;
+		scrollbar-width: none;
+	}
+
+	fieldset {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		min-width: 0;
+	}
+
+	.filter-label {
+		float: left;
+		padding: 0.4rem 0;
+		align-self: center;
+		margin-right: 0.25rem;
+		color: var(--muted);
+		font-size: 0.8rem;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+		gap: 0.75rem;
+	}
+
+	.empty {
+		color: var(--muted);
+		font-size: 0.9rem;
+	}
+</style>
