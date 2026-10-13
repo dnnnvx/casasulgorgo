@@ -39,26 +39,32 @@
 			</Chip>
 		{/each}
 	</nav>
-	<fieldset class="row">
-		<legend class="filter-label">{i18n.m.nature.filter}</legend>
-		<Chip
-			active={month === null}
-			onclick={() => {
-				month = null
-			}}
-		>
-			{i18n.m.common.allYear}
-		</Chip>
-		{#each months as key, i (key)}
-			<Chip
-				active={month === i}
-				onclick={() => {
-					month = i
-				}}
-			>
-				{i18n.m.monthsShort[key]}{i === data.today.month ? ' •' : ''}
-			</Chip>
-		{/each}
+	<!-- The flex row lives in a div inside the fieldset: flex on a fieldset itself misrenders in some browsers. -->
+	<fieldset>
+		<legend class="visually-hidden">{i18n.m.nature.filter}</legend>
+		<div class="month-filter">
+			<span class="filter-label" aria-hidden="true">{i18n.m.nature.filter}</span>
+			<div class="row">
+				<Chip
+					active={month === null}
+					onclick={() => {
+						month = null
+					}}
+				>
+					{i18n.m.common.allYear}
+				</Chip>
+				{#each months as key, i (key)}
+					<Chip
+						active={month === i}
+						onclick={() => {
+							month = i
+						}}
+					>
+						{i18n.m.monthsShort[key]}{i === data.today.month ? ' •' : ''}
+					</Chip>
+				{/each}
+			</div>
+		</div>
 	</fieldset>
 </div>
 
@@ -103,17 +109,30 @@
 	}
 
 	fieldset {
+		min-width: 0;
 		margin: 0;
 		padding: 0;
 		border: 0;
+	}
+
+	.month-filter {
+		display: flex;
+		align-items: center;
+		gap: var(--space-2);
 		min-width: 0;
 	}
 
+	.month-filter .row {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.row > :global(*) {
+		flex: none;
+	}
+
 	.filter-label {
-		float: left;
-		padding: var(--space-2) 0;
-		align-self: center;
-		margin-right: var(--space-1);
+		flex: none;
 		color: var(--muted);
 		font-size: var(--text-s);
 		font-weight: 600;

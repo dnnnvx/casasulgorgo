@@ -43,8 +43,13 @@
 		--cell-radius: 2px;
 	}
 
-	/* The ring is an outline, so it sits outside the cell and keeps the swatch's own look. */
+	/*
+	 * The ring is an outline, so it sits outside the cell and keeps the swatch's own look; the
+	 * z-index lifts it over both neighbours (otherwise the next cell would paint over it).
+	 */
 	.current {
+		position: relative;
+		z-index: 1;
 		outline: 3px solid var(--ink);
 		outline-offset: 0;
 	}

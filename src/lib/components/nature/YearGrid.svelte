@@ -68,7 +68,12 @@
 </div>
 
 <style>
+	/*
+	 * Positioned, so the visually hidden labels inside the table (which are absolutely placed)
+	 * are clipped with it instead of stretching the whole page on narrow screens.
+	 */
 	.scroll {
+		position: relative;
 		overflow-x: auto;
 	}
 
