@@ -1,26 +1,23 @@
 <script lang="ts">
+	import PlaceMap from '#lib/components/site/PlaceMap.svelte'
 	import Seo from '#lib/components/site/Seo.svelte'
-	import Backdrop from '#lib/components/ui/Backdrop.svelte'
 	import Badge from '#lib/components/ui/Badge.svelte'
+	import Button from '#lib/components/ui/Button.svelte'
 	import Card from '#lib/components/ui/Card.svelte'
 	import Icon from '#lib/components/ui/Icon.svelte'
 	import SectionHeading from '#lib/components/ui/SectionHeading.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import type { IconName } from '#lib/icons.ts'
+	import { mapLinks } from '#lib/place.ts'
 
 	const i18n = getI18n()
 
 	let v = $derived(i18n.m.visit)
-	let reach = $derived([
-		{ icon: 'car', ...v.reach.car },
-		{ icon: 'bike', ...v.reach.bike },
-		{ icon: 'train', ...v.reach.train },
-		{ icon: 'walk', ...v.reach.walk }
-	] satisfies { icon: IconName; title: string; text: string }[])
 	let info = $derived([
-		{ icon: 'clock', ...v.info.access },
-		{ icon: 'parking', ...v.info.services },
-		{ icon: 'mail', ...v.info.contact }
+		{ icon: 'leaf', ...v.info.access },
+		{ icon: 'table', ...v.info.picnic },
+		{ icon: 'binoculars', ...v.info.hide },
+		{ icon: 'basket', ...v.info.shop }
 	] satisfies { icon: IconName; title: string; text: string }[])
 
 	const respectIcons: IconName[] = [
@@ -46,25 +43,63 @@
 <div class="wrap layout">
 	<section aria-labelledby="reach">
 		<SectionHeading id="reach" title={v.reachTitle} />
-		<div class="map">
-			<Backdrop theme="spring">
-				<div class="map-content">
-					<Icon name="pin" size={28} />
-					<p>{v.reachNote}</p>
-					<Badge tone="soon">{i18n.m.common.soon}</Badge>
-				</div>
-			</Backdrop>
-		</div>
-		<ul class="list two">
-			{#each reach as item (item.title)}
-				<li>
-					<span class="icon"><Icon name={item.icon} /></span>
-					<span>
-						<strong>{item.title}</strong>
-						<span class="muted">{item.text}</span>
+		<PlaceMap label={v.map.label} />
+		<p class="open-in">
+			<span class="muted">{v.map.openIn}</span>
+			<Button href={mapLinks.google} external variant="ghost" size="s" iconAfter="external">
+				Google Maps
+			</Button>
+			<Button href={mapLinks.apple} external variant="ghost" size="s" iconAfter="external">
+				Apple Maps
+			</Button>
+			<Button href={mapLinks.openStreetMap} external variant="ghost" size="s" iconAfter="external">
+				OpenStreetMap
+			</Button>
+		</p>
+		<ul class="list">
+			<li>
+				<span class="icon"><Icon name="car" /></span>
+				<span>
+					<strong>{v.reach.car.title}</strong>
+					{#each v.reach.car.routes as route (route.from)}
+						<span class="route">
+							<span class="from">{route.from}</span>
+							<ol class="muted">
+								{#each route.steps as step (step)}
+									<li>{step}</li>
+								{/each}
+							</ol>
+						</span>
+					{/each}
+				</span>
+			</li>
+			<li>
+				<span class="icon"><Icon name="bike" /></span>
+				<span>
+					<strong>{v.reach.bike.title}: {v.reach.bike.route}</strong>
+					<span class="facts">
+						{#each v.reach.bike.facts as fact (fact.label)}
+							<Badge>{fact.label}: {fact.value}</Badge>
+						{/each}
 					</span>
-				</li>
-			{/each}
+					<ol class="stops muted">
+						{#each v.reach.bike.stops as stop (stop.place)}
+							<li>
+								<span class="from">{stop.place}</span>
+								{stop.text}
+							</li>
+						{/each}
+					</ol>
+					<span class="fun-fact">{v.reach.bike.funFact}</span>
+				</span>
+			</li>
+			<li>
+				<span class="icon"><Icon name="walk" /></span>
+				<span>
+					<strong>{v.reach.walk.title}</strong>
+					<span class="muted">{v.reach.walk.text}</span>
+				</span>
+			</li>
 		</ul>
 	</section>
 
@@ -136,8 +171,8 @@
 	.layout {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: clamp(1.5rem, 4vw, 3rem);
-		padding-block: 1rem;
+		gap: var(--space-fluid-m);
+		padding-block: var(--space-4);
 	}
 
 	@media (max-width: 52rem) {
@@ -146,27 +181,17 @@
 		}
 	}
 
-	.map {
-		overflow: hidden;
-		margin-bottom: 0.75rem;
-		border-radius: var(--radius-m);
-	}
-
-	.map-content {
+	.open-in {
 		display: flex;
-		flex-direction: column;
+		flex-wrap: wrap;
 		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		min-height: 9rem;
-		padding: 1rem;
-		font-size: 0.9rem;
-		text-align: center;
+		gap: var(--space-2);
+		margin: var(--space-2) 0 var(--space-3);
 	}
 
 	.list {
 		display: grid;
-		column-gap: 1.5rem;
+		column-gap: var(--space-5);
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -185,8 +210,8 @@
 	.list li {
 		display: flex;
 		align-items: flex-start;
-		gap: 0.75rem;
-		padding-block: 0.75rem;
+		gap: var(--space-3);
+		padding-block: var(--space-3);
 		border-top: 1px solid var(--line);
 	}
 
@@ -198,7 +223,7 @@
 	.icon {
 		display: inline-flex;
 		flex: none;
-		padding: 0.45rem;
+		padding: var(--space-2);
 		border-radius: var(--radius-s);
 		background: var(--primary-soft);
 		color: var(--primary-ink);
@@ -210,13 +235,33 @@
 
 	.muted {
 		color: var(--muted);
-		font-size: 0.875rem;
+		font-size: var(--text-s);
+	}
+
+	.route {
+		margin-top: var(--space-2);
+	}
+
+	.from {
+		font-size: var(--text-s);
+		font-weight: 600;
+	}
+
+	.route ol {
+		margin: var(--space-1) 0 0;
+		padding-left: var(--space-4);
+	}
+
+	.fun-fact {
+		margin-top: var(--space-2);
+		color: var(--primary-ink);
+		font-size: var(--text-s);
 	}
 
 	.rules {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-		gap: 1rem 1.5rem;
+		gap: var(--space-4) var(--space-5);
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -225,21 +270,41 @@
 	.rules li {
 		display: grid;
 		grid-template-columns: auto 1fr;
-		column-gap: 0.7rem;
+		column-gap: var(--space-3);
 	}
 
 	.rule-icon {
 		grid-row: span 2;
 		display: inline-flex;
 		align-self: start;
-		padding: 0.45rem;
+		padding: var(--space-2);
 		border-radius: var(--radius-s);
 		background: rgb(255 255 255 / 0.4);
 	}
 
 	.rule-text {
-		font-size: 0.875rem;
+		font-size: var(--text-s);
 		opacity: 0.8;
+	}
+
+	/* Steps are plain list items, not rows of the divided lists above. */
+	.facts {
+		display: flex;
+		flex-flow: row wrap;
+		gap: var(--space-1);
+		margin: var(--space-2) 0 var(--space-1);
+	}
+
+	.stops {
+		margin: var(--space-2) 0 0;
+		padding-left: var(--space-4);
+	}
+
+	.stops li,
+	.route ol li {
+		display: list-item;
+		padding: 0;
+		border: 0;
 	}
 
 	.respect :global(.lead) {

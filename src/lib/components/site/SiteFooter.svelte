@@ -48,8 +48,8 @@
 
 <style>
 	footer {
-		margin-top: clamp(2.5rem, 6vw, 4rem);
-		padding-bottom: 1.25rem;
+		margin-top: var(--space-fluid-xl);
+		padding-bottom: var(--space-4);
 	}
 
 	.panel {
@@ -65,8 +65,8 @@
 	.top {
 		display: grid;
 		grid-template-columns: 2fr 1fr 1fr;
-		gap: 2rem;
-		padding: clamp(1.5rem, 4vw, 2.5rem);
+		gap: var(--space-6);
+		padding: var(--space-fluid-m);
 	}
 
 	@media (max-width: 40rem) {
@@ -83,37 +83,37 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		gap: 0.75rem;
+		gap: var(--space-3);
 	}
 
 	.brand {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.6rem;
+		gap: var(--space-2);
 		color: inherit;
 		font-family: var(--font-display);
-		font-size: 1.2rem;
+		font-size: var(--text-xl);
 		font-weight: 600;
 		text-decoration: none;
 	}
 
 	.about p {
 		max-width: 26rem;
-		font-size: 0.9rem;
+		font-size: var(--text-s);
 		opacity: 0.8;
 	}
 
 	nav {
 		display: flex;
 		flex-direction: column;
-		gap: 0.4rem;
+		gap: var(--space-2);
 	}
 
 	h2 {
-		margin-bottom: 0.25rem;
+		margin-bottom: var(--space-1);
 		color: var(--primary);
 		font-family: var(--font-body);
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
@@ -121,7 +121,7 @@
 
 	nav a {
 		color: inherit;
-		font-size: 0.9rem;
+		font-size: var(--text-s);
 		text-decoration: none;
 		opacity: 0.85;
 	}
@@ -135,11 +135,11 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		gap: 0.5rem 1rem;
-		margin-inline: clamp(1.5rem, 4vw, 2.5rem);
-		padding-block: 1rem 1.25rem;
+		gap: var(--space-2) var(--space-4);
+		margin-inline: var(--space-fluid-m);
+		padding-block: var(--space-4) var(--space-4);
 		border-top: 1px solid rgb(255 255 255 / 0.14);
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 		opacity: 0.7;
 	}
 </style>

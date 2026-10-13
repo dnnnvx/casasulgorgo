@@ -22,17 +22,17 @@
 	ol {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.4rem;
+		gap: var(--space-2);
 		margin: 0;
 		padding: 0;
 		list-style: none;
 		color: var(--muted);
-		font-size: 0.85rem;
+		font-size: var(--text-s);
 	}
 
 	li + li::before {
 		content: "/";
-		margin-right: 0.4rem;
+		margin-right: var(--space-2);
 		opacity: 0.5;
 	}
 

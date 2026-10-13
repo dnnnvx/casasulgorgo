@@ -63,19 +63,19 @@
 
 <style>
 	.page-head h1 {
-		margin-top: 0.5rem;
+		margin-top: var(--space-2);
 	}
 
 	.groups {
 		display: flex;
-		gap: 0.35rem;
-		margin-top: 1rem;
+		gap: var(--space-2);
+		margin-top: var(--space-4);
 		overflow-x: auto;
 		scrollbar-width: none;
 	}
 
 	.panel {
-		padding: 1rem;
+		padding: var(--space-4);
 		border-radius: var(--radius-m);
 		background: var(--panel);
 	}
@@ -83,6 +83,6 @@
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-		gap: 0.75rem;
+		gap: var(--space-3);
 	}
 </style>

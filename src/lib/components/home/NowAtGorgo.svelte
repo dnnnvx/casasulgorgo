@@ -18,8 +18,8 @@
 <Card>
 	<p class="label"><Icon name="calendar" size={16} /> {i18n.m.home.now}</p>
 	<p class="season">
-		<Badge dot="var(--{season})">{i18n.m.seasons[season]}</Badge>
 		<span>{i18n.m.months[months[month] ?? 'jan']}</span>
+		<Badge dot="var(--{season})">{i18n.m.seasons[season]}</Badge>
 	</p>
 	<p class="text">{i18n.m.seasonNotes[season]}</p>
 	<p class="sub">{i18n.m.home.highlights}</p>
@@ -38,9 +38,9 @@
 	.label {
 		display: flex;
 		align-items: center;
-		gap: 0.4rem;
+		gap: var(--space-2);
 		color: var(--primary-ink);
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
@@ -49,24 +49,24 @@
 	.season {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--space-2);
 		font-family: var(--font-display);
-		font-size: 1.2rem;
+		font-size: var(--text-xl);
 	}
 
 	.text {
 		color: var(--muted);
-		font-size: 0.9rem;
+		font-size: var(--text-s);
 	}
 
 	.sub {
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 		font-weight: 600;
 	}
 
 	.chips {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.35rem;
+		gap: var(--space-2);
 	}
 </style>

@@ -36,6 +36,9 @@ export const icons = {
 	close: 'M6 6l12 12M18 6 6 18',
 	check: 'M5 12l5 5 9-10',
 	parking: 'M6 4h12v16H6zM10 16V8h3a2 2 0 0 1 0 4h-3',
+	table: 'M3 10h18M6 10l-1.5 9M18 10l1.5 9M12 10v9M8 6h8',
+	basket: 'M4 10h16l-1.5 9h-13zM8 10l3-6M16 10l-3-6',
+	external: 'M14 4h6v6M20 4l-9 9M18 14v6H4V6h6',
 	mail: 'M4 6h16v12H4zM4 7l8 6 8-6'
 } as const
 

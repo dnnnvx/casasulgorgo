@@ -18,19 +18,19 @@
 	a {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.45rem;
-		padding: 0.25rem 0.7rem 0.25rem 0.25rem;
+		gap: var(--space-2);
+		padding: var(--space-1) var(--space-3) var(--space-1) var(--space-1);
 		border-radius: var(--radius-pill);
 		background: var(--chip-bg, var(--chip));
-		color: var(--ink);
-		font-size: 0.85rem;
+		color: var(--chip-ink, var(--ink));
+		font-size: var(--text-s);
 		font-weight: 500;
 		text-decoration: none;
 		white-space: nowrap;
 	}
 
 	a:hover {
-		background: var(--chip-hover);
+		background: var(--chip-bg-hover, var(--chip-hover));
 	}
 
 	.sprite {

@@ -34,14 +34,14 @@
 	.chip {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.4rem;
-		padding: 0.35rem 0.75rem;
+		gap: var(--space-2);
+		padding: var(--space-2) var(--space-3);
 		border: 0;
 		border-radius: var(--radius-pill);
 		background: var(--chip);
 		color: var(--ink);
 		font: inherit;
-		font-size: 0.875rem;
+		font-size: var(--text-s);
 		font-weight: 500;
 		text-decoration: none;
 		white-space: nowrap;
@@ -61,11 +61,11 @@
 
 	.count {
 		min-width: 1.4rem;
-		padding: 0.05rem 0.4rem;
+		padding: var(--space-1) var(--space-2);
 		border-radius: var(--radius-pill);
 		background: var(--bg);
 		color: var(--muted);
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		text-align: center;
 	}
 

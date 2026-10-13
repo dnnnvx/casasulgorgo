@@ -1,11 +1,25 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte'
-	import { type Theme, themes } from '#lib/themes.ts'
+	import { gradientOf, motifs, type Theme } from '#lib/themes.ts'
 
 	/** A themed panel: gradient, grain and a motif, with optional content on top. */
 	let { theme, children }: { theme: Theme; children?: Snippet | undefined } = $props()
 
-	let { from, to, motif } = $derived(themes[theme])
+	let { from, to } = $derived(gradientOf(theme))
+	let motif = $derived(motifs[theme])
+
+	// Grass blades: scattered, leaning and sized by a fixed pseudo-random sequence, so they
+	// look natural yet render identically on server and client.
+	const random = (blade: number, salt: number) => {
+		const value = Math.sin(blade * 12.9898 + salt * 78.233) * 43_758.5453
+		return value - Math.floor(value)
+	}
+	const blades = Array.from({ length: 26 }, (_, i) => {
+		const x = (i + random(i, 1)) * 4.6
+		const height = 4 + random(i, 2) ** 2 * 14
+		const lean = (random(i, 3) - 0.5) * 9
+		return `M${x.toFixed(1)} 80q${(lean / 3).toFixed(1)} ${(-height / 2).toFixed(1)} ${lean.toFixed(1)} ${-height.toFixed(1)}`
+	})
 </script>
 
 <div class="backdrop" style:--from={from} style:--to={to}>
@@ -19,8 +33,8 @@
 			<path class="fill" d="M62 50a9 9 0 0 1 17-4a7 7 0 0 1 11 6h-28z" />
 			<path class="fill" d="M92 70a6 6 0 0 1 11-3a5 5 0 0 1 8 4h-19z" />
 		{:else if motif === 'grass'}
-			{#each [6, 16, 27, 38, 49, 61, 72, 84, 95, 106, 116] as x, i (x)}
-				<path d="M{x} 80q{i % 2 ? 3 : -3}-12 {i % 2 ? 6 : -2}-{18 + ((i * 7) % 12)}" />
+			{#each blades as d (d)}
+				<path {d} />
 			{/each}
 		{:else if motif === 'leaves'}
 			{#each [
@@ -71,10 +85,6 @@
 					<circle class="fill" cx="-3.5" cy="0" r="2.6" />
 				</g>
 			{/each}
-		{:else if motif === 'stones'}
-			<ellipse class="fill" cx="22" cy="74" rx="16" ry="7" />
-			<ellipse class="fill" cx="58" cy="78" rx="20" ry="8" />
-			<ellipse class="fill" cx="100" cy="72" rx="14" ry="6" />
 		{/if}
 	</svg>
 	{#if children}

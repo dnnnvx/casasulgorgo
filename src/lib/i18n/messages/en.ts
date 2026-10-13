@@ -4,7 +4,7 @@ export const en: Messages = {
 	site: {
 		name: 'Casa sul Gorgo',
 		place: 'Gorgo della Sposa',
-		region: 'Po Valley, Italy',
+		region: 'Trecenta (RO), Italy',
 		description:
 			'Gorgo della Sposa, a pond in the Po Valley: its nature season by season, and how to visit it with respect.'
 	},
@@ -137,7 +137,7 @@ export const en: Messages = {
 	},
 	home: {
 		title: 'Casa sul Gorgo · Nature and visits at Gorgo della Sposa',
-		eyebrow: 'Gorgo della Sposa · Po Valley',
+		eyebrow: 'Gorgo della Sposa · Trecenta',
 		heading: 'A small pond, full of life.',
 		scene:
 			'The gorgo in isometric pixel art: the house and its vegetable garden, the jetty, a grey heron and a pair of mallards on the water, reeds, poplars and fields all around',
@@ -162,7 +162,18 @@ export const en: Messages = {
 		yearLead: 'Every season has its stars.',
 		aboutTitle: 'The gorgo',
 		about:
-			'We live next to Gorgo della Sposa and want to look after it. This site gathers what lives there, season by season, and how to visit it while respecting nature.'
+			'We live next to Gorgo della Sposa and want to look after it. This site gathers what lives there, season by season, and how to visit it while respecting nature.',
+		origin:
+			'A gorgo forms where a flood meets an embankment and digs: here it was the Tartaro river, spilling out of its bed, that left a wide hollow along the Argine della Sposa. Today it is fed by rain and springs.',
+		facts: [
+			{ value: '7 ha', label: 'The largest gorgo in the provinces of Rovigo and Ferrara' },
+			{ value: '12 m', label: 'deep in the northern basin, the larger of its two' },
+			{ value: '1269', label: 'The year of a grant deed that already mentions it' },
+			{ value: 'Natura 2000', label: 'Protected since 1989 as a site of community importance' }
+		],
+		legendTitle: 'The legend of the bride',
+		legend:
+			'The story goes that a young woman, promised by her family to a rich man, loved a poor boy instead. On her wedding day she chose the waters of the gorgo over that marriage. On moonless nights, they say, her lament can still be heard.'
 	},
 	nature: {
 		title: 'Nature',
@@ -184,16 +195,66 @@ export const en: Messages = {
 		title: 'Visit',
 		lead: 'How to get here, when to come, and how to behave so the gorgo stays as it is.',
 		reachTitle: 'Getting here',
-		reachNote: 'Address and detailed directions coming soon.',
+		map: {
+			label: 'Map of the Gorgo della Sposa',
+			openIn: 'Open in:'
+		},
 		reach: {
-			car: { title: 'By car', text: 'Directions and parking coming soon.' },
-			bike: { title: 'By bike', text: 'Recommended cycle routes coming soon.' },
-			train: { title: 'By train or bus', text: 'Nearest stations and stops coming soon.' },
-			walk: { title: 'On foot', text: 'Paths and access points coming soon.' }
+			car: {
+				title: 'By car',
+				routes: [
+					{
+						from: 'From Verona / Rovigo / A31 motorway',
+						steps: [
+							'Join the Strada Statale 434 Transpolesana (towards Verona - Rovigo).',
+							'Take the exit for Canda or Crocetta.',
+							'Follow the signs for Trecenta.',
+							'Continue along Via Raffaello Sanzio until you reach the destination, on your right.'
+						]
+					},
+					{
+						from: 'From Ferrara / A13 motorway',
+						steps: [
+							'From the A13, take the Occhiobello exit.',
+							'Continue towards Stienta and then Salara.',
+							'Stay on the main road to Trecenta: the destination is on your left.'
+						]
+					}
+				]
+			},
+			bike: {
+				title: 'By bike',
+				route: 'The water route',
+				facts: [
+					{ label: 'Type', value: 'Cycle touring (gravel / trekking / MTB)' },
+					{ label: 'Surface', value: 'Mixed: quiet roads and gravel tracks' },
+					{ label: 'Difficulty', value: 'Easy, flat' }
+				],
+				stops: [
+					{
+						place: 'Fratta Polesine · start',
+						text: 'Villa Badoer, a Palladio masterpiece. Follow the signs for Canda.'
+					},
+					{
+						place: 'Canda · first stop',
+						text: 'Villa Nani-Mocenigo. Take the unpaved sections towards Trecenta.'
+					},
+					{
+						place: 'Trecenta · finish',
+						text: 'A few kilometres on quiet gravel roads, between farmland, embankments and clumps of trees. In Trecenta’s centre, set off from the Villa Pepoli (“El Palazzòn”) and follow the Strada dei Gorghi, along the Gorghi di Trecenta, to the Gorgo della Sposa.'
+					}
+				],
+				funFact:
+					'Fun fact: Trecenta is the hometown of Luigi Masetti, the first Italian cycle traveller.'
+			},
+			walk: {
+				title: 'On foot',
+				text: 'We recommend the last part of the bike route: from the centre of Trecenta, set off from the Villa Pepoli and follow the Strada dei Gorghi, along the Gorghi di Trecenta, to the Gorgo della Sposa.'
+			}
 		},
 		whenTitle: 'When to come',
 		when: [
-			{ title: 'At dawn', text: 'The most active wildlife, soft light and few visitors.' },
+			{ title: 'At dawn', text: 'The most active wildlife, soft light and fresh air.' },
 			{ title: 'At dusk', text: 'Hunting herons, bats and the frog chorus.' },
 			{ title: 'On warm days', text: 'Dragonflies, butterflies and reptiles in the sun.' }
 		],
@@ -225,9 +286,22 @@ export const en: Messages = {
 		],
 		infoTitle: 'Practical information',
 		info: {
-			access: { title: 'Access', text: 'Opening times and access rules coming soon.' },
-			services: { title: 'Facilities', text: 'Parking and facilities coming soon.' },
-			contact: { title: 'Contact', text: 'Contact details coming soon.' }
+			access: {
+				title: 'Free access',
+				text: 'An open area, always accessible: no opening times, no ticket. What matters is how you visit: read the rules above.'
+			},
+			picnic: {
+				title: 'Picnic tables',
+				text: 'A few tables for a break outdoors. Take all your rubbish home.'
+			},
+			hide: {
+				title: 'Bird-watching hide',
+				text: 'A small wooden hut for watching birds without disturbing them.'
+			},
+			shop: {
+				title: 'Mira Market',
+				text: 'A small shop with the essentials, which also makes fresh sandwiches.'
+			}
 		}
 	},
 	notFound: {

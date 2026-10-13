@@ -155,8 +155,8 @@
 		display: grid;
 		grid-template-columns: auto 1fr;
 		align-items: center;
-		gap: clamp(1rem, 3vw, 2rem);
-		padding-block: 1.25rem 1.5rem;
+		gap: var(--space-fluid-s);
+		padding-block: var(--space-4) var(--space-5);
 	}
 
 	.portrait {
@@ -171,37 +171,37 @@
 
 	.portrait-sprite {
 		display: block;
-		padding: 0.9rem;
+		padding: var(--space-3);
 		filter: drop-shadow(0 3px 0 rgb(0 0 0 / 0.12));
 	}
 
 	h1 {
-		font-size: clamp(2rem, 4.5vw, 3rem);
+		font-size: var(--text-3xl);
 	}
 
 	.latin {
 		color: var(--muted);
-		font-size: 1.05rem;
+		font-size: var(--text-m);
 		font-style: italic;
 	}
 
 	.badges {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.35rem;
-		margin-top: 0.75rem;
+		gap: var(--space-2);
+		margin-top: var(--space-3);
 	}
 
 	.summary {
 		max-width: 38rem;
-		margin-top: 0.85rem;
-		font-size: 1.1rem;
+		margin-top: var(--space-3);
+		font-size: var(--text-l);
 	}
 
 	.body {
 		display: grid;
 		grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-		gap: 1.5rem;
+		gap: var(--space-5);
 	}
 
 	@media (max-width: 48rem) {
@@ -213,19 +213,19 @@
 	.text {
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		gap: var(--space-3);
 		max-width: 42rem;
 	}
 
 	.text h2 {
-		margin-top: 0.5rem;
-		font-size: 1.2rem;
+		margin-top: var(--space-2);
+		font-size: var(--text-xl);
 	}
 
 	.text h2.spot {
 		display: flex;
 		align-items: center;
-		gap: 0.4rem;
+		gap: var(--space-2);
 		margin: 0;
 		color: var(--primary-ink);
 	}
@@ -237,21 +237,21 @@
 	}
 
 	.facts div {
-		padding-block: 0.7rem;
+		padding-block: var(--space-3);
 		border-top: 1px solid var(--line);
 	}
 
 	.links {
 		display: flex;
 		flex-direction: column;
-		padding-top: 0.7rem;
+		padding-top: var(--space-3);
 		border-top: 1px solid var(--line);
 	}
 
 	.links h2 {
 		color: var(--muted);
 		font-family: var(--font-body);
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
@@ -261,7 +261,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding-block: 0.4rem;
+		padding-block: var(--space-2);
 		font-weight: 600;
 		text-decoration: none;
 	}
@@ -273,21 +273,21 @@
 	dt {
 		display: flex;
 		align-items: center;
-		gap: 0.35rem;
+		gap: var(--space-2);
 		color: var(--muted);
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
 	}
 
 	dd {
-		margin: 0.15rem 0 0;
+		margin: var(--space-1) 0 0;
 		font-weight: 500;
 	}
 
 	.panel {
-		padding: 1rem;
+		padding: var(--space-4);
 		border-radius: var(--radius-m);
 		background: var(--panel);
 	}
@@ -295,6 +295,6 @@
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-		gap: 0.75rem;
+		gap: var(--space-3);
 	}
 </style>

@@ -23,9 +23,9 @@
 	.label {
 		display: flex;
 		align-items: center;
-		gap: 0.4rem;
+		gap: var(--space-2);
 		color: var(--primary);
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
@@ -34,20 +34,20 @@
 	ul {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: var(--space-2);
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		font-size: 0.925rem;
+		font-size: var(--text-s);
 	}
 
 	li {
 		display: flex;
-		gap: 0.5rem;
+		gap: var(--space-2);
 	}
 
 	li :global(svg) {
-		margin-top: 0.2rem;
+		margin-top: var(--space-1);
 		color: var(--primary);
 	}
 

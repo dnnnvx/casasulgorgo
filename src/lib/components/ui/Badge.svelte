@@ -23,17 +23,17 @@
 	.badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.35rem;
-		padding: 0.2rem 0.55rem;
+		gap: var(--space-2);
+		padding: var(--space-1) var(--space-2);
 		border-radius: var(--radius-pill);
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		font-weight: 600;
 		line-height: 1.3;
 		white-space: nowrap;
 	}
 
 	.neutral {
-		background: var(--surface-2);
+		background: var(--chip-bg, var(--chip));
 		color: var(--muted);
 	}
 

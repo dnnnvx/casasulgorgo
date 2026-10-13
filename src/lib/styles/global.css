@@ -33,7 +33,7 @@
 	--chip-on-panel: light-dark(#f7f5ee, #2c3722);
 
 	/* Film grain, layered over gradients with background-blend-mode: soft-light. */
-	--noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 .6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	--noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1.5 0 0 0 -.25 1.5 0 0 0 -.25 1.5 0 0 0 -.25 0 0 0 0 .8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 	--on-forest: #f3efdf;
 
 	/* Seasons */
@@ -41,6 +41,36 @@
 	--spring: #acc456;
 	--summer: #e8b94a;
 	--autumn: #cc7a42;
+
+	/*
+	 * Backdrop gradients (cards, tiles, portraits). Seasons are a pair of colours;
+	 * every group shares one end colour and only changes the start.
+	 */
+	--theme-winter-from: #cfe8f5;
+	--theme-winter-to: #4f8fc4;
+	--theme-spring-from: #f7c9de;
+	--theme-spring-to: #b59ce2;
+	--theme-summer-from: #f6e86b;
+	--theme-summer-to: #9cc53c;
+	--theme-autumn-from: #f2a53f;
+	--theme-autumn-to: #a8683a;
+
+	/* The legend's moonless night. */
+	--night-from: #1d2b52;
+	--night-to: #1b6670;
+
+	--theme-group-to: #5f8f45;
+	--theme-birds-from: #d4eefc;
+	/* The sky keeps its own blue end instead of the shared green. */
+	--theme-birds-to: #6fb1e0;
+	--theme-mammals-from: #ead9a0;
+	--theme-amphibians-from: #c4eaa6;
+	--theme-reptiles-from: #f1d89c;
+	--theme-fish-from: #a6e0ee;
+	--theme-insects-from: #f0eca0;
+	--theme-trees-from: #d3e8a0;
+	--theme-water-plants-from: #b6ecdb;
+	--theme-wildflowers-from: #f8cfdc;
 
 	/* Calendar phases */
 	--phase-present: #acc456;
@@ -52,6 +82,35 @@
 	--phase-leaf: light-dark(#cfe0a0, #5c7034);
 	--phase-flowering: #e08fb4;
 	--phase-fruiting: #cc7a42;
+
+	/* Spacing scale: every gap, padding and margin picks one of these. */
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-5: 1.5rem;
+	--space-6: 2rem;
+	--space-7: 3rem;
+
+	/* Type scale: every font size picks one of these. */
+	--text-xs: 0.75rem;
+	--text-s: 0.875rem;
+	--text-m: 1rem;
+	--text-l: 1.125rem;
+	--text-xl: 1.5rem;
+	--text-2xl: clamp(1.75rem, 3vw, 2rem);
+	--text-3xl: clamp(2rem, 4.5vw, 3rem);
+	--text-4xl: clamp(2.25rem, 5vw, 3.5rem);
+	--text-5xl: 4rem;
+
+	/* Fluid spacing for page gutters and section rhythm. */
+	--space-fluid-s: clamp(var(--space-4), 3vw, var(--space-5));
+	--space-fluid-m: clamp(var(--space-5), 4vw, var(--space-6));
+	--space-fluid-l: clamp(var(--space-6), 5vw, var(--space-7));
+	--space-fluid-xl: clamp(var(--space-7), 8vw, 5rem);
+
+	/* Header switches (language, theme): every option is the same circle. */
+	--switch-size: 2rem;
 
 	--radius-s: 8px;
 	--radius-m: 14px;
@@ -141,19 +200,19 @@ a {
 }
 
 .page-head {
-	padding-block: clamp(1.75rem, 4vw, 2.75rem) 1.25rem;
+	padding-block: var(--space-fluid-m) var(--space-4);
 }
 
 .page-head h1 {
-	font-size: clamp(2rem, 4vw, 2.75rem);
+	font-size: var(--text-3xl);
 }
 
 .page-head p {
 	max-width: 40rem;
-	margin-top: 0.5rem;
+	margin-top: var(--space-2);
 	color: var(--muted);
 }
 
 .section {
-	padding-block: clamp(1.5rem, 3.5vw, 2.5rem);
+	padding-block: var(--space-fluid-m);
 }

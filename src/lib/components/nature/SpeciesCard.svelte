@@ -6,6 +6,7 @@
 	import { months } from '#lib/seasons.ts'
 	import SpriteIcon from '../SpriteIcon.svelte'
 	import Backdrop from '../ui/Backdrop.svelte'
+	import PhaseCell from './PhaseCell.svelte'
 
 	type Props = {
 		species: Species
@@ -34,16 +35,16 @@
 		{/if}
 		<span class="year" aria-hidden="true">
 			{#each year as phase, i (i)}
-				<span
-					class="month swatch-{phase}"
-					class:current={i === current}
-					style:background-color="var(--phase-{phase})"
+				<PhaseCell
+					{phase}
+					size="s"
+					current={i === current}
 					title="{i18n.m.monthsShort[months[i] ?? 'jan']}: {phaseLabel(
 						i18n.m,
 						species.kind,
 						phase
 					)}"
-				></span>
+				/>
 			{/each}
 		</span>
 	</span>
@@ -74,7 +75,7 @@
 		display: grid;
 		place-items: center;
 		height: 100%;
-		padding: 0.9rem;
+		padding: var(--space-3);
 		transition: transform 0.2s;
 	}
 
@@ -91,28 +92,28 @@
 		display: flex;
 		flex-direction: column;
 		min-width: 0;
-		padding: 0.85rem 0.95rem;
+		padding: var(--space-3) var(--space-3);
 	}
 
 	.name {
 		font-family: var(--font-display);
-		font-size: 1.05rem;
+		font-size: var(--text-m);
 		font-weight: 500;
 		line-height: 1.2;
 	}
 
 	.latin {
 		color: var(--muted);
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 		font-style: italic;
 	}
 
 	.summary {
 		display: -webkit-box;
-		margin-top: 0.3rem;
+		margin-top: var(--space-1);
 		overflow: hidden;
 		color: var(--muted);
-		font-size: 0.85rem;
+		font-size: var(--text-s);
 		line-height: 1.4;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 2;
@@ -124,17 +125,6 @@
 		grid-template-columns: repeat(12, 1fr);
 		gap: 2px;
 		margin-top: auto;
-		padding-top: 0.6rem;
-	}
-
-	.month {
-		height: 5px;
-		border-radius: 2px;
-	}
-
-	.month.current {
-		height: 9px;
-		margin-top: -2px;
-		box-shadow: 0 0 0 1.5px var(--ink);
+		padding-top: var(--space-2);
 	}
 </style>

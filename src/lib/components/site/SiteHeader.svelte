@@ -66,7 +66,7 @@
 		top: -3rem;
 		left: 1rem;
 		z-index: 10;
-		padding: 0.5rem 1rem;
+		padding: var(--space-2) var(--space-4);
 		border-radius: var(--radius-pill);
 		background: var(--on-primary);
 		color: var(--primary);
@@ -89,17 +89,17 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: var(--space-4);
 		min-height: 3.75rem;
 	}
 
 	.brand {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.6rem;
+		gap: var(--space-2);
 		color: var(--ink);
 		font-family: var(--font-display);
-		font-size: 1.15rem;
+		font-size: var(--text-l);
 		font-weight: 600;
 		text-decoration: none;
 	}
@@ -107,19 +107,19 @@
 	.nav {
 		display: flex;
 		align-items: center;
-		gap: 1.25rem;
+		gap: var(--space-4);
 	}
 
 	nav {
 		display: flex;
-		gap: 0.25rem;
+		gap: var(--space-1);
 	}
 
 	nav a {
-		padding: 0.4rem 0.8rem;
+		padding: var(--space-2) var(--space-3);
 		border-radius: var(--radius-pill);
 		color: var(--muted);
-		font-size: 0.925rem;
+		font-size: var(--text-s);
 		font-weight: 500;
 		text-decoration: none;
 	}
@@ -136,12 +136,12 @@
 
 	.switches {
 		display: flex;
-		gap: 0.4rem;
+		gap: var(--space-2);
 	}
 
 	.toggle {
 		display: none;
-		padding: 0.4rem;
+		padding: var(--space-2);
 		border: 0;
 		border-radius: var(--radius-s);
 		background: transparent;
@@ -162,8 +162,8 @@
 			display: none;
 			flex-direction: column;
 			align-items: stretch;
-			gap: 0.75rem;
-			padding: 0.75rem 1.25rem 1.25rem;
+			gap: var(--space-3);
+			padding: var(--space-3) var(--space-4) var(--space-4);
 			border-bottom: 1px solid var(--line);
 			background: var(--bg);
 		}
@@ -177,7 +177,7 @@
 		}
 
 		nav a {
-			padding: 0.65rem 0.9rem;
+			padding: var(--space-3) var(--space-3);
 		}
 	}
 </style>

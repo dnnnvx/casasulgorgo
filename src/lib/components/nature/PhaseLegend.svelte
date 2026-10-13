@@ -21,18 +21,18 @@
 	ul {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.35rem 1rem;
-		margin: 0.5rem 0 0;
+		gap: var(--space-2) var(--space-4);
+		margin: var(--space-2) 0 0;
 		padding: 0;
 		list-style: none;
 		color: var(--muted);
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 	}
 
 	li {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.35rem;
+		gap: var(--space-2);
 	}
 
 	.swatch {

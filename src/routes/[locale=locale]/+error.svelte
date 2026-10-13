@@ -23,19 +23,19 @@
 
 <style>
 	.error {
-		padding-block: clamp(3rem, 10vw, 6rem);
+		padding-block: var(--space-fluid-xl);
 	}
 
 	.code {
 		color: var(--primary-ink);
 		font-family: var(--font-display);
-		font-size: 4rem;
+		font-size: var(--text-5xl);
 		line-height: 1;
 	}
 
 	.actions {
 		display: flex;
-		gap: 0.5rem;
-		margin-top: 1.5rem;
+		gap: var(--space-2);
+		margin-top: var(--space-5);
 	}
 </style>

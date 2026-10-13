@@ -7,6 +7,8 @@
 		children: Snippet
 		/** Renders a link when set, a button otherwise. */
 		href?: string | undefined
+		/** Opens the link in a new tab. */
+		external?: boolean
 		variant?: 'primary' | 'dark' | 'outline' | 'ghost'
 		size?: 's' | 'm'
 		icon?: IconName | undefined
@@ -18,6 +20,7 @@
 	let {
 		children,
 		href,
+		external = false,
 		variant = 'primary',
 		size = 'm',
 		icon,
@@ -38,7 +41,13 @@
 {/snippet}
 
 {#if href}
-	<a class="button {variant} {size}" {href}>{@render content()}</a>
+	<a
+		class="button {variant} {size}"
+		{href}
+		target={external ? '_blank' : null}
+		rel={external ? 'noopener noreferrer' : null}
+		>{@render content()}</a
+	>
 {:else}
 	<button class="button {variant} {size}" {type} {onclick}>{@render content()}</button>
 {/if}
@@ -48,7 +57,7 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.45rem;
+		gap: var(--space-2);
 		border: 1.5px solid transparent;
 		border-radius: var(--radius-pill);
 		font: inherit;
@@ -68,13 +77,13 @@
 	}
 
 	.m {
-		padding: 0.7rem 1.15rem;
-		font-size: 0.95rem;
+		padding: var(--space-3) var(--space-4);
+		font-size: var(--text-s);
 	}
 
 	.s {
-		padding: 0.45rem 0.8rem;
-		font-size: 0.85rem;
+		padding: var(--space-2) var(--space-3);
+		font-size: var(--text-s);
 	}
 
 	.primary {

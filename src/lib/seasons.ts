@@ -38,6 +38,12 @@ export const seasonOf = (month: number): Season => {
 	return month < 8 ? 'summer' : 'autumn'
 }
 
+/** The four seasons in order, starting from the given one. */
+export const seasonsFrom = (first: Season): Season[] => [
+	...seasons.slice(seasons.indexOf(first)),
+	...seasons.slice(0, seasons.indexOf(first))
+]
+
 /** A calendar day, fixed to the gorgo's own time zone so everyone shares the same "today". */
 export type Day = { year: number; month: number; day: number }
 

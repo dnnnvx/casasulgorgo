@@ -3,7 +3,7 @@ export const it = {
 	site: {
 		name: 'Casa sul Gorgo',
 		place: 'Gorgo della Sposa',
-		region: 'Pianura Padana',
+		region: 'Trecenta (RO), Italia',
 		description:
 			'Il Gorgo della Sposa, uno specchio d’acqua nella Pianura Padana: la sua natura stagione per stagione e come visitarlo con rispetto.'
 	},
@@ -140,7 +140,7 @@ export const it = {
 	},
 	home: {
 		title: 'Casa sul Gorgo · Natura e visite al Gorgo della Sposa',
-		eyebrow: 'Gorgo della Sposa · Pianura Padana',
+		eyebrow: 'Gorgo della Sposa · Trecenta',
 		heading: 'Un piccolo stagno, tanta vita.',
 		scene:
 			'Il gorgo in pixel art isometrica: la casa con l’orto, il pontile, un airone cenerino e una coppia di germani reali nell’acqua, canneti, pioppi e campi intorno',
@@ -165,7 +165,18 @@ export const it = {
 		yearLead: 'Ogni stagione ha i suoi protagonisti.',
 		aboutTitle: 'Il gorgo',
 		about:
-			'Viviamo accanto al Gorgo della Sposa e vogliamo prendercene cura. Questo sito raccoglie ciò che vi abita, stagione per stagione, e come visitarlo nel rispetto della natura.'
+			'Viviamo accanto al Gorgo della Sposa e vogliamo prendercene cura. Questo sito raccoglie ciò che vi abita, stagione per stagione, e come visitarlo nel rispetto della natura.',
+		origin:
+			'Un gorgo nasce dove una piena incontra un argine e scava: qui furono le acque del Tartaro, uscite dal loro letto, a lasciare un’ampia cavità lungo l’Argine della Sposa. Oggi lo alimentano la pioggia e le risorgive.',
+		facts: [
+			{ value: '7 ha', label: 'Il più grande tra i gorghi delle province di Rovigo e Ferrara' },
+			{ value: '12 m', label: 'di profondità nel bacino a nord, il più ampio dei due' },
+			{ value: '1269', label: 'L’anno di un atto di concessione che già lo nomina' },
+			{ value: 'Natura 2000', label: 'Tutelato dal 1989 come sito di interesse comunitario' }
+		],
+		legendTitle: 'La leggenda della sposa',
+		legend:
+			'Si racconta che una giovane, promessa dalla famiglia a un ricco signore, amasse invece un ragazzo povero. Nel giorno delle nozze scelse le acque del gorgo piuttosto che quel matrimonio. Nelle notti senza luna, dicono, se ne sente ancora il lamento.'
 	},
 	nature: {
 		title: 'Natura',
@@ -187,16 +198,66 @@ export const it = {
 		title: 'Visita',
 		lead: 'Come arrivare, quando venire e come comportarsi per lasciare il gorgo com’è.',
 		reachTitle: 'Come arrivare',
-		reachNote: 'Indirizzo e indicazioni dettagliate in arrivo.',
+		map: {
+			label: 'Mappa del Gorgo della Sposa',
+			openIn: 'Apri in:'
+		},
 		reach: {
-			car: { title: 'In auto', text: 'Indicazioni e parcheggio in arrivo.' },
-			bike: { title: 'In bicicletta', text: 'Percorsi ciclabili consigliati in arrivo.' },
-			train: { title: 'In treno o bus', text: 'Stazioni e fermate più vicine in arrivo.' },
-			walk: { title: 'A piedi', text: 'Sentieri e punti di accesso in arrivo.' }
+			car: {
+				title: 'In auto',
+				routes: [
+					{
+						from: 'Da Verona / Rovigo / Autostrada A31',
+						steps: [
+							'Immettiti sulla Strada Statale 434 Transpolesana (direzione Verona - Rovigo).',
+							'Prendi l’uscita per Canda oppure Crocetta.',
+							'Segui le indicazioni stradali per Trecenta.',
+							'Procedi lungo Via Raffaello Sanzio fino alla destinazione, che troverai sulla destra.'
+						]
+					},
+					{
+						from: 'Da Ferrara / Autostrada A13',
+						steps: [
+							'Dall’autostrada A13, prendi l’uscita Occhiobello.',
+							'Prosegui in direzione Stienta e poi Salara.',
+							'Continua lungo la strada principale fino a Trecenta: troverai la destinazione sulla sinistra.'
+						]
+					}
+				]
+			},
+			bike: {
+				title: 'In bicicletta',
+				route: 'La via dell’acqua',
+				facts: [
+					{ label: 'Percorso', value: 'Cicloturistico (gravel / trekking / MTB)' },
+					{ label: 'Fondo', value: 'Misto: asfalto a basso traffico e strade bianche' },
+					{ label: 'Difficoltà', value: 'Facile, pianeggiante' }
+				],
+				stops: [
+					{
+						place: 'Fratta Polesine · partenza',
+						text: 'Villa Badoer, capolavoro del Palladio. Segui le indicazioni per Canda.'
+					},
+					{
+						place: 'Canda · prima tappa',
+						text: 'Villa Nani-Mocenigo. Imbocca i tratti sterrati in direzione Trecenta.'
+					},
+					{
+						place: 'Trecenta · arrivo',
+						text: 'Pochi chilometri su tranquille strade bianche, tra campagna, argini e macchie d’alberi. In centro a Trecenta, parti da Villa Pepoli (“El Palazzòn”) e segui la Strada dei Gorghi, costeggiando i Gorghi di Trecenta fino al Gorgo della Sposa.'
+					}
+				],
+				funFact:
+					'Lo sapevi? Trecenta è la città natale di Luigi Masetti, il primo cicloviaggiatore italiano.'
+			},
+			walk: {
+				title: 'A piedi',
+				text: 'Ti consigliamo l’ultimo tratto del percorso in bici: dal centro di Trecenta, parti da Villa Pepoli e segui la Strada dei Gorghi, costeggiando i Gorghi di Trecenta fino al Gorgo della Sposa.'
+			}
 		},
 		whenTitle: 'Quando venire',
 		when: [
-			{ title: 'All’alba', text: 'Animali più attivi, luce morbida e pochi visitatori.' },
+			{ title: 'All’alba', text: 'Animali più attivi, luce morbida e aria più fresca.' },
 			{ title: 'Al tramonto', text: 'Aironi in caccia, pipistrelli e il coro delle rane.' },
 			{ title: 'Nelle giornate calde', text: 'Libellule, farfalle e rettili al sole.' }
 		],
@@ -225,9 +286,22 @@ export const it = {
 		],
 		infoTitle: 'Informazioni pratiche',
 		info: {
-			access: { title: 'Accesso', text: 'Orari e regole di accesso in arrivo.' },
-			services: { title: 'Servizi', text: 'Parcheggio e servizi in arrivo.' },
-			contact: { title: 'Contatti', text: 'Contatti in arrivo.' }
+			access: {
+				title: 'Accesso libero',
+				text: 'Area aperta, sempre accessibile: niente orari né biglietto. Conta il modo in cui si visita: leggi le regole qui sopra.'
+			},
+			picnic: {
+				title: 'Tavoli da picnic',
+				text: 'Alcuni tavoli per una pausa all’aperto. Riporta a casa tutti i rifiuti.'
+			},
+			hide: {
+				title: 'Capanno per il birdwatching',
+				text: 'Un piccolo capanno in legno per osservare gli uccelli senza disturbarli.'
+			},
+			shop: {
+				title: 'Mira Market',
+				text: 'Un piccolo negozio con il necessario, che prepara anche panini freschi.'
+			}
 		}
 	},
 	notFound: {

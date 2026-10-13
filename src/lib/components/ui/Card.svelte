@@ -22,7 +22,7 @@
 	.card {
 		display: flex;
 		flex-direction: column;
-		gap: 0.6rem;
+		gap: var(--space-2);
 		min-width: 0;
 		border-radius: var(--radius-m);
 		color: var(--ink);
@@ -30,11 +30,11 @@
 	}
 
 	.m {
-		padding: 1.25rem;
+		padding: var(--space-4);
 	}
 
 	.s {
-		padding: 0.85rem;
+		padding: var(--space-3);
 	}
 
 	.surface {

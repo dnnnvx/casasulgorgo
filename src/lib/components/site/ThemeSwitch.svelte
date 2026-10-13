@@ -62,9 +62,11 @@
 	}
 
 	label {
-		display: inline-flex;
-		padding: 0.3rem 0.45rem;
-		border-radius: var(--radius-pill);
+		display: grid;
+		place-items: center;
+		width: var(--switch-size);
+		height: var(--switch-size);
+		border-radius: 50%;
 		color: var(--muted);
 		cursor: pointer;
 	}

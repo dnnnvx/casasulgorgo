@@ -31,13 +31,13 @@
 		flex-wrap: wrap;
 		align-items: end;
 		justify-content: space-between;
-		gap: 0.5rem 1.5rem;
-		margin-bottom: 1rem;
+		gap: var(--space-2) var(--space-5);
+		margin-bottom: var(--space-4);
 	}
 
 	.eyebrow {
-		margin-bottom: 0.3rem;
-		font-size: 0.75rem;
+		margin-bottom: var(--space-1);
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
@@ -45,16 +45,16 @@
 	}
 
 	h2 {
-		font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+		font-size: var(--text-2xl);
 	}
 
 	.lead {
-		margin-top: 0.25rem;
+		margin-top: var(--space-1);
 		color: var(--muted);
 	}
 
 	.action {
-		font-size: 0.9rem;
+		font-size: var(--text-s);
 		font-weight: 600;
 		text-decoration: none;
 	}

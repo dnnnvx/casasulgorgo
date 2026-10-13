@@ -10,7 +10,7 @@
 	import { inGroup, starsOf } from '#lib/nature/catalog.ts'
 	import { groups, kindOf } from '#lib/nature/groups.ts'
 	import { speciesPath, yearRow } from '#lib/nature/labels.ts'
-	import { seasonMonths, seasonOf, seasons } from '#lib/seasons.ts'
+	import { seasonMonths, seasonOf, seasonsFrom } from '#lib/seasons.ts'
 	import type { PageProps } from './$types'
 
 	let { data }: PageProps = $props()
@@ -18,10 +18,7 @@
 
 	let current = $derived(seasonOf(data.today.month))
 	// Start from the current season, so the page reads as "what's next".
-	let ordered = $derived([
-		...seasons.slice(seasons.indexOf(current)),
-		...seasons.slice(0, seasons.indexOf(current))
-	])
+	let ordered = $derived(seasonsFrom(current))
 
 	const kinds = ['animal', 'plant'] as const
 	let calendars = $derived(
@@ -51,7 +48,7 @@
 					<h2 id="season-{season}">{i18n.m.seasons[season]}</h2>
 					<p class="months">{seasonMonths[season].map((m) => i18n.m.months[m]).join(' · ')}</p>
 					{#if season === current}
-						<Badge tone="primary">{i18n.m.seasonsPage.current}</Badge>
+						<span class="now"><Badge tone="primary">{i18n.m.seasonsPage.current}</Badge></span>
 					{/if}
 				</header>
 			</Backdrop>
@@ -87,15 +84,19 @@
 </section>
 
 <style>
+	/* Always one row, current season first and a little larger; scrolls sideways when narrow. */
 	.seasons {
 		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 0.75rem;
+		grid-template-columns: 1.25fr repeat(3, minmax(0, 1fr));
+		gap: var(--space-3);
+		align-items: stretch;
+		overflow-x: auto;
+		scroll-snap-type: x proximity;
 	}
 
-	@media (max-width: 48rem) {
+	@media (max-width: 64rem) {
 		.seasons {
-			grid-template-columns: 1fr;
+			grid-template-columns: 19rem repeat(3, 15rem);
 		}
 	}
 
@@ -106,63 +107,67 @@
 		overflow: hidden;
 		border-radius: var(--radius-m);
 		background: var(--panel);
+		scroll-snap-align: start;
+		position: relative;
 	}
 
+	/* Same forest treatment as the "before you come" card, so it reads as "now". */
 	.season.current {
-		grid-column: 1 / -1;
-		display: grid;
-		grid-template-columns: minmax(12rem, 1fr) 2fr;
+		--chip-bg: rgb(255 255 255 / 0.12);
+		--chip-bg-hover: rgb(255 255 255 / 0.2);
+		--chip-ink: var(--on-forest);
+		background: var(--noise), linear-gradient(160deg, #26462f, var(--forest) 60%, #182e21);
+		background-blend-mode: soft-light, normal;
+		color: var(--on-forest);
 	}
 
-	@media (max-width: 48rem) {
-		.season.current {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	.current :global(.backdrop) {
-		height: 100%;
+	/* The ring is drawn inside the card, so the scroll box can never clip it. */
+	.season.current::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		box-shadow: inset 0 0 0 2px var(--primary);
+		pointer-events: none;
 	}
 
 	header {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		gap: 0.3rem;
+		gap: var(--space-1);
 		min-height: 6rem;
-		padding: 1rem 1.25rem;
+		padding: var(--space-4) var(--space-4);
 	}
 
-	.current header {
-		justify-content: flex-end;
-		min-height: 10rem;
+	.now {
+		position: absolute;
+		top: 0.85rem;
+		right: 0.85rem;
 	}
 
 	.body {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-		padding: 1rem 1.25rem 1.25rem;
+		gap: var(--space-2);
+		padding: var(--space-4) var(--space-4) var(--space-4);
 	}
 
 	h2 {
-		font-size: 1.5rem;
+		font-size: var(--text-xl);
 	}
 
 	.months {
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 		font-weight: 600;
 		opacity: 0.75;
 	}
 
-	.note {
-		max-width: 44rem;
-	}
-
 	h3 {
-		margin-top: 0.25rem;
+		margin-top: var(--space-1);
 		font-family: var(--font-body);
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
@@ -171,27 +176,37 @@
 
 	.more {
 		align-self: center;
-		padding: 0.25rem 0.6rem;
+		padding: var(--space-1) var(--space-2);
 		color: var(--muted);
-		font-size: 0.85rem;
+		font-size: var(--text-s);
 		font-weight: 600;
 		text-decoration: none;
+	}
+
+	.current h2 {
+		font-size: var(--text-2xl);
+	}
+
+	.current h3,
+	.current .more {
+		color: inherit;
+		opacity: 0.75;
 	}
 
 	.chips {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.35rem;
+		gap: var(--space-2);
 	}
 
 	.panel {
-		margin-bottom: 0.75rem;
-		padding: 1rem;
+		margin-bottom: var(--space-3);
+		padding: var(--space-4);
 		border-radius: var(--radius-m);
 		background: var(--panel);
 	}
 
 	.panel h3 {
-		margin: 0 0 0.6rem;
+		margin: 0 0 var(--space-2);
 	}
 </style>

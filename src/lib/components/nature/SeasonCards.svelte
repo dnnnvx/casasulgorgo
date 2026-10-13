@@ -2,7 +2,7 @@
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { starsOf } from '#lib/nature/catalog.ts'
 	import { speciesPath } from '#lib/nature/labels.ts'
-	import { type Season, seasonMonths, seasons } from '#lib/seasons.ts'
+	import { type Season, seasonMonths, seasonsFrom } from '#lib/seasons.ts'
 	import SpriteIcon from '../SpriteIcon.svelte'
 	import Backdrop from '../ui/Backdrop.svelte'
 	import Badge from '../ui/Badge.svelte'
@@ -13,7 +13,7 @@
 </script>
 
 <div class="seasons">
-	{#each seasons as season (season)}
+	{#each seasonsFrom(current) as season (season)}
 		<article class:current={season === current}>
 			<Backdrop theme={season}>
 				<header>
@@ -45,21 +45,19 @@
 </div>
 
 <style>
+	/* Always one row, current season first and a little larger; scrolls sideways when narrow. */
 	.seasons {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-		gap: 0.75rem;
+		grid-template-columns: 1.25fr repeat(3, minmax(0, 1fr));
+		gap: var(--space-3);
+		align-items: stretch;
+		overflow-x: auto;
+		scroll-snap-type: x proximity;
 	}
 
 	@media (max-width: 60rem) {
 		.seasons {
-			grid-template-columns: 1fr 1fr;
-		}
-	}
-
-	@media (max-width: 30rem) {
-		.seasons {
-			grid-template-columns: 1fr;
+			grid-template-columns: 17rem repeat(3, 13rem);
 		}
 	}
 
@@ -69,24 +67,22 @@
 		overflow: hidden;
 		border-radius: var(--radius-m);
 		background: var(--panel);
-	}
-
-	article.current {
-		box-shadow: 0 0 0 2px var(--primary);
+		scroll-snap-align: start;
+		position: relative;
 	}
 
 	header {
 		position: relative;
 		min-height: 5.5rem;
-		padding: 0.9rem 1rem;
+		padding: var(--space-3) var(--space-4);
 	}
 
 	h3 {
-		font-size: 1.3rem;
+		font-size: var(--text-xl);
 	}
 
 	.months {
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		font-weight: 600;
 		opacity: 0.75;
 	}
@@ -101,19 +97,19 @@
 		display: flex;
 		flex: 1;
 		flex-direction: column;
-		gap: 0.6rem;
-		padding: 0.9rem 1rem 1rem;
+		gap: var(--space-2);
+		padding: var(--space-3) var(--space-4) var(--space-4);
 	}
 
 	.note {
 		color: var(--muted);
-		font-size: 0.9rem;
+		font-size: var(--text-s);
 	}
 
 	.sprites {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.3rem;
+		gap: var(--space-1);
 		margin-top: auto;
 	}
 
@@ -128,5 +124,31 @@
 
 	.sprites a:hover {
 		transform: translateY(-2px);
+	}
+
+	/* Same forest treatment as the "before you come" card, so it reads as "now". */
+	article.current {
+		background: var(--noise), linear-gradient(160deg, #26462f, var(--forest) 60%, #182e21);
+		background-blend-mode: soft-light, normal;
+		color: var(--on-forest);
+	}
+
+	/* The ring is drawn inside the card, so the scroll box can never clip it. */
+	article.current::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		box-shadow: inset 0 0 0 2px var(--primary);
+		pointer-events: none;
+	}
+
+	article.current .note {
+		color: inherit;
+		opacity: 0.85;
+	}
+
+	article.current h3 {
+		font-size: var(--text-xl);
 	}
 </style>

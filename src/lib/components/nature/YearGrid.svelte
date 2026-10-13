@@ -3,6 +3,7 @@
 	import { phaseLabel, type YearRow } from '#lib/nature/labels.ts'
 	import { months, seasonOf } from '#lib/seasons.ts'
 	import SpriteIcon from '../SpriteIcon.svelte'
+	import PhaseCell from './PhaseCell.svelte'
 
 	type Props = {
 		rows: readonly YearRow[]
@@ -55,11 +56,8 @@
 					{/if}
 					{#each row.phases as phase, i (i)}
 						{@const label = phaseLabel(i18n.m, row.kind, phase)}
-						<td class:current={i === current} title={label}>
-							<span
-								class="cell swatch-{phase}"
-								style:background-color="var(--phase-{phase})"
-							></span>
+						<td title={label}>
+							<PhaseCell {phase} current={i === current} />
 							<span class="visually-hidden">{label}</span>
 						</td>
 					{/each}
@@ -87,11 +85,11 @@
 	}
 
 	thead th {
-		padding: 0 0 0.3rem;
+		padding: 0 0 var(--space-1);
 		border-top: 4px solid var(--season);
 		border-radius: 2px;
 		color: var(--muted);
-		font-size: 0.7rem;
+		font-size: var(--text-xs);
 		font-weight: 600;
 		text-align: center;
 	}
@@ -105,7 +103,7 @@
 	}
 
 	tbody th {
-		padding-right: 0.5rem;
+		padding-right: var(--space-2);
 		font-weight: 500;
 		text-align: left;
 	}
@@ -113,9 +111,9 @@
 	tbody th a {
 		display: flex;
 		align-items: center;
-		gap: 0.45rem;
+		gap: var(--space-2);
 		color: var(--ink);
-		font-size: 0.85rem;
+		font-size: var(--text-s);
 		text-decoration: none;
 	}
 
@@ -140,17 +138,5 @@
 	td {
 		padding: 0;
 		height: 1.25rem;
-	}
-
-	td.current {
-		outline: 2px solid var(--ink);
-		outline-offset: 0;
-		border-radius: 3px;
-	}
-
-	.cell {
-		display: block;
-		height: 100%;
-		border-radius: 3px;
 	}
 </style>

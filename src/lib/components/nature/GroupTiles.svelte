@@ -34,7 +34,7 @@
 	ul {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
-		gap: 0.6rem;
+		gap: var(--space-2);
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -44,9 +44,9 @@
 		display: grid;
 		grid-template-columns: auto 1fr;
 		grid-template-rows: auto auto;
-		column-gap: 0.7rem;
+		column-gap: var(--space-3);
 		align-items: center;
-		padding: 0.5rem;
+		padding: var(--space-2);
 		border-radius: var(--radius-m);
 		background: var(--panel);
 		color: var(--ink);
@@ -74,7 +74,7 @@
 		display: grid;
 		place-items: center;
 		height: 100%;
-		padding: 0.35rem;
+		padding: var(--space-2);
 	}
 
 	.sprite :global(svg) {
@@ -82,13 +82,13 @@
 	}
 
 	.name {
-		font-size: 0.925rem;
+		font-size: var(--text-s);
 		font-weight: 600;
 		line-height: 1.2;
 	}
 
 	.count {
 		color: var(--muted);
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 	}
 </style>

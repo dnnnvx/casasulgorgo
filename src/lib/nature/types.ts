@@ -45,6 +45,26 @@ export type Status = 'LC' | 'NT' | 'VU' | 'EN' | 'CR' | 'DD' | 'NE'
 /** An external page about the species, in each language. */
 export type Link = { label: string; url: Localized }
 
+/**
+ * A photo of the species. Files live in `static/photos/` for now (`src` is the public path,
+ * e.g. '/photos/tench-1.jpg'); the same shape can come from a database later.
+ */
+export type Photo = {
+	src: string
+	alt: Localized
+	/** Who took it, shown with the photo. */
+	author: string
+	/** Licence name, e.g. 'CC BY-SA 4.0', or 'All rights reserved'. */
+	license: string
+	/** Where the photo comes from (or the licence text), when it is not our own. */
+	sourceUrl?: string
+	/** Where and when it was taken, e.g. 'Gorgo della Sposa, May 2026'. */
+	caption?: Localized
+	/** Intrinsic size, so the page can reserve space and avoid layout shifts. */
+	width?: number
+	height?: number
+}
+
 export type TimeOfDay = 'dawn' | 'day' | 'dusk' | 'night'
 export type PlantForm = 'tree' | 'shrub' | 'herb' | 'aquatic'
 
@@ -64,6 +84,8 @@ export type BaseSpecies = {
 	status?: Status
 	/** Further reading, per language (Wikipedia for now). */
 	links?: readonly Link[]
+	/** Photos, the first being the main one; the pixel sprite is used until there are any. */
+	photos?: readonly Photo[]
 	sprite: Sprite
 }
 

@@ -87,17 +87,17 @@
 	.filters {
 		display: flex;
 		flex-direction: column;
-		gap: 0.6rem;
+		gap: var(--space-2);
 		position: sticky;
 		top: 3.8rem;
 		z-index: 2;
-		padding-block: 0.75rem;
+		padding-block: var(--space-3);
 		background: var(--bg);
 	}
 
 	.row {
 		display: flex;
-		gap: 0.35rem;
+		gap: var(--space-2);
 		overflow-x: auto;
 		scrollbar-width: none;
 	}
@@ -111,11 +111,11 @@
 
 	.filter-label {
 		float: left;
-		padding: 0.4rem 0;
+		padding: var(--space-2) 0;
 		align-self: center;
-		margin-right: 0.25rem;
+		margin-right: var(--space-1);
 		color: var(--muted);
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 		font-weight: 600;
 		white-space: nowrap;
 	}
@@ -123,11 +123,11 @@
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-		gap: 0.75rem;
+		gap: var(--space-3);
 	}
 
 	.empty {
 		color: var(--muted);
-		font-size: 0.9rem;
+		font-size: var(--text-s);
 	}
 </style>

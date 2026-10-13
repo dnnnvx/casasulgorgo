@@ -30,10 +30,13 @@
 	}
 
 	a {
-		padding: 0.25rem 0.55rem;
-		border-radius: var(--radius-pill);
+		display: grid;
+		place-items: center;
+		width: var(--switch-size);
+		height: var(--switch-size);
+		border-radius: 50%;
 		color: var(--muted);
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		text-decoration: none;
 	}

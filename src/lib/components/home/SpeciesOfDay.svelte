@@ -39,9 +39,9 @@
 	.label {
 		display: flex;
 		align-items: center;
-		gap: 0.4rem;
+		gap: var(--space-2);
 		color: var(--primary-ink);
-		font-size: 0.75rem;
+		font-size: var(--text-xs);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
@@ -50,14 +50,14 @@
 	.name {
 		display: block;
 		font-family: var(--font-display);
-		font-size: 1.35rem;
+		font-size: var(--text-xl);
 		line-height: 1.15;
 	}
 
 	.species {
 		display: flex;
 		align-items: center;
-		gap: 0.85rem;
+		gap: var(--space-3);
 		color: var(--ink);
 		text-decoration: none;
 	}
@@ -80,31 +80,31 @@
 
 	.sprite-art {
 		display: block;
-		padding: 0.5rem;
+		padding: var(--space-2);
 	}
 
 	.latin {
 		display: block;
 		color: var(--muted);
-		font-size: 0.85rem;
+		font-size: var(--text-s);
 		font-style: italic;
 	}
 
 	.text {
 		color: var(--muted);
-		font-size: 0.9rem;
+		font-size: var(--text-s);
 	}
 
 	.foot {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--space-2);
 		margin-top: auto;
 	}
 
 	.note {
 		color: var(--muted);
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 	}
 </style>

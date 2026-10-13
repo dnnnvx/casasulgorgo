@@ -1,4 +1,5 @@
 <script lang="ts">
+	import LegendCard from '#lib/components/home/LegendCard.svelte'
 	import NowAtGorgo from '#lib/components/home/NowAtGorgo.svelte'
 	import SpeciesOfDay from '#lib/components/home/SpeciesOfDay.svelte'
 	import VisitTeaser from '#lib/components/home/VisitTeaser.svelte'
@@ -99,16 +100,32 @@
 
 <section class="wrap section about" aria-labelledby="about">
 	<Card tone="soft">
-		<h2 id="about">{i18n.m.home.aboutTitle}</h2>
-		<p>{i18n.m.home.about}</p>
+		<div class="about-grid">
+			<div>
+				<h2 id="about">{i18n.m.home.aboutTitle}</h2>
+				<p>{i18n.m.home.origin}</p>
+				<p>{i18n.m.home.about}</p>
+			</div>
+			<dl class="facts">
+				{#each i18n.m.home.facts as fact (fact.value)}
+					<div>
+						<dt>{fact.value}</dt>
+						<dd>{fact.label}</dd>
+					</div>
+				{/each}
+			</dl>
+		</div>
 		<p class="draft"><Icon name="info" size={16} /> {i18n.m.common.draft}</p>
 	</Card>
+	<LegendCard title={i18n.m.home.legendTitle} text={i18n.m.home.legend} />
 </section>
 
 <style>
 	.hero {
-		padding-block: clamp(2rem, 5vw, 3.5rem) clamp(4rem, 8vw, 5.5rem);
-		background: var(--primary);
+		padding-block: var(--space-fluid-l) var(--space-fluid-xl);
+		background:
+			var(--noise), linear-gradient(160deg, #ffd1c3, var(--primary) 55%, var(--primary-hover));
+		background-blend-mode: soft-light, normal;
 		color: var(--on-primary);
 	}
 
@@ -116,7 +133,7 @@
 		display: grid;
 		grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
 		align-items: center;
-		gap: clamp(1.5rem, 4vw, 3.5rem);
+		gap: var(--space-fluid-m);
 	}
 
 	@media (max-width: 52rem) {
@@ -126,7 +143,7 @@
 	}
 
 	.eyebrow {
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 		font-weight: 700;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
@@ -134,29 +151,29 @@
 	}
 
 	h1 {
-		margin-top: 0.6rem;
-		font-size: clamp(2.3rem, 5vw, 3.6rem);
+		margin-top: var(--space-2);
+		font-size: var(--text-4xl);
 		line-height: 1.05;
 	}
 
 	.lead {
 		max-width: 32rem;
-		margin-top: 1rem;
-		font-size: 1.075rem;
+		margin-top: var(--space-4);
+		font-size: var(--text-l);
 		opacity: 0.85;
 	}
 
 	.actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.6rem;
-		margin-top: 1.5rem;
+		gap: var(--space-2);
+		margin-top: var(--space-5);
 	}
 
 	.stats {
 		display: flex;
-		gap: 2rem;
-		margin: 1.75rem 0 0;
+		gap: var(--space-6);
+		margin: var(--space-5) 0 0;
 	}
 
 	.stats div {
@@ -165,28 +182,28 @@
 	}
 
 	.stats dt {
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 		opacity: 0.75;
 	}
 
 	.stats dd {
 		margin: 0;
 		font-family: var(--font-display);
-		font-size: 1.75rem;
+		font-size: var(--text-2xl);
 		font-weight: 600;
 		line-height: 1.1;
 	}
 
 	.scene {
-		margin: -1rem -1rem -2.5rem;
+		margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4)) calc(-1 * var(--space-6));
 	}
 
 	.dash {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1rem;
+		gap: var(--space-4);
 		position: relative;
-		margin-top: -3rem;
+		margin-top: calc(-1 * var(--space-7));
 	}
 
 	@media (max-width: 60rem) {
@@ -206,32 +223,83 @@
 	}
 
 	.kingdom {
-		margin: 0.5rem 0 0.6rem;
+		margin: var(--space-2) 0 var(--space-2);
 		color: var(--muted);
 		font-family: var(--font-body);
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 	}
 
 	.kingdom + :global(ul) {
-		margin-bottom: 1.25rem;
+		margin-bottom: var(--space-4);
 	}
 
 	.about h2 {
-		font-size: 1.5rem;
+		margin-bottom: var(--space-2);
+		font-size: var(--text-xl);
+	}
+
+	.about-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+		gap: var(--space-fluid-m);
+	}
+
+	@media (max-width: 52rem) {
+		.about-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.about p {
 		max-width: 46rem;
 	}
 
+	/* The legend is a second card right after the gorgo card. */
+	.about :global(.card) + :global(section) {
+		margin-top: var(--space-3);
+		min-height: 14rem;
+	}
+
+	.about-grid p + p {
+		margin-top: var(--space-2);
+	}
+
+	.facts {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-2);
+		align-content: start;
+		margin: 0;
+	}
+
+	.facts div {
+		padding: var(--space-3) var(--space-3);
+		border-radius: var(--radius-m);
+		background: var(--surface);
+	}
+
+	.facts dt {
+		color: var(--primary-ink);
+		font-family: var(--font-display);
+		font-size: var(--text-xl);
+		font-weight: 600;
+		line-height: 1.15;
+	}
+
+	.facts dd {
+		margin: var(--space-1) 0 0;
+		color: var(--muted);
+		font-size: var(--text-s);
+	}
+
 	.draft {
 		display: flex;
 		align-items: center;
-		gap: 0.4rem;
+		gap: var(--space-2);
 		color: var(--muted);
-		font-size: 0.8rem;
+		font-size: var(--text-s);
 	}
 </style>
