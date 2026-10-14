@@ -87,7 +87,7 @@ export const it = {
 		reptiles: { name: 'Rettili', description: 'Amanti del sole, sulle rive e tra i sassi.' },
 		fish: { name: 'Pesci', description: 'La vita nascosta sotto la superficie.' },
 		insects: { name: 'Insetti', description: 'Libellule, farfalle e lucciole.' },
-		trees: { name: 'Alberi e arbusti', description: 'Salici, pioppi e siepi di campagna.' },
+		trees: { name: 'Alberi', description: 'Salici, pioppi e siepi di campagna.' },
 		'water-plants': {
 			name: 'Piante acquatiche',
 			description: 'Canneti, ninfee e piante di riva.'

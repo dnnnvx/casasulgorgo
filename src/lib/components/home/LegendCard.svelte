@@ -43,15 +43,6 @@
 		color: var(--on-forest);
 	}
 
-	/* Still water along the bottom. */
-	section::after {
-		content: "";
-		position: absolute;
-		inset: auto 0 0;
-		height: 28%;
-		background: rgb(255 255 255 / 0.08);
-	}
-
 	.sky {
 		position: absolute;
 		top: 0;
@@ -62,14 +53,10 @@
 	}
 
 	@media (max-width: 40rem) {
-		/* Stars in a strip above the text, and a thin band of water, so neither crosses it. */
+		/* Stars in a strip above the text, so they never cross it. */
 		section {
 			padding-top: var(--space-7);
-			padding-bottom: var(--space-7);
-		}
-
-		section::after {
-			height: 2.25rem;
+			padding-bottom: var(--space-5);
 		}
 
 		.sky {

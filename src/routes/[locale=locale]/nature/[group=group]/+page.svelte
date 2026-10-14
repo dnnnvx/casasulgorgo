@@ -78,6 +78,8 @@
 		padding: var(--space-4);
 		border-radius: var(--radius-m);
 		background: var(--panel);
+		border: var(--border-width) solid var(--border);
+		box-shadow: var(--shadow);
 	}
 
 	.grid {

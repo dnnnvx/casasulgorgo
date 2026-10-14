@@ -27,6 +27,11 @@
 		border-radius: var(--radius-m);
 		color: var(--ink);
 		text-decoration: none;
+		/* Each tone sets --edge to a darker shade of its own background. */
+		border: var(--border-width) solid var(--edge, var(--border));
+		box-shadow:
+			0 4px 0 var(--drop, var(--edge, var(--shadow-color))),
+			var(--card-sheen, var(--sheen));
 	}
 
 	.m {
@@ -40,19 +45,26 @@
 	.surface {
 		--chip-bg: var(--chip-on-panel);
 		background: var(--panel);
+		--edge: var(--border);
+		box-shadow: var(--shadow);
 	}
 
 	.soft {
+		--edge: light-dark(#bccb8a, #4a5c2a);
 		background: var(--primary-soft);
 	}
 
 	.primary {
+		--edge: #7f9638;
 		background: var(--noise), linear-gradient(150deg, #c2d778, var(--primary) 55%, #93ad45);
 		background-blend-mode: soft-light, normal;
 		color: var(--on-primary);
 	}
 
 	.forest {
+		--edge: var(--forest-edge);
+		--drop: var(--forest-drop);
+		--card-sheen: var(--dark-card-sheen);
 		background: var(--noise), linear-gradient(160deg, #26462f, var(--forest) 60%, #182e21);
 		background-blend-mode: soft-light, normal;
 		color: var(--on-forest);

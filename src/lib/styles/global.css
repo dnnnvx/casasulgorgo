@@ -16,21 +16,33 @@
 	--tile: light-dark(#eef3dd, #dfe6c6);
 
 	--accent: light-dark(#a3541c, #e6a061);
-	--bg: light-dark(#f7f5ee, #11150e);
-	--surface: light-dark(#fffdf8, #191e15);
-	--surface-2: light-dark(#f0ede2, #20271b);
-	--ink: light-dark(#1d2819, #ebeadf);
-	--muted: light-dark(#596254, #a3ab9a);
-	--line: light-dark(#e3dfd2, #2c3426);
+	/* Warm parchment neutrals (dark mode: warm brown-green instead of near-black). */
+	--bg: light-dark(#f8f1e1, #1a1713);
+	--surface: light-dark(#fffaf0, #231f19);
+	--surface-2: light-dark(#f1e8d2, #2b261e);
+	--ink: light-dark(#3a2e20, #f0e8d6);
+	--muted: light-dark(#7a6a52, #b3a68d);
+	--line: light-dark(#e2d5b8, #3a3328);
 	--forest: #1f3a2a;
 
-	/* Plain panels instead of outlined boxes: a step away from the page colour. */
-	--panel: light-dark(#eeebe0, #1b2117);
-	--panel-hover: light-dark(#e7e3d6, #222a1d);
-	--chip: light-dark(#eeebe0, #27311e);
-	--chip-hover: light-dark(#e7e3d6, #303c25);
+	/* Cozy panels: cream fill, chunky warm outline and a hard offset shadow. */
+	--panel: light-dark(#fff6e2, #2a251d);
+	--panel-hover: light-dark(#fdeccb, #332d23);
+	--chip: light-dark(#f5e8c8, #373023);
+	--chip-hover: light-dark(#efddb0, #43392a);
 	/* Chips sitting on a panel step back towards the page in light mode, forward in dark. */
-	--chip-on-panel: light-dark(#f7f5ee, #2c3722);
+	--chip-on-panel: light-dark(#f8f1e1, #3b3326);
+
+	--border: light-dark(#c9b183, #5a4d39);
+	--border-width: 2px;
+	/* Cards on a dark green background: the border sits close to the fill and the
+	   shadow is the deepest tone; in dark mode both lighten so they show against the page. */
+	--forest-edge: light-dark(#1b3828, #5a8a68);
+	--forest-drop: light-dark(#0a1a10, #2d4f39);
+	--dark-card-sheen: inset 0 2px 0 light-dark(rgb(255 255 255 / 0.14), rgb(255 255 255 / 0.22));
+	--shadow-color: light-dark(#d2bd8f, #3c3427);
+	/* The light edge along the top of a raised panel: faint in dark mode. */
+	--sheen: inset 0 2px 0 light-dark(rgb(255 255 255 / 0.35), rgb(255 255 255 / 0.05));
 
 	/* Film grain, layered over gradients with background-blend-mode: soft-light. */
 	--noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1.5 0 0 0 -.25 1.5 0 0 0 -.25 1.5 0 0 0 -.25 0 0 0 0 .8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -103,6 +115,9 @@
 	--text-4xl: clamp(2.25rem, 5vw, 3.5rem);
 	--text-5xl: 4rem;
 
+	/* Gap between cards stacked on top of each other: leaves room for their hard shadow. */
+	--stack-gap: var(--space-5);
+
 	/* Fluid spacing for page gutters and section rhythm. */
 	--space-fluid-s: clamp(var(--space-4), 3vw, var(--space-5));
 	--space-fluid-m: clamp(var(--space-5), 4vw, var(--space-6));
@@ -112,11 +127,13 @@
 	/* Header switches (language, theme): every option is the same circle. */
 	--switch-size: 2rem;
 
-	--radius-s: 8px;
-	--radius-m: 14px;
-	--radius-l: 22px;
+	--radius-s: 10px;
+	--radius-m: 16px;
+	--radius-l: 26px;
 	--radius-pill: 999px;
-	--shadow: 0 1px 2px rgb(29 40 25 / 0.06), 0 10px 28px -14px rgb(29 40 25 / 0.22);
+	/* Hard, unblurred drop plus a light inner top edge so panels look raised. */
+	--shadow: 0 4px 0 var(--shadow-color), var(--sheen);
+	--shadow-pressed: 0 1px 0 var(--shadow-color), var(--sheen);
 
 	--font-display: Fraunces, Georgia, "Times New Roman", serif;
 	--font-body: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -197,6 +214,11 @@ a {
 
 .swatch-absent {
 	box-shadow: inset 0 0 0 1px var(--line);
+}
+
+/* Pixel sprites get a soft warm shadow so they sit on the page like stickers. */
+.sprite-cozy {
+	filter: drop-shadow(0 2px 0 rgb(58 46 32 / 0.25));
 }
 
 .page-head {

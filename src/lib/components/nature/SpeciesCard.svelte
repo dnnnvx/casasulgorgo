@@ -58,6 +58,8 @@
 		overflow: hidden;
 		border-radius: var(--radius-m);
 		background: var(--panel);
+		border: var(--border-width) solid var(--border);
+		box-shadow: var(--shadow);
 		color: var(--ink);
 		text-decoration: none;
 		transition: background-color 0.15s;

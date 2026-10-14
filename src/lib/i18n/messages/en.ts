@@ -84,7 +84,7 @@ export const en: Messages = {
 		reptiles: { name: 'Reptiles', description: 'Sun lovers, on the banks and among the stones.' },
 		fish: { name: 'Fish', description: 'The hidden life beneath the surface.' },
 		insects: { name: 'Insects', description: 'Dragonflies, butterflies and fireflies.' },
-		trees: { name: 'Trees and shrubs', description: 'Willows, poplars and country hedgerows.' },
+		trees: { name: 'Trees', description: 'Willows, poplars and country hedgerows.' },
 		'water-plants': {
 			name: 'Water plants',
 			description: 'Reed beds, water lilies and bank plants.'

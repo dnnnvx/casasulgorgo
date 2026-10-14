@@ -25,5 +25,6 @@
 		display: block;
 		width: 100%;
 		height: auto;
+		filter: drop-shadow(0 2px 0 rgb(58 46 32 / 0.25));
 	}
 </style>

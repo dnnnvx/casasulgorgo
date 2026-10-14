@@ -122,11 +122,18 @@
 
 <style>
 	.hero {
+		position: relative;
+		overflow: hidden;
 		padding-block: var(--space-fluid-l) var(--space-fluid-xl);
 		background:
 			var(--noise), linear-gradient(160deg, #ffd1c3, var(--primary) 55%, var(--primary-hover));
 		background-blend-mode: soft-light, normal;
 		color: var(--on-primary);
+	}
+
+	.hero-grid > div {
+		position: relative;
+		z-index: 1;
 	}
 
 	.hero-grid {
@@ -194,8 +201,23 @@
 		line-height: 1.1;
 	}
 
+	/* The land fills the hero's full height and bleeds off the right edge of the page. */
 	.scene {
-		margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4)) calc(-1 * var(--space-6));
+		position: absolute;
+		inset: 0 0 0 auto;
+		width: 55%;
+		margin: 0;
+	}
+
+	@media (max-width: 52rem) {
+		.scene {
+			position: relative;
+			inset: auto;
+			width: auto;
+			height: auto;
+			aspect-ratio: 256 / 216;
+			margin: var(--space-4) calc(-1 * var(--space-fluid-s)) calc(-1 * var(--space-fluid-xl));
+		}
 	}
 
 	.dash {
@@ -216,10 +238,6 @@
 		.dash {
 			grid-template-columns: 1fr;
 		}
-	}
-
-	.dash :global(.card) {
-		box-shadow: var(--shadow);
 	}
 
 	.kingdom {
@@ -259,7 +277,7 @@
 
 	/* The legend is a second card right after the gorgo card. */
 	.about :global(.card) + :global(section) {
-		margin-top: var(--space-3);
+		margin-top: var(--stack-gap);
 		min-height: 14rem;
 	}
 

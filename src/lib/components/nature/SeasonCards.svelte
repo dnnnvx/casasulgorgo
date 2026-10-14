@@ -45,19 +45,23 @@
 </div>
 
 <style>
-	/* Always one row, current season first and a little larger; scrolls sideways when narrow. */
+	/* Four identical cards (current season first): 4 across, then 2x2, then a single column. */
 	.seasons {
 		display: grid;
-		grid-template-columns: 1.25fr repeat(3, minmax(0, 1fr));
-		gap: var(--space-3);
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: var(--stack-gap) var(--space-3);
 		align-items: stretch;
-		overflow-x: auto;
-		scroll-snap-type: x proximity;
 	}
 
 	@media (max-width: 60rem) {
 		.seasons {
-			grid-template-columns: 17rem repeat(3, 13rem);
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 40rem) {
+		.seasons {
+			grid-template-columns: 1fr;
 		}
 	}
 
@@ -67,7 +71,8 @@
 		overflow: hidden;
 		border-radius: var(--radius-m);
 		background: var(--panel);
-		scroll-snap-align: start;
+		border: var(--border-width) solid var(--border);
+		box-shadow: var(--shadow);
 		position: relative;
 	}
 
@@ -131,24 +136,14 @@
 		background: var(--noise), linear-gradient(160deg, #26462f, var(--forest) 60%, #182e21);
 		background-blend-mode: soft-light, normal;
 		color: var(--on-forest);
-	}
-
-	/* The ring is drawn inside the card, so the scroll box can never clip it. */
-	article.current::after {
-		content: "";
-		position: absolute;
-		inset: 0;
-		border-radius: inherit;
-		box-shadow: inset 0 0 0 2px var(--primary);
-		pointer-events: none;
+		border-color: var(--forest-edge);
+		box-shadow:
+			0 4px 0 var(--forest-drop),
+			var(--dark-card-sheen);
 	}
 
 	article.current .note {
 		color: inherit;
 		opacity: 0.85;
-	}
-
-	article.current h3 {
-		font-size: var(--text-xl);
 	}
 </style>

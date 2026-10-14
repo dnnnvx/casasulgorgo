@@ -4,7 +4,7 @@
 	import { birdDown, birdUp, drake, hen, heronSmall } from '#lib/sprites.ts'
 	import Pixels from './Pixels.svelte'
 
-	/** Without a sky the island floats on whatever is behind it, casting a translucent shadow. */
+	/** Without a sky the land meets whatever is behind it along the horizon. */
 	let { label, withSky = true }: { label: string; withSky?: boolean } = $props()
 
 	type Item = { depth: number; runs: Run[]; cls?: string | undefined }
@@ -15,9 +15,11 @@
 	const W = 256
 	const H = 192
 
-	// The island: a square slab of plain, S world units a side, seen in 2:1 isometric.
-	const S = 112
+	// The land: a plain seen in 2:1 isometric. Its top-left edge (world x = 0) is the horizon;
+	// it runs on past the other sides of the frame, so the scene fills the full height.
 	const OY = 48
+	// Extra land above the frame, so the house and pond sit in the middle instead of the top.
+	const TOP = 24
 	const { at, ground, quad, box } = isometric(W / 2, OY)
 	const atPixel = (x: number, y: number): Point => {
 		const [sx, sy] = at(x, y)
@@ -115,7 +117,7 @@
 	// Top of the island, one screen pixel at a time.
 	const surface = (sx: number, sy: number) => {
 		const [x, y] = ground(sx, sy)
-		if (x < 0 || y < 0 || x >= S || y >= S) {
+		if (x < 0) {
 			return
 		}
 		const d = pondAt(x, y)
@@ -142,24 +144,13 @@
 		if (inside(x, y, 92, 8, 108, 56)) {
 			return Math.floor(x) % 3 ? '#e2c172' : '#c9a24f'
 		}
-		if (inside(x, y, 92, 60, 108, 106)) {
+		if (inside(x, y, 92, 60, 108, 86)) {
 			return Math.floor(x) % 2 ? '#7a5a3a' : '#5f8f3c'
 		}
 		return grass(x, y)
 	}
 
-	const island: Run[] = [
-		...box(0, 0, -16, S, S, 1, { left: '#6f4a2f', right: '#583a25' }),
-		...box(0, 0, -15, S, S, 4, { left: '#9b6d47', right: '#7c5538' }),
-		...box(0, 0, -11, S, S, 1, { left: '#8a603e', right: '#6c4a31' }),
-		...box(0, 0, -10, S, S, 6, { left: '#9b6d47', right: '#7c5538' }),
-		...box(0, 0, -4, S, S, 3, { left: '#6f9d47', right: '#58823a' }),
-		...box(0, 0, -1, S, S, 1, { left: '#9cc46c', right: '#7fa957' }),
-		...paint(W / 2 - S, OY, W / 2 + S, OY + S + 1, surface)
-	]
-	let islandShadow = $derived(
-		ellipse(W / 2, OY + S + 22, 76, 3, withSky ? '#e3e3d2' : 'rgb(28 38 16 / 0.18)')
-	)
+	const island: Run[] = paint(0, -TOP, W, H, surface)
 
 	// Light on the water, and lily pads.
 	const onWater = (x: number, y: number) => at(x, y, -pond.depth)
@@ -404,7 +395,6 @@
 		...[12, 22, 32, 42, 52].map((y, i) => poplar(88, y, 18 + ((i * 5) % 7))),
 		tree(6, 22, 6),
 		tree(7, 36, 5),
-		tree(100, 104, 5),
 		tree(6, 100, 4),
 		...[0.2, 0.6, 1.0, 1.4, 1.9, 3.9, 4.5, 5.2].map((a, i) => reeds(rim(a), i)),
 		bird(heronSmall, 76, 62),
@@ -420,7 +410,13 @@
 	]
 </script>
 
-<svg viewBox="0 0 {W} {H}" shape-rendering="crispEdges" role="img" aria-label={label}>
+<svg
+	viewBox="0 {-TOP} {W} {H + TOP}"
+	preserveAspectRatio="xMaxYMid slice"
+	shape-rendering="crispEdges"
+	role="img"
+	aria-label={label}
+>
 	{#if withSky}
 		<defs>
 			{#each seams as seam, i (seam.y)}
@@ -440,7 +436,6 @@
 	{/if}
 	<Pixels class="cloud slow" runs={cloud(150, 14)} />
 	<Pixels class="cloud" runs={cloud(196, 36)} />
-	<Pixels runs={islandShadow} />
 
 	<Pixels runs={island} />
 	<Pixels runs={pads} />
@@ -448,7 +443,7 @@
 	<Pixels class="shadow" runs={shadows} />
 	<Pixels runs={jetty} />
 	{#each items as item, i (i)}
-		<Pixels class={item.cls} runs={item.runs} />
+		<Pixels class="sprite-cozy {item.cls ?? ''}" runs={item.runs} />
 	{/each}
 
 	<g class="flock">
@@ -463,7 +458,9 @@
 	svg {
 		display: block;
 		width: 100%;
-		height: auto;
+		height: 100%;
+		/* The horizon fades out on the text side, instead of ending in a hard vertical cut. */
+		mask-image: linear-gradient(to right, transparent, #000 18%);
 	}
 
 	svg :global(.shadow) {

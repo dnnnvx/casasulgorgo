@@ -27,9 +27,11 @@
 		padding: var(--space-1) var(--space-2);
 		border-radius: var(--radius-pill);
 		font-size: var(--text-xs);
-		font-weight: 600;
+		font-weight: 700;
 		line-height: 1.3;
 		white-space: nowrap;
+		border: 1.5px solid color-mix(in srgb, currentColor 30%, transparent);
+		box-shadow: 0 2px 0 color-mix(in srgb, currentColor 18%, transparent);
 	}
 
 	.neutral {
@@ -48,7 +50,7 @@
 	}
 
 	.soon {
-		border: 1px dashed var(--line);
+		border-style: dashed;
 		color: var(--muted);
 	}
 
