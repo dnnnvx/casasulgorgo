@@ -13,7 +13,9 @@
 	let links = $derived([
 		{ path: '/nature', label: i18n.m.nav.nature },
 		{ path: '/seasons', label: i18n.m.nav.seasons },
-		{ path: '/visit', label: i18n.m.nav.visit }
+		{ path: '/visit', label: i18n.m.nav.visit },
+		{ path: '/about', label: i18n.m.nav.about },
+		{ path: '/contact', label: i18n.m.nav.contact }
 	])
 
 	const isCurrent = (path: string) => page.url.pathname.startsWith(i18n.path(path))
@@ -149,7 +151,8 @@
 		cursor: pointer;
 	}
 
-	@media (max-width: 40rem) {
+	/* Below this the links and switches no longer fit next to the brand, so they fold into the menu. */
+	@media (max-width: 56rem) {
 		.toggle {
 			display: inline-flex;
 		}

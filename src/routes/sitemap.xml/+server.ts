@@ -12,6 +12,8 @@ export const GET: RequestHandler = () => {
 		'/nature',
 		'/seasons',
 		'/visit',
+		'/about',
+		'/contact',
 		...groups.map(groupPath),
 		...catalog.map(speciesPath)
 	]

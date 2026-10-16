@@ -117,6 +117,16 @@
 			}
 		},
 		{
+			"includes": ["src/lib/server/**"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noNodejsModules": "off"
+					}
+				}
+			}
+		},
+		{
 			"includes": ["src/app.d.ts"],
 			"linter": {
 				"rules": {

@@ -18,9 +18,14 @@
 					<span>{i18n.m.site.name}</span>
 				</a>
 				<p>{i18n.m.site.description}</p>
-				<Button href={i18n.path('/visit')} size="s" iconAfter="arrowRight">
-					{i18n.m.home.plan}
-				</Button>
+				<div class="cta">
+					<Button href={i18n.path('/visit')} size="s" iconAfter="arrowRight">
+						{i18n.m.home.plan}
+					</Button>
+					<Button href={i18n.path('/contact')} size="s" variant="outline" icon="mail">
+						{i18n.m.nav.contact}
+					</Button>
+				</div>
 			</div>
 
 			<nav aria-label={i18n.m.footer.explore}>
@@ -28,6 +33,8 @@
 				<a href={i18n.path('/nature')}>{i18n.m.nav.nature}</a>
 				<a href={i18n.path('/seasons')}>{i18n.m.nav.seasons}</a>
 				<a href={i18n.path('/visit')}>{i18n.m.nav.visit}</a>
+				<a href={i18n.path('/about')}>{i18n.m.nav.about}</a>
+				<a href={i18n.path('/contact')}>{i18n.m.nav.contact}</a>
 			</nav>
 
 			<nav aria-label={i18n.m.footer.languages}>
@@ -95,6 +102,12 @@
 		font-size: var(--text-xl);
 		font-weight: 600;
 		text-decoration: none;
+	}
+
+	.cta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-2);
 	}
 
 	.about p {

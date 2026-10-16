@@ -142,7 +142,7 @@
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-		gap: var(--space-3);
+		gap: var(--stack-gap) var(--card-gap);
 	}
 
 	.empty {

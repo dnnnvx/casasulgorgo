@@ -115,8 +115,15 @@
 	--text-4xl: clamp(2.25rem, 5vw, 3.5rem);
 	--text-5xl: 4rem;
 
-	/* Gap between cards stacked on top of each other: leaves room for their hard shadow. */
-	--stack-gap: var(--space-5);
+	/* Depth of the hard drop shadow under cards and panels. */
+	--card-drop: 4px;
+	/* Gap between cards side by side; every card grid uses it. */
+	--card-gap: var(--space-5);
+	/* Gap between cards stacked on top of each other: adds the shadow's depth so it looks like --card-gap. */
+	--stack-gap: calc(var(--card-gap) + var(--card-drop));
+
+	/* Minimum space between the page content and the screen edge; full-bleed elements pull back by it. */
+	--gutter: 1.25rem;
 
 	/* Fluid spacing for page gutters and section rhythm. */
 	--space-fluid-s: clamp(var(--space-4), 3vw, var(--space-5));
@@ -132,7 +139,7 @@
 	--radius-l: 26px;
 	--radius-pill: 999px;
 	/* Hard, unblurred drop plus a light inner top edge so panels look raised. */
-	--shadow: 0 4px 0 var(--shadow-color), var(--sheen);
+	--shadow: 0 var(--card-drop) 0 var(--shadow-color), var(--sheen);
 	--shadow-pressed: 0 1px 0 var(--shadow-color), var(--sheen);
 
 	--font-display: Fraunces, Georgia, "Times New Roman", serif;
@@ -194,7 +201,7 @@ a {
 }
 
 .wrap {
-	width: min(var(--wrap), 100% - 2.5rem);
+	width: min(var(--wrap), 100% - 2 * var(--gutter));
 	margin-inline: auto;
 }
 

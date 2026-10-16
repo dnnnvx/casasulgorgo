@@ -216,14 +216,14 @@
 			width: auto;
 			height: auto;
 			aspect-ratio: 256 / 216;
-			margin: var(--space-4) calc(-1 * var(--space-fluid-s)) calc(-1 * var(--space-fluid-xl));
+			margin: var(--space-4) calc(-1 * var(--gutter)) calc(-1 * var(--space-fluid-xl));
 		}
 	}
 
 	.dash {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: var(--space-4);
+		gap: var(--stack-gap) var(--card-gap);
 		position: relative;
 		margin-top: calc(-1 * var(--space-7));
 	}

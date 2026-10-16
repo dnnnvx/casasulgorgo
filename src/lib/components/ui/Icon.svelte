@@ -6,26 +6,20 @@
 		size = 20,
 		label
 	}: { name: IconName; size?: number; label?: string | undefined } = $props()
+
+	let Svg = $derived(icons[name])
 </script>
 
-<svg
-	viewBox="0 0 24 24"
-	width={size}
-	height={size}
-	fill="none"
-	stroke="currentColor"
-	stroke-width="1.8"
-	stroke-linecap="round"
-	stroke-linejoin="round"
+<Svg
+	{size}
+	stroke={1.8}
 	role={label ? 'img' : undefined}
 	aria-label={label}
 	aria-hidden={label ? undefined : 'true'}
->
-	<path d={icons[name]} />
-</svg>
+/>
 
 <style>
-	svg {
+	:global(svg.tabler-icon) {
 		flex: none;
 	}
 </style>

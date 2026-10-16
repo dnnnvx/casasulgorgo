@@ -49,7 +49,7 @@
 	.seasons {
 		display: grid;
 		grid-template-columns: repeat(4, minmax(0, 1fr));
-		gap: var(--stack-gap) var(--space-3);
+		gap: var(--stack-gap) var(--card-gap);
 		align-items: stretch;
 	}
 
@@ -138,7 +138,7 @@
 		color: var(--on-forest);
 		border-color: var(--forest-edge);
 		box-shadow:
-			0 4px 0 var(--forest-drop),
+			0 var(--card-drop) 0 var(--forest-drop),
 			var(--dark-card-sheen);
 	}
 

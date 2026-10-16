@@ -30,7 +30,7 @@
 		/* Each tone sets --edge to a darker shade of its own background. */
 		border: var(--border-width) solid var(--edge, var(--border));
 		box-shadow:
-			0 4px 0 var(--drop, var(--edge, var(--shadow-color))),
+			0 var(--card-drop) 0 var(--drop, var(--edge, var(--shadow-color))),
 			var(--card-sheen, var(--sheen));
 	}
 

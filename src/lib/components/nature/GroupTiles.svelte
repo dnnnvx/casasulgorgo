@@ -34,7 +34,7 @@
 	ul {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
-		gap: var(--space-2);
+		gap: var(--stack-gap) var(--card-gap);
 		margin: 0;
 		padding: 0;
 		list-style: none;
