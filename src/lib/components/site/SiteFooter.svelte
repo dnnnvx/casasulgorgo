@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Button from '#lib/components/ui/Button.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { localeNames, locales, switchLocale } from '#lib/i18n/locales.ts'
 	import { page } from '$app/state'
-	import Button from '../ui/Button.svelte'
 	import Logo from './Logo.svelte'
 
 	const i18n = getI18n()

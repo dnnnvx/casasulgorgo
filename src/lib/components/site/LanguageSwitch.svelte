@@ -4,6 +4,11 @@
 	import { page } from '$app/state'
 
 	const i18n = getI18n()
+
+	// A cookie, not localStorage: the server reads it to pick the language for the bare domain.
+	const remember = (locale: string) => {
+		document.cookie = `locale=${locale}; path=/; max-age=31536000; samesite=lax`
+	}
 </script>
 
 <nav aria-label={i18n.m.nav.language}>
@@ -15,6 +20,7 @@
 			title={localeNames[locale]}
 			aria-current={locale === i18n.locale ? 'true' : undefined}
 			data-sveltekit-noscroll
+			onclick={() => remember(locale)}
 		>
 			{locale.toUpperCase()}
 		</a>

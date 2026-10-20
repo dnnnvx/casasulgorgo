@@ -1,5 +1,5 @@
-import type { Group } from './nature/types.ts'
 import { type Season, seasons } from './seasons.ts'
+import type { Group } from './types.ts'
 
 /** A decorative pattern drawn over a theme's gradient. */
 export type Motif = 'waves' | 'clouds' | 'grass' | 'leaves' | 'sun' | 'snow' | 'blossom'

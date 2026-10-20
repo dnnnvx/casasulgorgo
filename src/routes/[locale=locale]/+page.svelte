@@ -1,22 +1,22 @@
 <script lang="ts">
+	import Scene from '#lib/components/art/Scene.svelte'
 	import LegendCard from '#lib/components/home/LegendCard.svelte'
 	import NowAtGorgo from '#lib/components/home/NowAtGorgo.svelte'
 	import SpeciesOfDay from '#lib/components/home/SpeciesOfDay.svelte'
 	import VisitTeaser from '#lib/components/home/VisitTeaser.svelte'
 	import GroupTiles from '#lib/components/nature/GroupTiles.svelte'
 	import SeasonCards from '#lib/components/nature/SeasonCards.svelte'
-	import Scene from '#lib/components/Scene.svelte'
 	import Seo from '#lib/components/site/Seo.svelte'
 	import Button from '#lib/components/ui/Button.svelte'
 	import Card from '#lib/components/ui/Card.svelte'
 	import Icon from '#lib/components/ui/Icon.svelte'
 	import SectionHeading from '#lib/components/ui/SectionHeading.svelte'
+	import { siteUrl } from '#lib/config/site.ts'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { catalog } from '#lib/nature/catalog.ts'
 	import { groups } from '#lib/nature/groups.ts'
+	import { seasonOf, seasons } from '#lib/nature/seasons.ts'
 	import { animalGroups, plantGroups } from '#lib/nature/types.ts'
-	import { seasonOf, seasons } from '#lib/seasons.ts'
-	import { siteUrl } from '#lib/site.ts'
 	import type { PageProps } from './$types'
 
 	let { data }: PageProps = $props()
@@ -48,7 +48,7 @@
 			<p class="eyebrow">{i18n.m.home.eyebrow}</p>
 			<h1>{i18n.m.home.heading}</h1>
 			<p class="lead">{i18n.m.home.lead}</p>
-			<div class="actions">
+			<div class="cluster actions">
 				<Button href={i18n.path('/nature')} variant="dark" iconAfter="arrowRight">
 					{i18n.m.home.explore}
 				</Button>
@@ -82,9 +82,9 @@
 		lead={i18n.m.home.groupsLead}
 		action={{ href: i18n.path('/nature'), label: i18n.m.common.seeAll }}
 	/>
-	<h3 class="kingdom">{i18n.m.kinds.animal}</h3>
+	<h3 class="overline kingdom">{i18n.m.kinds.animal}</h3>
 	<GroupTiles groups={animalGroups} />
-	<h3 class="kingdom">{i18n.m.kinds.plant}</h3>
+	<h3 class="overline kingdom">{i18n.m.kinds.plant}</h3>
 	<GroupTiles groups={plantGroups} />
 </section>
 
@@ -171,9 +171,6 @@
 	}
 
 	.actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-2);
 		margin-top: var(--space-5);
 	}
 
@@ -242,12 +239,7 @@
 
 	.kingdom {
 		margin: var(--space-2) 0 var(--space-2);
-		color: var(--muted);
-		font-family: var(--font-body);
 		font-size: var(--text-s);
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
 	}
 
 	.kingdom + :global(ul) {

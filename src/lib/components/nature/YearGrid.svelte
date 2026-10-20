@@ -1,8 +1,8 @@
 <script lang="ts">
+	import SpriteIcon from '#lib/components/art/SpriteIcon.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { phaseLabel, type YearRow } from '#lib/nature/labels.ts'
-	import { months, seasonOf } from '#lib/seasons.ts'
-	import SpriteIcon from '../SpriteIcon.svelte'
+	import { months, seasonOf } from '#lib/nature/seasons.ts'
 	import PhaseCell from './PhaseCell.svelte'
 
 	type Props = {

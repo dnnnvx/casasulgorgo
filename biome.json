@@ -104,7 +104,7 @@
 			}
 		},
 		{
-			"includes": ["src/lib/components/Scene.svelte", "src/lib/iso.ts"],
+			"includes": ["src/lib/components/art/Scene.svelte", "src/lib/art/iso.ts"],
 			"linter": {
 				"rules": {
 					"complexity": {
@@ -147,7 +147,7 @@
 			}
 		},
 		{
-			"includes": ["src/lib/sprites.ts", "src/lib/nature/species/**"],
+			"includes": ["src/lib/art/sprites.ts", "src/lib/nature/species/**"],
 			"linter": {
 				"rules": {
 					"style": {

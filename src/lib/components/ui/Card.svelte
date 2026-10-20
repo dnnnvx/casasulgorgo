@@ -56,7 +56,7 @@
 
 	.primary {
 		--edge: #7f9638;
-		background: var(--noise), linear-gradient(150deg, #c2d778, var(--primary) 55%, #93ad45);
+		background: var(--fill-primary);
 		background-blend-mode: soft-light, normal;
 		color: var(--on-primary);
 	}
@@ -65,7 +65,7 @@
 		--edge: var(--forest-edge);
 		--drop: var(--forest-drop);
 		--card-sheen: var(--dark-card-sheen);
-		background: var(--noise), linear-gradient(160deg, #26462f, var(--forest) 60%, #182e21);
+		background: var(--fill-forest);
 		background-blend-mode: soft-light, normal;
 		color: var(--on-forest);
 	}

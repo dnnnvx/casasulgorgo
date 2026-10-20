@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
+	import type { IconName } from '#lib/assets/icons.ts'
+	import Icon from '#lib/components/ui/Icon.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
-	import type { IconName } from '#lib/icons.ts'
-	import Icon from '../ui/Icon.svelte'
 
 	type Mode = 'system' | 'light' | 'dark'
 	const modes: { mode: Mode; icon: IconName }[] = [

@@ -1,7 +1,7 @@
-import type { Role } from '#lib/contact.ts'
+import type { Role } from '#lib/forms/contact.ts'
 import type { Locale } from '#lib/i18n/locales.ts'
-import { it } from '#lib/i18n/messages/it.ts'
-import { TELEGRAM_TOKEN, TELEGRAM_CHAT_ID } from '$app/env/private'
+import { it } from '#lib/i18n/messages/it/index.ts'
+import { TELEGRAM_CHAT_ID, TELEGRAM_TOKEN } from '$app/env/private'
 
 const window = 60 * 60 * 1000
 const perWindow = 5

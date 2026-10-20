@@ -5,12 +5,14 @@
 	import Seo from '#lib/components/site/Seo.svelte'
 	import Backdrop from '#lib/components/ui/Backdrop.svelte'
 	import Badge from '#lib/components/ui/Badge.svelte'
+	import Card from '#lib/components/ui/Card.svelte'
+	import PageHeader from '#lib/components/ui/PageHeader.svelte'
 	import SectionHeading from '#lib/components/ui/SectionHeading.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { inGroup, starsOf } from '#lib/nature/catalog.ts'
 	import { groups, kindOf } from '#lib/nature/groups.ts'
 	import { speciesPath, yearRow } from '#lib/nature/labels.ts'
-	import { seasonMonths, seasonOf, seasonsFrom } from '#lib/seasons.ts'
+	import { seasonMonths, seasonOf, seasonsFrom } from '#lib/nature/seasons.ts'
 	import type { PageProps } from './$types'
 
 	let { data }: PageProps = $props()
@@ -34,10 +36,7 @@
 
 <Seo title={i18n.m.seasonsPage.title} description={i18n.m.seasonsPage.lead} />
 
-<div class="wrap page-head">
-	<h1>{i18n.m.seasonsPage.title}</h1>
-	<p>{i18n.m.seasonsPage.lead}</p>
-</div>
+<PageHeader title={i18n.m.seasonsPage.title} lead={i18n.m.seasonsPage.lead} />
 
 <div class="wrap seasons">
 	{#each ordered as season (season)}
@@ -54,7 +53,7 @@
 			</Backdrop>
 			<div class="body">
 				<p class="note">{i18n.m.seasonNotes[season]}</p>
-				<h3>{i18n.m.seasonsPage.highlights}</h3>
+				<h3 class="overline">{i18n.m.seasonsPage.highlights}</h3>
 				<div class="chips">
 					{#each stars.shown as species (species.slug)}
 						<SpeciesChip {species} />
@@ -71,14 +70,16 @@
 <section class="wrap section" aria-labelledby="calendar">
 	<SectionHeading id="calendar" title={i18n.m.seasonsPage.calendar} />
 	{#each calendars as calendar (calendar.kind)}
-		<div class="panel">
-			<h3>{i18n.m.kinds[calendar.kind]}</h3>
-			<YearGrid
-				rows={calendar.rows}
-				caption="{i18n.m.seasonsPage.calendar}: {i18n.m.kinds[calendar.kind]}"
-				current={data.today.month}
-			/>
-			<PhaseLegend kinds={[calendar.kind]} />
+		<div class="calendar">
+			<Card>
+				<h3 class="overline">{i18n.m.kinds[calendar.kind]}</h3>
+				<YearGrid
+					rows={calendar.rows}
+					caption="{i18n.m.seasonsPage.calendar}: {i18n.m.kinds[calendar.kind]}"
+					current={data.today.month}
+				/>
+				<PhaseLegend kinds={[calendar.kind]} />
+			</Card>
 		</div>
 	{/each}
 </section>
@@ -120,7 +121,7 @@
 		--chip-bg: rgb(255 255 255 / 0.12);
 		--chip-bg-hover: rgb(255 255 255 / 0.2);
 		--chip-ink: var(--on-forest);
-		background: var(--noise), linear-gradient(160deg, #26462f, var(--forest) 60%, #182e21);
+		background: var(--fill-forest);
 		background-blend-mode: soft-light, normal;
 		color: var(--on-forest);
 		border-color: var(--forest-edge);
@@ -162,14 +163,8 @@
 		opacity: 0.75;
 	}
 
-	h3 {
+	.body h3 {
 		margin-top: var(--space-1);
-		font-family: var(--font-body);
-		font-size: var(--text-xs);
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--muted);
 	}
 
 	.more {
@@ -193,16 +188,7 @@
 		gap: var(--space-2);
 	}
 
-	.panel {
+	.calendar {
 		margin-bottom: var(--stack-gap);
-		padding: var(--space-4);
-		border-radius: var(--radius-m);
-		background: var(--panel);
-		border: var(--border-width) solid var(--border);
-		box-shadow: var(--shadow);
-	}
-
-	.panel h3 {
-		margin: 0 0 var(--space-2);
 	}
 </style>

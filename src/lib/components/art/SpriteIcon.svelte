@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Sprite, sprite } from '#lib/pixel.ts'
+	import { type Sprite, sprite } from '#lib/art/pixel.ts'
 	import Pixels from './Pixels.svelte'
 
 	/** Without a label the sprite is decorative and hidden from screen readers. */

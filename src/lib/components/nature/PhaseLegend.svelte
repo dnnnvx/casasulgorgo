@@ -22,7 +22,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--space-2) var(--space-4);
-		margin: var(--space-2) 0 0;
+		margin: 0;
 		padding: 0;
 		list-style: none;
 		color: var(--muted);

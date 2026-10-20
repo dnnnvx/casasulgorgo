@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { siteUrl } from '#lib/config/site.ts'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { defaultLocale, locales, localeTags, switchLocale } from '#lib/i18n/locales.ts'
-	import { siteUrl } from '#lib/site.ts'
 	import { page } from '$app/state'
 
 	type Props = {

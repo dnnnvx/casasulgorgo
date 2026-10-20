@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '#lib/components/ui/Button.svelte'
+	import PageHeader from '#lib/components/ui/PageHeader.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { page } from '$app/state'
 
@@ -11,19 +12,24 @@
 	<meta name="robots" content="noindex">
 </svelte:head>
 
-<div class="wrap page-head error">
-	<p class="code">{page.status}</p>
-	<h1>{page.status === 404 ? i18n.m.notFound.title : page.error?.message}</h1>
-	<p>{i18n.m.notFound.text}</p>
-	<div class="actions">
-		<Button href={i18n.path()} variant="primary" icon="arrowLeft">{i18n.m.notFound.home}</Button>
-		<Button href={i18n.path('/nature')} variant="ghost">{i18n.m.nav.nature}</Button>
-	</div>
+<div class="error">
+	<PageHeader
+		title={page.status === 404 ? i18n.m.notFound.title : (page.error?.message ?? '')}
+		lead={i18n.m.notFound.text}
+	>
+		{#snippet above()}
+			<p class="code">{page.status}</p>
+		{/snippet}
+		<div class="cluster actions">
+			<Button href={i18n.path()} variant="primary" icon="arrowLeft">{i18n.m.notFound.home}</Button>
+			<Button href={i18n.path('/nature')} variant="ghost">{i18n.m.nav.nature}</Button>
+		</div>
+	</PageHeader>
 </div>
 
 <style>
 	.error {
-		padding-block: var(--space-fluid-xl);
+		padding-block: var(--space-fluid-l);
 	}
 
 	.code {
@@ -34,8 +40,6 @@
 	}
 
 	.actions {
-		display: flex;
-		gap: var(--space-2);
-		margin-top: var(--space-5);
+		margin-top: var(--space-3);
 	}
 </style>

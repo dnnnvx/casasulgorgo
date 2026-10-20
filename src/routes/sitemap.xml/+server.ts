@@ -1,8 +1,8 @@
+import { siteUrl } from '#lib/config/site.ts'
 import { locales, localeTags, localize } from '#lib/i18n/locales.ts'
 import { catalog } from '#lib/nature/catalog.ts'
 import { groups } from '#lib/nature/groups.ts'
 import { groupPath, speciesPath } from '#lib/nature/labels.ts'
-import { siteUrl } from '#lib/site.ts'
 import type { RequestHandler } from './$types'
 
 /** Every page, once per language, each listing its translations. */

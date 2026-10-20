@@ -1,5 +1,5 @@
 import { fail } from '@sveltejs/kit'
-import { isRole, limits } from '#lib/contact.ts'
+import { isRole, limits } from '#lib/forms/contact.ts'
 import { deliverMessage, tooMany } from '#lib/server/inbox.ts'
 import type { Actions } from './$types'
 

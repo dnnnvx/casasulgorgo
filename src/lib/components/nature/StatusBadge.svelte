@@ -1,7 +1,7 @@
 <script lang="ts">
+	import Badge from '#lib/components/ui/Badge.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import type { Status } from '#lib/nature/types.ts'
-	import Badge from '../ui/Badge.svelte'
 
 	let { status }: { status: Status } = $props()
 	const i18n = getI18n()

@@ -1,11 +1,11 @@
 <script lang="ts">
+	import SpriteIcon from '#lib/components/art/SpriteIcon.svelte'
+	import Backdrop from '#lib/components/ui/Backdrop.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { phases } from '#lib/nature/catalog.ts'
 	import { phaseLabel, speciesPath } from '#lib/nature/labels.ts'
+	import { months } from '#lib/nature/seasons.ts'
 	import type { Species } from '#lib/nature/types.ts'
-	import { months } from '#lib/seasons.ts'
-	import SpriteIcon from '../SpriteIcon.svelte'
-	import Backdrop from '../ui/Backdrop.svelte'
 	import PhaseCell from './PhaseCell.svelte'
 
 	type Props = {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte'
-	import { gradientOf, motifs, type Theme } from '#lib/themes.ts'
+	import { gradientOf, motifs, type Theme } from '#lib/nature/themes.ts'
 
 	/** A themed panel: gradient, grain and a motif, with optional content on top. */
 	let { theme, children }: { theme: Theme; children?: Snippet | undefined } = $props()

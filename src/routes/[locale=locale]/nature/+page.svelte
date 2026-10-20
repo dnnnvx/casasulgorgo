@@ -1,13 +1,14 @@
 <script lang="ts">
-	import SpeciesCard from '#lib/components/nature/SpeciesCard.svelte'
+	import SpeciesGrid from '#lib/components/nature/SpeciesGrid.svelte'
 	import Seo from '#lib/components/site/Seo.svelte'
 	import Chip from '#lib/components/ui/Chip.svelte'
+	import PageHeader from '#lib/components/ui/PageHeader.svelte'
 	import SectionHeading from '#lib/components/ui/SectionHeading.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { inGroup, isActive } from '#lib/nature/catalog.ts'
 	import { groups, kindOf } from '#lib/nature/groups.ts'
 	import { groupPath } from '#lib/nature/labels.ts'
-	import { months } from '#lib/seasons.ts'
+	import { months } from '#lib/nature/seasons.ts'
 	import type { PageProps } from './$types'
 
 	let { data }: PageProps = $props()
@@ -26,10 +27,7 @@
 
 <Seo title={i18n.m.nature.title} description={i18n.m.nature.lead} />
 
-<div class="wrap page-head">
-	<h1>{i18n.m.nature.title}</h1>
-	<p>{i18n.m.nature.lead}</p>
-</div>
+<PageHeader title={i18n.m.nature.title} lead={i18n.m.nature.lead} />
 
 <div class="wrap filters">
 	<nav class="row" aria-label={i18n.m.nature.title}>
@@ -78,11 +76,7 @@
 			action={{ href: i18n.path(groupPath(section.group)), label: i18n.m.common.details }}
 		/>
 		{#if section.species.length}
-			<div class="grid">
-				{#each section.species as species (species.slug)}
-					<SpeciesCard {species} current={month ?? data.today.month} />
-				{/each}
-			</div>
+			<SpeciesGrid species={section.species} current={month ?? data.today.month} />
 		{:else}
 			<p class="empty">{i18n.m.nature.empty}</p>
 		{/if}
@@ -137,12 +131,6 @@
 		font-size: var(--text-s);
 		font-weight: 600;
 		white-space: nowrap;
-	}
-
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-		gap: var(--stack-gap) var(--card-gap);
 	}
 
 	.empty {

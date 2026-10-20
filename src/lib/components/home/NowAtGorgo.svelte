@@ -1,11 +1,11 @@
 <script lang="ts">
+	import SpeciesChip from '#lib/components/nature/SpeciesChip.svelte'
+	import Badge from '#lib/components/ui/Badge.svelte'
+	import Card from '#lib/components/ui/Card.svelte'
+	import Icon from '#lib/components/ui/Icon.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { catalog, isHighlight } from '#lib/nature/catalog.ts'
-	import { months, seasonOf } from '#lib/seasons.ts'
-	import SpeciesChip from '../nature/SpeciesChip.svelte'
-	import Badge from '../ui/Badge.svelte'
-	import Card from '../ui/Card.svelte'
-	import Icon from '../ui/Icon.svelte'
+	import { months, seasonOf } from '#lib/nature/seasons.ts'
 
 	/** What is happening this month: the season, and species worth going out for. */
 	let { month }: { month: number } = $props()

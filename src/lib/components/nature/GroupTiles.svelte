@@ -1,10 +1,10 @@
 <script lang="ts">
+	import SpriteIcon from '#lib/components/art/SpriteIcon.svelte'
+	import Backdrop from '#lib/components/ui/Backdrop.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { inGroup } from '#lib/nature/catalog.ts'
 	import { groupPath } from '#lib/nature/labels.ts'
 	import type { Group } from '#lib/nature/types.ts'
-	import SpriteIcon from '../SpriteIcon.svelte'
-	import Backdrop from '../ui/Backdrop.svelte'
 
 	/** One tile per group: its habitat backdrop with the first species, name and count. */
 	let { groups }: { groups: readonly Group[] } = $props()

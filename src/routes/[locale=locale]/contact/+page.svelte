@@ -3,7 +3,8 @@
 	import Button from '#lib/components/ui/Button.svelte'
 	import Card from '#lib/components/ui/Card.svelte'
 	import Icon from '#lib/components/ui/Icon.svelte'
-	import { limits, roles } from '#lib/contact.ts'
+	import PageHeader from '#lib/components/ui/PageHeader.svelte'
+	import { limits, roles } from '#lib/forms/contact.ts'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { enhance } from '$app/forms'
 	import type { PageProps } from './$types'
@@ -20,17 +21,14 @@
 
 <Seo title={c.title} description={c.lead} />
 
-<div class="wrap page-head">
-	<h1>{c.title}</h1>
-	<p>{c.lead}</p>
-</div>
+<PageHeader title={c.title} lead={c.lead} />
 
 <section class="wrap section">
 	{#if form && 'sent' in form}
 		<Card tone="primary">
 			<h2 class="sent"><Icon name="check" /> {c.sent.title}</h2>
 			<p>{c.sent.text}</p>
-			<p class="actions">
+			<p class="cluster actions">
 				<Button href={i18n.path('/nature')} variant="dark" iconAfter="arrowRight">
 					{i18n.m.home.explore}
 				</Button>
@@ -116,7 +114,7 @@
 				</label>
 
 				<!-- Hidden from people, tempting for bots. -->
-				<label class="trap" aria-hidden="true">
+				<label class="visually-hidden" aria-hidden="true">
 					Website <input name="website" tabindex="-1" autocomplete="off">
 				</label>
 
@@ -243,14 +241,6 @@
 		font-size: var(--text-s);
 	}
 
-	.trap {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-		clip-path: inset(50%);
-	}
-
 	.submit {
 		display: flex;
 		flex-wrap: wrap;
@@ -275,9 +265,6 @@
 	}
 
 	.actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-3);
 		margin-top: var(--space-3);
 	}
 </style>

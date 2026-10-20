@@ -1,6 +1,6 @@
+import type { Sprite } from '#lib/art/pixel.ts'
 import type { Localized } from '#lib/i18n/locales.ts'
-import type { Sprite } from '#lib/pixel.ts'
-import type { Month } from '#lib/seasons.ts'
+import type { Month } from '#lib/nature/seasons.ts'
 
 export const animalGroups = [
 	'birds',

@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Icon from '#lib/components/ui/Icon.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { afterNavigate } from '$app/navigation'
 	import { page } from '$app/state'
-	import Icon from '../ui/Icon.svelte'
 	import LanguageSwitch from './LanguageSwitch.svelte'
 	import Logo from './Logo.svelte'
 	import ThemeSwitch from './ThemeSwitch.svelte'

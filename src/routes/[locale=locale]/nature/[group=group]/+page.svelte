@@ -1,10 +1,12 @@
 <script lang="ts">
 	import PhaseLegend from '#lib/components/nature/PhaseLegend.svelte'
-	import SpeciesCard from '#lib/components/nature/SpeciesCard.svelte'
+	import SpeciesGrid from '#lib/components/nature/SpeciesGrid.svelte'
 	import YearGrid from '#lib/components/nature/YearGrid.svelte'
 	import Seo from '#lib/components/site/Seo.svelte'
 	import Breadcrumbs from '#lib/components/ui/Breadcrumbs.svelte'
+	import Card from '#lib/components/ui/Card.svelte'
 	import Chip from '#lib/components/ui/Chip.svelte'
+	import PageHeader from '#lib/components/ui/PageHeader.svelte'
 	import SectionHeading from '#lib/components/ui/SectionHeading.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { inGroup } from '#lib/nature/catalog.ts'
@@ -24,13 +26,16 @@
 
 <Seo title={info.name} description={info.description} />
 
-<div class="wrap page-head">
-	<Breadcrumbs
-		label={i18n.m.nav.breadcrumb}
-		items={[{ label: i18n.m.nav.nature, href: i18n.path('/nature') }, { label: info.name }]}
-	/>
-	<h1>{info.name}</h1>
-	<p>{info.description} · {i18n.m.common.species(data.species.length)}</p>
+<PageHeader
+	title={info.name}
+	lead="{info.description} · {i18n.m.common.species(data.species.length)}"
+>
+	{#snippet above()}
+		<Breadcrumbs
+			label={i18n.m.nav.breadcrumb}
+			items={[{ label: i18n.m.nav.nature, href: i18n.path('/nature') }, { label: info.name }]}
+		/>
+	{/snippet}
 	<nav class="groups" aria-label={i18n.m.nav.nature}>
 		{#each groups as group (group)}
 			<Chip
@@ -42,49 +47,28 @@
 			</Chip>
 		{/each}
 	</nav>
-</div>
+</PageHeader>
 
 <section class="wrap section" aria-labelledby="calendar">
 	<SectionHeading id="calendar" title={i18n.m.nature.yearView} />
-	<div class="panel">
+	<Card>
 		<YearGrid {rows} caption={i18n.m.nature.yearView} current={data.today.month} />
 		<PhaseLegend {kinds} />
-	</div>
+	</Card>
 </section>
 
 <section class="wrap section" aria-labelledby="species">
 	<SectionHeading id="species" title={i18n.m.nature.cards} />
-	<div class="grid">
-		{#each data.species as species (species.slug)}
-			<SpeciesCard {species} current={data.today.month} />
-		{/each}
-	</div>
+	<SpeciesGrid species={data.species} current={data.today.month} />
 </section>
 
 <style>
-	.page-head h1 {
-		margin-top: var(--space-2);
-	}
-
 	.groups {
 		display: flex;
 		gap: var(--space-2);
-		margin-top: var(--space-4);
+		max-width: 100%;
+		margin-top: var(--space-2);
 		overflow-x: auto;
 		scrollbar-width: none;
-	}
-
-	.panel {
-		padding: var(--space-4);
-		border-radius: var(--radius-m);
-		background: var(--panel);
-		border: var(--border-width) solid var(--border);
-		box-shadow: var(--shadow);
-	}
-
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-		gap: var(--stack-gap) var(--card-gap);
 	}
 </style>

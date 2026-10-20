@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { place } from '#lib/place.ts'
+	import { place } from '#lib/config/place.ts'
 
 	/**
 	 * A static OpenStreetMap view centred on the gorgo: the 3×3 tiles around it, shifted so the

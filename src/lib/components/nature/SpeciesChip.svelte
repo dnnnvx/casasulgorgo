@@ -1,8 +1,8 @@
 <script lang="ts">
+	import SpriteIcon from '#lib/components/art/SpriteIcon.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { speciesPath } from '#lib/nature/labels.ts'
 	import type { Species } from '#lib/nature/types.ts'
-	import SpriteIcon from '../SpriteIcon.svelte'
 
 	/** A compact link to a species: sprite and name, for dense lists. */
 	let { species }: { species: Species } = $props()

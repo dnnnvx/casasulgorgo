@@ -1,13 +1,13 @@
 <script lang="ts">
+	import SpriteIcon from '#lib/components/art/SpriteIcon.svelte'
+	import Backdrop from '#lib/components/ui/Backdrop.svelte'
+	import Badge from '#lib/components/ui/Badge.svelte'
+	import Card from '#lib/components/ui/Card.svelte'
+	import Icon from '#lib/components/ui/Icon.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { speciesOfDay } from '#lib/nature/catalog.ts'
 	import { speciesPath } from '#lib/nature/labels.ts'
-	import type { Day } from '#lib/seasons.ts'
-	import SpriteIcon from '../SpriteIcon.svelte'
-	import Backdrop from '../ui/Backdrop.svelte'
-	import Badge from '../ui/Badge.svelte'
-	import Card from '../ui/Card.svelte'
-	import Icon from '../ui/Icon.svelte'
+	import type { Day } from '#lib/nature/seasons.ts'
 
 	let { day }: { day: Day } = $props()
 	const i18n = getI18n()

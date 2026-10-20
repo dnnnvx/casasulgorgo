@@ -1,4 +1,4 @@
-import { type Day, dayNumber, monthIndex, type Season, seasonMonths } from '#lib/seasons.ts'
+import { type Day, dayNumber, monthIndex, type Season, seasonMonths } from '#lib/nature/seasons.ts'
 import type { Calendar, Group, Phase, Species, SpeciesData } from './types.ts'
 
 const quiet: readonly Phase[] = ['absent', 'dormant']

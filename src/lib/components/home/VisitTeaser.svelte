@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Button from '#lib/components/ui/Button.svelte'
+	import Card from '#lib/components/ui/Card.svelte'
+	import Icon from '#lib/components/ui/Icon.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
-	import Button from '../ui/Button.svelte'
-	import Card from '../ui/Card.svelte'
-	import Icon from '../ui/Icon.svelte'
 
 	const i18n = getI18n()
 </script>

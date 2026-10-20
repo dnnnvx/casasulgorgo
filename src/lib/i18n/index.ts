@@ -1,7 +1,7 @@
 import { createContext } from 'svelte'
 import { type Locale, type Localized, localize } from './locales.ts'
-import { en } from './messages/en.ts'
-import { it, type Messages } from './messages/it.ts'
+import { en } from './messages/en/index.ts'
+import { it, type Messages } from './messages/it/index.ts'
 
 export const messages: Record<Locale, Messages> = { it, en }
 

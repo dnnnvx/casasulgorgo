@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { blob, hash, isometric, type Point, paint } from '#lib/iso.ts'
-	import { ellipse, type Run, sprite } from '#lib/pixel.ts'
-	import { birdDown, birdUp, drake, hen, heronSmall } from '#lib/sprites.ts'
+	import { blob, hash, isometric, type Point, paint } from '#lib/art/iso.ts'
+	import { ellipse, type Run, sprite } from '#lib/art/pixel.ts'
+	import { birdDown, birdUp, drake, hen, heronSmall } from '#lib/art/sprites.ts'
 	import Pixels from './Pixels.svelte'
 
 	/** Without a sky the land meets whatever is behind it along the horizon. */

@@ -1,9 +1,10 @@
 <script lang="ts">
+	import type { IconName } from '#lib/assets/icons.ts'
+	import SpriteIcon from '#lib/components/art/SpriteIcon.svelte'
 	import PhaseLegend from '#lib/components/nature/PhaseLegend.svelte'
-	import SpeciesCard from '#lib/components/nature/SpeciesCard.svelte'
+	import SpeciesGrid from '#lib/components/nature/SpeciesGrid.svelte'
 	import StatusBadge from '#lib/components/nature/StatusBadge.svelte'
 	import YearGrid from '#lib/components/nature/YearGrid.svelte'
-	import SpriteIcon from '#lib/components/SpriteIcon.svelte'
 	import Seo from '#lib/components/site/Seo.svelte'
 	import Backdrop from '#lib/components/ui/Backdrop.svelte'
 	import Badge from '#lib/components/ui/Badge.svelte'
@@ -12,7 +13,6 @@
 	import Icon from '#lib/components/ui/Icon.svelte'
 	import SectionHeading from '#lib/components/ui/SectionHeading.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
-	import type { IconName } from '#lib/icons.ts'
 	import { isSeasonal } from '#lib/nature/catalog.ts'
 	import { groupPath, yearRow } from '#lib/nature/labels.ts'
 	import type { PageProps } from './$types'
@@ -43,7 +43,7 @@
 
 <Seo title="{name} ({s.scientificName})" description={i18n.t(s.summary)} />
 
-<div class="wrap page-head">
+<div class="wrap crumbs">
 	<Breadcrumbs
 		label={i18n.m.nav.breadcrumb}
 		items={[
@@ -105,7 +105,7 @@
 			</dl>
 			{#if s.links?.length}
 				<div class="links">
-					<h2>{i18n.m.species.links}</h2>
+					<h2 class="overline">{i18n.m.species.links}</h2>
 					{#each s.links as link (link.label)}
 						<a href={i18n.t(link.url)} target="_blank" rel="noopener" hreflang={i18n.locale}>
 							{link.label}
@@ -119,7 +119,7 @@
 
 	<section class="section" aria-labelledby="year">
 		<SectionHeading id="year" title={i18n.m.species.year} />
-		<div class="panel">
+		<Card>
 			<YearGrid
 				rows={[yearRow(s, name, '')]}
 				caption={i18n.m.species.year}
@@ -127,7 +127,7 @@
 				bare
 			/>
 			<PhaseLegend kinds={[s.kind]} />
-		</div>
+		</Card>
 	</section>
 
 	{#if data.related.length}
@@ -137,18 +137,14 @@
 				title={i18n.m.species.related}
 				action={{ href: i18n.path(groupPath(s.group)), label: i18n.m.groups[s.group].name }}
 			/>
-			<div class="grid">
-				{#each data.related as species (species.slug)}
-					<SpeciesCard {species} current={data.today.month} />
-				{/each}
-			</div>
+			<SpeciesGrid species={data.related} current={data.today.month} />
 		</section>
 	{/if}
 </article>
 
 <style>
-	.page-head {
-		padding-bottom: 0;
+	.crumbs {
+		padding-top: var(--space-fluid-m);
 	}
 
 	.head {
@@ -248,15 +244,6 @@
 		border-top: 1px solid var(--line);
 	}
 
-	.links h2 {
-		color: var(--muted);
-		font-family: var(--font-body);
-		font-size: var(--text-xs);
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-	}
-
 	.links a {
 		display: flex;
 		align-items: center;
@@ -284,19 +271,5 @@
 	dd {
 		margin: var(--space-1) 0 0;
 		font-weight: 500;
-	}
-
-	.panel {
-		padding: var(--space-4);
-		border-radius: var(--radius-m);
-		background: var(--panel);
-		border: var(--border-width) solid var(--border);
-		box-shadow: var(--shadow);
-	}
-
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-		gap: var(--stack-gap) var(--card-gap);
 	}
 </style>

@@ -1,4 +1,4 @@
-import type { Messages } from '#lib/i18n/messages/it.ts'
+import type { Messages } from '#lib/i18n/messages/it/index.ts'
 import { phases } from './catalog.ts'
 import { animalPhases, type Group, type Phase, plantPhases, type Species } from './types.ts'
 

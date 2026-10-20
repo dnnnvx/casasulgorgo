@@ -1,11 +1,11 @@
 <script lang="ts">
+	import SpriteIcon from '#lib/components/art/SpriteIcon.svelte'
+	import Backdrop from '#lib/components/ui/Backdrop.svelte'
+	import Badge from '#lib/components/ui/Badge.svelte'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { starsOf } from '#lib/nature/catalog.ts'
 	import { speciesPath } from '#lib/nature/labels.ts'
-	import { type Season, seasonMonths, seasonsFrom } from '#lib/seasons.ts'
-	import SpriteIcon from '../SpriteIcon.svelte'
-	import Backdrop from '../ui/Backdrop.svelte'
-	import Badge from '../ui/Badge.svelte'
+	import { type Season, seasonMonths, seasonsFrom } from '#lib/nature/seasons.ts'
 
 	/** The four seasons side by side: a seasonal backdrop, the note and the species to look for. */
 	let { current }: { current: Season } = $props()
@@ -133,7 +133,7 @@
 
 	/* Same forest treatment as the "before you come" card, so it reads as "now". */
 	article.current {
-		background: var(--noise), linear-gradient(160deg, #26462f, var(--forest) 60%, #182e21);
+		background: var(--fill-forest);
 		background-blend-mode: soft-light, normal;
 		color: var(--on-forest);
 		border-color: var(--forest-edge);
