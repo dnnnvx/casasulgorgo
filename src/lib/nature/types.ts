@@ -42,6 +42,9 @@ export type Calendar<P extends Phase> = {
 /** IUCN Red List categories. */
 export type Status = 'LC' | 'NT' | 'VU' | 'EN' | 'CR' | 'DD' | 'NE'
 
+/** How often it turns up at the gorgo, not worldwide. */
+export type Rarity = 'common' | 'uncommon' | 'rare'
+
 /** An external page about the species, in each language. */
 export type Link = { label: string; url: Localized }
 
@@ -80,6 +83,10 @@ export type BaseSpecies = {
 	habitat: Localized
 	/** How and where to see it. */
 	spotting: Localized
+	/** How often it turns up here; leave out until known. */
+	rarity?: Rarity
+	/** A surprising fact, shown in its own box. */
+	curiosity?: Localized
 	/** IUCN global status; leave out until verified. */
 	status?: Status
 	/** Further reading, per language (Wikipedia for now). */

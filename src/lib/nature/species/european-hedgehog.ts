@@ -13,14 +13,14 @@ export const species = animal({
 		}
 	],
 	status: 'LC',
-	name: { it: 'Riccio', en: 'European hedgehog' },
+	name: { it: 'Riccio europeo occidentale', en: 'European hedgehog' },
 	summary: {
 		it: 'Il giardiniere notturno: va a caccia di lumache tra siepi e orti.',
 		en: 'The night-time gardener: it hunts snails among hedges and vegetable plots.'
 	},
 	description: {
-		it: 'Ha circa 6.000 aculei e si appallottola quando si sente in pericolo. Da novembre a marzo va in letargo in un nido di foglie secche.',
-		en: 'It carries around 6,000 spines and rolls into a ball when threatened. From November to March it hibernates in a nest of dry leaves.'
+		it: 'Mammifero notturno, si muove tra siepi e sottobosco in cerca del suo cibo preferito. Ha circa 6.000 aculei e si appallottola quando si sente in pericolo. Da novembre a marzo va in letargo in un nido di foglie secche.',
+		en: 'A nocturnal mammal, it moves through hedgerows and undergrowth in search of its favourite food. It carries around 6,000 spines and rolls into a ball when threatened. From November to March it hibernates in a nest of dry leaves.'
 	},
 	habitat: {
 		it: 'Siepi, orti, prati e cumuli di foglie e legna.',
@@ -29,6 +29,10 @@ export const species = animal({
 	spotting: {
 		it: 'Nelle sere tiepide, ascoltando il fruscio e lo sbuffo tra l’erba. Non dargli latte: gli fa male.',
 		en: 'On mild evenings, listening for rustling and snuffling in the grass. Never give it milk: it makes hedgehogs ill.'
+	},
+	curiosity: {
+		it: "Ci vede poco e si orienta soprattutto con gusto e olfatto, grazie a un organo speciale nel palato: l'organo di Jacobson (o vomeronasale).",
+		en: 'It sees poorly and finds its way mostly by taste and smell, thanks to a special organ in the roof of its mouth: the Jacobson’s (vomeronasal) organ.'
 	},
 	size: { it: '20–30 cm', en: '20–30 cm' },
 	diet: {

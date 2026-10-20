@@ -15,6 +15,7 @@
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { isSeasonal } from '#lib/nature/catalog.ts'
 	import { groupPath, yearRow } from '#lib/nature/labels.ts'
+	import type { Rarity } from '#lib/nature/types.ts'
 	import type { PageProps } from './$types'
 
 	let { data }: PageProps = $props()
@@ -22,6 +23,11 @@
 
 	let s = $derived(data.species)
 	let name = $derived(i18n.t(s.name))
+	const rarityColors: Record<Rarity, string> = {
+		common: '#6a9a2a',
+		uncommon: '#e8a530',
+		rare: '#c0302a'
+	}
 	type Fact = { icon: IconName; label: string; value: string }
 	let facts: Fact[] = $derived(
 		s.kind === 'animal'
@@ -84,8 +90,15 @@
 			<p>{i18n.t(s.habitat)}</p>
 			<Card tone="soft" padding="s">
 				<h2 class="spot"><Icon name="binoculars" size={18} /> {i18n.m.species.spotting}</h2>
+				{#if s.rarity}
+					<p><Badge dot={rarityColors[s.rarity]}>{i18n.m.rarity[s.rarity]}</Badge></p>
+				{/if}
 				<p>{i18n.t(s.spotting)}</p>
 			</Card>
+			{#if s.curiosity}
+				<h2>{i18n.m.species.curiosity}</h2>
+				<p>{i18n.t(s.curiosity)}</p>
+			{/if}
 		</div>
 
 		<aside>

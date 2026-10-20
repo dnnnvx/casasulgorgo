@@ -119,6 +119,11 @@ export const common = {
 		DD: 'Data deficient',
 		NE: 'Not evaluated'
 	},
+	rarity: {
+		common: 'Common, easy to see',
+		uncommon: 'Uncommon',
+		rare: 'Rare here'
+	},
 	species: {
 		size: 'Size',
 		diet: 'Diet',
@@ -126,7 +131,8 @@ export const common = {
 		height: 'Height',
 		form: 'Form',
 		habitat: 'Habitat',
-		spotting: 'How to spot it',
+		spotting: 'Sightings',
+		curiosity: 'Did you know?',
 		status: 'Conservation status',
 		statusSource: 'IUCN Red List',
 		year: 'Its year at the gorgo',

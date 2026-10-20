@@ -123,6 +123,11 @@ export const common = {
 		DD: 'Dati insufficienti',
 		NE: 'Non valutata'
 	},
+	rarity: {
+		common: 'Molto comune, facile da vedere',
+		uncommon: 'Poco comune',
+		rare: 'Raro qui'
+	},
 	species: {
 		size: 'Dimensioni',
 		diet: 'Alimentazione',
@@ -130,7 +135,8 @@ export const common = {
 		height: 'Altezza',
 		form: 'Portamento',
 		habitat: 'Habitat',
-		spotting: 'Come osservarlo',
+		spotting: 'Avvistamenti',
+		curiosity: 'Curiosità',
 		status: 'Stato di conservazione',
 		statusSource: 'Lista Rossa IUCN',
 		year: 'Il suo anno al gorgo',
