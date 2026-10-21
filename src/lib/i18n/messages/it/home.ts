@@ -1,5 +1,5 @@
 export const home = {
-	title: 'Casa sul Gorgo · Natura e visite al Gorgo della Sposa',
+	title: 'Casa sul Gorgo · Gorghi di Trecenta e natura del Polesine',
 	eyebrow: 'Gorgo della Sposa · Trecenta',
 	heading: 'Un piccolo stagno, tanta vita.',
 	scene:

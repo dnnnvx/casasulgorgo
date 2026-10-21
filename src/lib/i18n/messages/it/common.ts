@@ -5,7 +5,7 @@ export const common = {
 		place: 'Gorgo della Sposa',
 		region: 'Trecenta (RO), Italia',
 		description:
-			'Il Gorgo della Sposa, uno specchio d’acqua nella Pianura Padana: la sua natura stagione per stagione e come visitarlo con rispetto.'
+			'Il Gorgo della Sposa, il più grande dei Gorghi di Trecenta nel Polesine (Rovigo): la sua natura stagione per stagione e come visitarlo con rispetto.'
 	},
 	nav: {
 		label: 'Principale',

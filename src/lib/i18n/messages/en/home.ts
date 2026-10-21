@@ -1,7 +1,7 @@
 import type { Messages } from '../it/index.ts'
 
 export const home: Messages['home'] = {
-	title: 'Casa sul Gorgo · Nature and visits at Gorgo della Sposa',
+	title: 'Casa sul Gorgo · Gorghi di Trecenta, nature in Polesine',
 	eyebrow: 'Gorgo della Sposa · Trecenta',
 	heading: 'A small pond, full of life.',
 	scene:

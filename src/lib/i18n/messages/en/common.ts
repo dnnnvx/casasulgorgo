@@ -5,7 +5,7 @@ export const common = {
 		place: 'Gorgo della Sposa',
 		region: 'Trecenta (RO), Italy',
 		description:
-			'Gorgo della Sposa, a pond in the Po Valley: its nature season by season, and how to visit it with respect.'
+			'Gorgo della Sposa, the largest of the Gorghi of Trecenta in Polesine (Rovigo, Italy): its nature season by season, and how to visit it with respect.'
 	},
 	nav: {
 		label: 'Main',

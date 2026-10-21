@@ -11,6 +11,7 @@
 	import Card from '#lib/components/ui/Card.svelte'
 	import Icon from '#lib/components/ui/Icon.svelte'
 	import SectionHeading from '#lib/components/ui/SectionHeading.svelte'
+	import { place } from '#lib/config/place.ts'
 	import { siteUrl } from '#lib/config/site.ts'
 	import { getI18n } from '#lib/i18n/index.ts'
 	import { catalog } from '#lib/nature/catalog.ts'
@@ -34,11 +35,31 @@
 	description={i18n.m.site.description}
 	jsonLd={{
 		'@context': 'https://schema.org',
-		'@type': 'WebSite',
-		name: i18n.m.site.name,
-		url: `${siteUrl}${i18n.path()}`,
-		inLanguage: i18n.locale,
-		description: i18n.m.site.description
+		'@graph': [
+			{
+				'@type': 'WebSite',
+				name: i18n.m.site.name,
+				url: `${siteUrl}${i18n.path()}`,
+				inLanguage: i18n.locale,
+				description: i18n.m.site.description
+			},
+			{
+				'@type': ['TouristAttraction', 'BodyOfWater'],
+				name: place.name,
+				alternateName: 'Gorghi di Trecenta',
+				description: i18n.m.site.description,
+				url: `${siteUrl}${i18n.path()}`,
+				geo: { '@type': 'GeoCoordinates', latitude: place.lat, longitude: place.lon },
+				address: {
+					'@type': 'PostalAddress',
+					addressLocality: 'Trecenta',
+					addressRegion: 'Rovigo, Veneto',
+					addressCountry: 'IT'
+				},
+				containedInPlace: { '@type': 'Place', name: 'Polesine' },
+				isAccessibleForFree: true
+			}
+		]
 	}}
 />
 
