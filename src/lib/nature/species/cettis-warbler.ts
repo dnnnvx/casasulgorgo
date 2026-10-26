@@ -35,6 +35,18 @@ export const species = animal({
 	diet: { it: 'Insetti, ragni, piccole lumache', en: 'Insects, spiders, small snails' },
 	activeAt: ['dawn', 'day', 'dusk'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'apr', to: 'jul' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/37-090505-cettis-warbler-at-Kalloni-east-river.jpg/960px-37-090505-cettis-warbler-at-Kalloni-east-river.jpg',
+			alt: { it: 'Usignolo di fiume (Cettia cetti)', en: "Cetti's warbler (Cettia cetti)" },
+			author: 'Mark S Jobling',
+			license: 'CC BY 3.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:37-090505-cettis-warbler-at-Kalloni-east-river.jpg',
+			width: 800,
+			height: 534
+		}
+	],
 	sprite: {
 		palette: { b: '#8a5a3a', f: '#cfc6b8', k: '#1f2226', y: '#6a4a32', g: '#6a8a3a' },
 		rows: reedWarbler.sprite.rows

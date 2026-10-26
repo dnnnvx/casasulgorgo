@@ -140,7 +140,8 @@ export const common = {
 		related: 'In the same group',
 		seasonal: 'Seasonal',
 		resident: 'All year',
-		links: 'Read more'
+		links: 'Read more',
+		photo: 'Photo'
 	},
 	notFound: {
 		title: 'Page not found',

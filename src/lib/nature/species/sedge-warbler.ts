@@ -44,6 +44,21 @@ export const species = animal({
 			{ phase: 'passage', from: 'aug', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Sedge_warbler_%28Acrocephalus_schoenobaenus%29_3.jpg/960px-Sedge_warbler_%28Acrocephalus_schoenobaenus%29_3.jpg',
+			alt: {
+				it: 'Forapaglie comune (Acrocephalus schoenobaenus)',
+				en: 'Sedge warbler (Acrocephalus schoenobaenus)'
+			},
+			author: 'Charles J. Sharp',
+			license: 'CC BY-SA 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Sedge_warbler_(Acrocephalus_schoenobaenus)_3.jpg',
+			width: 800,
+			height: 800
+		}
+	],
 	sprite: {
 		palette: {
 			b: '#8a6a42',

@@ -49,8 +49,8 @@ export type Rarity = 'common' | 'uncommon' | 'rare'
 export type Link = { label: string; url: Localized }
 
 /**
- * A photo of the species. Files live in `static/photos/` for now (`src` is the public path,
- * e.g. '/photos/tench-1.jpg'); the same shape can come from a database later.
+ * A photo of the species: our own in `static/photos/` (`src` is the public path, e.g.
+ * '/photos/tench-1.jpg') or a Wikimedia Commons URL; the same shape can come from a database later.
  */
 export type Photo = {
 	src: string

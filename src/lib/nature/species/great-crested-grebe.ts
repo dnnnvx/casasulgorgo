@@ -34,6 +34,21 @@ export const species = animal({
 	diet: { it: 'Pesci, insetti acquatici', en: 'Fish, water insects' },
 	activeAt: ['dawn', 'day', 'dusk'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'mar', to: 'jul' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Podiceps_cristatus_2_-_Lake_Dulverton.jpg/960px-Podiceps_cristatus_2_-_Lake_Dulverton.jpg',
+			alt: {
+				it: 'Svasso maggiore (Podiceps cristatus)',
+				en: 'Great crested grebe (Podiceps cristatus)'
+			},
+			author: 'JJ Harrison',
+			license: 'CC BY-SA 3.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Podiceps_cristatus_2_-_Lake_Dulverton.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { k: '#2a2622', o: '#d4692c', w: '#f4f1e6', p: '#e89a9a', g: '#8a7a6a', b: '#5aa0c8' },
 		rows: [

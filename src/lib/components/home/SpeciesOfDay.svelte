@@ -13,15 +13,20 @@
 	const i18n = getI18n()
 
 	let species = $derived(speciesOfDay(day))
+	let photo = $derived(species.photos?.[0])
 </script>
 
 <Card>
 	<p class="label"><Icon name="leaf" size={16} /> {i18n.m.home.ofTheDay}</p>
 	<a class="species" href={i18n.path(speciesPath(species))}>
 		<span class="sprite">
-			<Backdrop theme={species.group}>
-				<span class="sprite-art"><SpriteIcon art={species.sprite} /></span>
-			</Backdrop>
+			{#if photo}
+				<img src={photo.src} alt="" width={photo.width} height={photo.height} loading="lazy">
+			{:else}
+				<Backdrop theme={species.group}>
+					<span class="sprite-art"><SpriteIcon art={species.sprite} /></span>
+				</Backdrop>
+			{/if}
 		</span>
 		<span>
 			<span class="name">{i18n.t(species.name)}</span>
@@ -76,6 +81,12 @@
 
 	.sprite :global(.backdrop) {
 		height: 100%;
+	}
+
+	.sprite img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	.sprite-art {

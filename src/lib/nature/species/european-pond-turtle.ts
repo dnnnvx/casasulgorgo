@@ -43,6 +43,21 @@ export const species = animal({
 			{ phase: 'breeding', from: 'may', to: 'jun' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Emys_orbicularis_by_Christian_Ursilva.jpg/960px-Emys_orbicularis_by_Christian_Ursilva.jpg',
+			alt: {
+				it: 'Testuggine palustre europea (Emys orbicularis)',
+				en: 'European pond turtle (Emys orbicularis)'
+			},
+			author: 'Christian Ursilva from København, Danmark',
+			license: 'CC BY-SA 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Emys_orbicularis_by_Christian_Ursilva.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { k: '#2b2f2a', y: '#d8c04a', s: '#5a5f44' },
 		rows: ['...kkkkkk.....', '..kykkykkk....', '.kkkykkkykk.ss', '.kkkkkkkkkkssk', '..s..s..s.s...']

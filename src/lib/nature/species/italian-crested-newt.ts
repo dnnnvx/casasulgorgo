@@ -43,6 +43,20 @@ export const species = animal({
 			{ phase: 'breeding', from: 'mar', to: 'jun' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Alpen_Kammmolch%2C_Triturus_carnifex_7.JPG/960px-Alpen_Kammmolch%2C_Triturus_carnifex_7.JPG',
+			alt: {
+				it: 'Tritone crestato italiano (Triturus carnifex)',
+				en: 'Italian crested newt (Triturus carnifex)'
+			},
+			author: 'Böhringer Friedrich',
+			license: 'CC BY-SA 2.5',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Alpen_Kammmolch,_Triturus_carnifex_7.JPG',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { k: '#2f2b28', o: '#e88a2a', w: '#f4f1e6' },
 		rows: [

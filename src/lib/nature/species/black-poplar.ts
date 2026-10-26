@@ -39,6 +39,17 @@ export const species = plant({
 			{ phase: 'fruiting', from: 'apr', to: 'may' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Populus_nigra_kz1.jpg/960px-Populus_nigra_kz1.jpg',
+			alt: { it: 'Pioppo nero (Populus nigra)', en: 'Black poplar (Populus nigra)' },
+			author: 'Kenraiz',
+			license: 'CC BY-SA 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Populus_nigra_kz1.jpg',
+			width: 800,
+			height: 408
+		}
+	],
 	sprite: {
 		palette: { g: '#4f8040', G: '#355e34', l: '#79a856', t: '#5a4030' },
 		rows: [

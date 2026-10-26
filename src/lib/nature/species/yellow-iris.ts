@@ -40,6 +40,17 @@ export const species = plant({
 			{ phase: 'fruiting', from: 'jul', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Iris_pseudacorus_iris_des_marais.jpg/960px-Iris_pseudacorus_iris_des_marais.jpg',
+			alt: { it: 'Giaggiolo acquatico (Iris pseudacorus)', en: 'Yellow iris (Iris pseudacorus)' },
+			author: 'Myrabella',
+			license: 'CC BY-SA 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Iris_pseudacorus_iris_des_marais.jpg',
+			width: 800,
+			height: 1204
+		}
+	],
 	sprite: {
 		palette: { y: '#f0c830', Y: '#d8a020', k: '#7a5a20', g: '#5a8a3a', G: '#3f6a2a' },
 		rows: [

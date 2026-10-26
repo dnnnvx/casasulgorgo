@@ -42,6 +42,18 @@ export const species = animal({
 			{ phase: 'passage', from: 'mar', to: 'apr' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Eurasian_teal_%28Anas_crecca_crecca%29_male_Qingshui.jpg/960px-Eurasian_teal_%28Anas_crecca_crecca%29_male_Qingshui.jpg',
+			alt: { it: 'Alzavola (Anas crecca)', en: 'Eurasian teal (Anas crecca)' },
+			author: 'Charles J. Sharp',
+			license: 'CC BY-SA 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Eurasian_teal_(Anas_crecca_crecca)_male_Qingshui.jpg',
+			width: 800,
+			height: 534
+		}
+	],
 	sprite: {
 		palette: { m: '#8a3a22', k: '#2f7a52', y: '#3a3a3a', w: '#8a3a22', b: '#a8a8a0', B: '#e8d090' },
 		rows: mallard.sprite.rows

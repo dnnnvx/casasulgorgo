@@ -43,6 +43,17 @@ export const species = animal({
 			{ phase: 'breeding', from: 'may', to: 'aug' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/PapilioMachaon2016_001.JPG/960px-PapilioMachaon2016_001.JPG',
+			alt: { it: 'Macaone (Papilio machaon)', en: 'Swallowtail (Papilio machaon)' },
+			author: 'Entomolo',
+			license: 'CC BY-SA 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:PapilioMachaon2016_001.JPG',
+			width: 800,
+			height: 536
+		}
+	],
 	sprite: {
 		palette: { y: '#f0d040', k: '#1f2226', b: '#3a6ab0', r: '#d0402a' },
 		rows: [

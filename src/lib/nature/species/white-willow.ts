@@ -40,6 +40,17 @@ export const species = plant({
 			{ phase: 'fruiting', from: 'may', to: 'may' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Salix_alba_leaves.jpg/960px-Salix_alba_leaves.jpg',
+			alt: { it: 'Salice bianco (Salix alba)', en: 'White willow (Salix alba)' },
+			author: 'MPF',
+			license: 'CC BY-SA 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Salix_alba_leaves.jpg',
+			width: 800,
+			height: 600
+		}
+	],
 	sprite: {
 		palette: { l: '#a9c08a', L: '#7f9a66', t: '#6a5038' },
 		rows: [

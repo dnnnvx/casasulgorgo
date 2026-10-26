@@ -42,6 +42,21 @@ export const species = animal({
 			{ phase: 'passage', from: 'aug', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Drosselrohrs%C3%A4nger_Great_reed_warbler.jpg/960px-Drosselrohrs%C3%A4nger_Great_reed_warbler.jpg',
+			alt: {
+				it: 'Cannareccione (Acrocephalus arundinaceus)',
+				en: 'Great reed warbler (Acrocephalus arundinaceus)'
+			},
+			author: 'Andreas Trepte',
+			license: 'CC BY-SA 2.5',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Drosselrohrs%C3%A4nger_Great_reed_warbler.jpg',
+			width: 800,
+			height: 1200
+		}
+	],
 	sprite: {
 		palette: { b: '#8a6a42', f: '#e8d4aa', k: '#1f2226', y: '#b8905a', g: '#c8b060' },
 		rows: reedWarbler.sprite.rows

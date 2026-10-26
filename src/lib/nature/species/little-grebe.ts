@@ -41,6 +41,17 @@ export const species = animal({
 	},
 	activeAt: ['dawn', 'day', 'dusk'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'apr', to: 'jul' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Little_grebe_Zwergtaucher.jpg/960px-Little_grebe_Zwergtaucher.jpg',
+			alt: { it: 'Tuffetto (Tachybaptus ruficollis)', en: 'Little grebe (Tachybaptus ruficollis)' },
+			author: 'Andreas Trepte',
+			license: 'CC BY-SA 2.5',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Little_grebe_Zwergtaucher.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { k: '#2a2622', r: '#a8482a', y: '#e8d040', b: '#5a4a3a', w: '#5aa0c8' },
 		rows: [

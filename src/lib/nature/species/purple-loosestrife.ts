@@ -40,6 +40,17 @@ export const species = plant({
 			{ phase: 'fruiting', from: 'oct', to: 'oct' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Lythrum_salicaria_-_harilik_kukesaba.jpg/960px-Lythrum_salicaria_-_harilik_kukesaba.jpg',
+			alt: { it: 'Salcerella (Lythrum salicaria)', en: 'Purple loosestrife (Lythrum salicaria)' },
+			author: 'Ivar Leidus',
+			license: 'CC BY-SA 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Lythrum_salicaria_-_harilik_kukesaba.jpg',
+			width: 800,
+			height: 1200
+		}
+	],
 	sprite: {
 		palette: { p: '#b04a9a', P: '#d070b8', g: '#5a8a3a' },
 		rows: [

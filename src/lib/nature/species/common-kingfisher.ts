@@ -34,6 +34,17 @@ export const species = animal({
 	diet: { it: 'Piccoli pesci, insetti acquatici', en: 'Small fish, water insects' },
 	activeAt: ['dawn', 'day'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'apr', to: 'jul' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Alcedo_atthis_-England-8_%28cropped%29.jpg/960px-Alcedo_atthis_-England-8_%28cropped%29.jpg',
+			alt: { it: 'Martin pescatore (Alcedo atthis)', en: 'Common kingfisher (Alcedo atthis)' },
+			author: 'Tony Wood',
+			license: 'CC BY 2.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Alcedo_atthis_-England-8_(cropped).jpg',
+			width: 800,
+			height: 800
+		}
+	],
 	sprite: {
 		palette: { B: '#1f8fc4', b: '#56c1e6', o: '#e8742c', w: '#f4f1e6', k: '#1f2226' },
 		rows: [

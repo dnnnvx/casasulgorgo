@@ -41,6 +41,18 @@ export const species = animal({
 			{ phase: 'passage', from: 'aug', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Rigogolo-%28Oriolus_oriolus%29_Lazio%2C_isola_di_Ventotene_%28LT%29_19.4.2024_%28cropped%29.png/960px-Rigogolo-%28Oriolus_oriolus%29_Lazio%2C_isola_di_Ventotene_%28LT%29_19.4.2024_%28cropped%29.png',
+			alt: { it: 'Rigogolo (Oriolus oriolus)', en: 'Golden oriole (Oriolus oriolus)' },
+			author: 'Apatura1955',
+			license: 'CC0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Rigogolo-(Oriolus_oriolus)_Lazio,_isola_di_Ventotene_(LT)_19.4.2024_(cropped).png',
+			width: 800,
+			height: 554
+		}
+	],
 	sprite: {
 		palette: { b: '#1f2226', f: '#f0c020', k: '#1f2226', y: '#c0402a', g: '#6a8a3a' },
 		rows: [

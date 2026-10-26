@@ -41,6 +41,18 @@ export const species = animal({
 	},
 	activeAt: ['dawn', 'dusk', 'night'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'mar', to: 'may' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog_%28cropped%29.jpg/960px-Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog_%28cropped%29.jpg',
+			alt: { it: 'Volpe (Vulpes vulpes)', en: 'Red fox (Vulpes vulpes)' },
+			author: 'ClaudiaTen',
+			license: 'CC BY-SA 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog_(cropped).jpg',
+			width: 800,
+			height: 530
+		}
+	],
 	sprite: {
 		palette: { o: '#d4692c', O: '#a84a1c', w: '#f4f1e6', k: '#1f2226' },
 		rows: [

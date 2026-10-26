@@ -38,6 +38,20 @@ export const species = animal({
 	diet: { it: 'Semi, bacche, insetti', en: 'Seeds, berries, insects' },
 	activeAt: ['dusk', 'night'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'may', to: 'sep' }] },
+	photos: [
+		{
+			src: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Micromysminutus1.jpg',
+			alt: {
+				it: 'Topolino delle risaie (Micromys minutus)',
+				en: 'Harvest mouse (Micromys minutus)'
+			},
+			author: 'Hecke',
+			license: 'CC BY-SA 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Micromysminutus1.jpg',
+			width: 800,
+			height: 554
+		}
+	],
 	sprite: {
 		palette: { o: '#c87a3a', f: '#f0dcb0', k: '#1f2226', g: '#8aa04a' },
 		rows: [

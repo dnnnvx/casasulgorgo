@@ -40,6 +40,20 @@ export const species = animal({
 			{ phase: 'breeding', from: 'apr', to: 'jun' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/BennyTrapp_Natrix_helvetica.jpg/960px-BennyTrapp_Natrix_helvetica.jpg',
+			alt: {
+				it: 'Natrice dal collare (Natrix helvetica)',
+				en: 'Barred grass snake (Natrix helvetica)'
+			},
+			author: 'Benny Trapp',
+			license: 'CC BY-SA 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:BennyTrapp_Natrix_helvetica.jpg',
+			width: 800,
+			height: 532
+		}
+	],
 	sprite: {
 		palette: { g: '#5c6b3a', G: '#3f4a28', y: '#e8d36a', k: '#1f2226' },
 		rows: [

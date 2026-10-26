@@ -44,6 +44,17 @@ export const species = animal({
 			{ phase: 'passage', from: 'sep', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Nycticorax_nycticorax_457953189.jpg/960px-Nycticorax_nycticorax_457953189.jpg',
+			alt: { it: 'Nitticora (Nycticorax nycticorax)', en: 'Night heron (Nycticorax nycticorax)' },
+			author: 'ramidos',
+			license: 'CC BY 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Nycticorax_nycticorax_457953189.jpg',
+			width: 800,
+			height: 659
+		}
+	],
 	sprite: {
 		palette: { k: '#1f2a32', w: '#f4f1e6', g: '#9aa1a8', r: '#c0302a', y: '#e8d040', l: '#a8844c' },
 		rows: [

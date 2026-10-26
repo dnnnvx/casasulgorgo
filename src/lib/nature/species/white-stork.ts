@@ -48,6 +48,18 @@ export const species = animal({
 			{ phase: 'passage', from: 'aug', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/White_stork_%28Ciconia_ciconia%29_Bia%C5%82owieza.jpg/960px-White_stork_%28Ciconia_ciconia%29_Bia%C5%82owieza.jpg',
+			alt: { it: 'Cicogna bianca (Ciconia ciconia)', en: 'White stork (Ciconia ciconia)' },
+			author: 'Charles J. Sharp',
+			license: 'CC BY-SA 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:White_stork_(Ciconia_ciconia)_Bia%C5%82owieza.jpg',
+			width: 800,
+			height: 800
+		}
+	],
 	sprite: {
 		palette: { w: '#f4f1e6', k: '#1f2226', r: '#d8402a' },
 		rows: [

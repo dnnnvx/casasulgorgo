@@ -34,6 +34,21 @@ export const species = animal({
 	diet: { it: 'Insetti, ragni', en: 'Insects, spiders' },
 	activeAt: ['day'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'apr', to: 'aug' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Zitting_cisticola_2024_04_19_%28cropped%29.jpg/960px-Zitting_cisticola_2024_04_19_%28cropped%29.jpg',
+			alt: {
+				it: 'Beccamoschino (Cisticola juncidis)',
+				en: 'Zitting cisticola (Cisticola juncidis)'
+			},
+			author: 'Alexis Lours',
+			license: 'CC BY 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Zitting_cisticola_2024_04_19_(cropped).jpg',
+			width: 800,
+			height: 605
+		}
+	],
 	sprite: {
 		palette: { b: '#b8905a', s: '#4a3a26', f: '#f0e0c0', k: '#1f2226', y: '#c8a070', g: '#c8b060' },
 		rows: [

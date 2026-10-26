@@ -42,6 +42,17 @@ export const species = animal({
 	},
 	activeAt: ['dawn', 'day', 'dusk'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'mar', to: 'jun' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Il_pescatore_solitario.jpg/960px-Il_pescatore_solitario.jpg',
+			alt: { it: 'Airone cenerino (Ardea cinerea)', en: 'Grey heron (Ardea cinerea)' },
+			author: 'Giacomo Cimino',
+			license: 'CC BY-SA 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Il_pescatore_solitario.jpg',
+			width: 800,
+			height: 600
+		}
+	],
 	sprite: {
 		palette: { k: '#1f2226', w: '#eef0ea', g: '#9aa1a8', G: '#6b737d', y: '#e8b23a', l: '#a8844c' },
 		rows: [

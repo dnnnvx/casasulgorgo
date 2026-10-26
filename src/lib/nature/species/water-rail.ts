@@ -47,6 +47,17 @@ export const species = animal({
 			{ phase: 'wintering', from: 'nov', to: 'feb' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Water_rail_2022_04_30_01.jpg/960px-Water_rail_2022_04_30_01.jpg',
+			alt: { it: 'Porciglione (Rallus aquaticus)', en: 'Water rail (Rallus aquaticus)' },
+			author: 'Alexis Lours',
+			license: 'CC BY 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Water_rail_2022_04_30_01.jpg',
+			width: 800,
+			height: 527
+		}
+	],
 	sprite: {
 		palette: { b: '#7a5a3a', k: '#2a2622', g: '#7a8a9a', r: '#c0302a', w: '#f4f1e6', l: '#c08a6a' },
 		rows: [

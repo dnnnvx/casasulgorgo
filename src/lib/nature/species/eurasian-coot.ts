@@ -42,6 +42,17 @@ export const species = animal({
 	},
 	activeAt: ['dawn', 'day', 'dusk'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'mar', to: 'jul' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Eurasian_Coot_2023_11_25_03.jpg/960px-Eurasian_Coot_2023_11_25_03.jpg',
+			alt: { it: 'Folaga (Fulica atra)', en: 'Eurasian coot (Fulica atra)' },
+			author: 'Alexis Lours',
+			license: 'CC BY 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Eurasian_Coot_2023_11_25_03.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { k: '#1f2226', K: '#3a3d42', w: '#f4f1e6', r: '#c0302a', b: '#5aa0c8' },
 		rows: [

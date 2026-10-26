@@ -34,6 +34,18 @@ export const species = animal({
 	diet: { it: 'Topi, arvicole, piccoli uccelli, uova', en: 'Mice, voles, small birds, eggs' },
 	activeAt: ['day', 'dusk', 'night'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'apr', to: 'jul' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Mustela_nivalis_-British_Wildlife_Centre-4.jpg/960px-Mustela_nivalis_-British_Wildlife_Centre-4.jpg',
+			alt: { it: 'Donnola (Mustela nivalis)', en: 'Least weasel (Mustela nivalis)' },
+			author: 'Keven Law',
+			license: 'CC BY-SA 2.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Mustela_nivalis_-British_Wildlife_Centre-4.jpg',
+			width: 800,
+			height: 684
+		}
+	],
 	sprite: {
 		palette: { o: '#a8683a', w: '#f4f1e6', k: '#1f2226' },
 		rows: ['...........o.', '..........oook', 'ooooooooooooww', '.wwwwwwwwwww..', '..k.k....k.k..']

@@ -41,6 +41,21 @@ export const species = animal({
 			{ phase: 'passage', from: 'sep', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/PleidelsheimerWiesentalTeichrohrsaenger.jpg/960px-PleidelsheimerWiesentalTeichrohrsaenger.jpg',
+			alt: {
+				it: 'Cannaiola comune (Acrocephalus scirpaceus)',
+				en: 'Eurasian reed warbler (Acrocephalus scirpaceus)'
+			},
+			author: 'Jürgen Freisinger',
+			license: 'CC BY 3.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:PleidelsheimerWiesentalTeichrohrsaenger.jpg',
+			width: 800,
+			height: 800
+		}
+	],
 	sprite: {
 		palette: { b: '#9a7a52', f: '#efe2c4', k: '#1f2226', y: '#c8a060', g: '#c8b060' },
 		rows: [

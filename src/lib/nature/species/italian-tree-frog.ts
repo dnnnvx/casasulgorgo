@@ -40,6 +40,20 @@ export const species = animal({
 			{ phase: 'breeding', from: 'apr', to: 'jun' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/BennyTrapp_Hyla_intermedia_Italien.jpg/960px-BennyTrapp_Hyla_intermedia_Italien.jpg',
+			alt: {
+				it: 'Raganella italiana (Hyla intermedia)',
+				en: 'Italian tree frog (Hyla intermedia)'
+			},
+			author: 'Benny Trapp',
+			license: 'CC BY-SA 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:BennyTrapp_Hyla_intermedia_Italien.jpg',
+			width: 800,
+			height: 532
+		}
+	],
 	sprite: {
 		palette: { g: '#5fae3c', G: '#3f6a2a', k: '#1f2226', y: '#e8e2a8' },
 		rows: [

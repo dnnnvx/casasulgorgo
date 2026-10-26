@@ -40,6 +40,20 @@ export const species = animal({
 			{ phase: 'breeding', from: 'may', to: 'jun' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Rana_esculenta_on_Nymphaea_edit.JPG/960px-Rana_esculenta_on_Nymphaea_edit.JPG',
+			alt: {
+				it: 'Rana verde (Pelophylax kl. esculentus)',
+				en: 'Edible frog (Pelophylax kl. esculentus)'
+			},
+			author: 'Grand-Duc, Niabot (edit)',
+			license: 'CC BY 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Rana_esculenta_on_Nymphaea_edit.JPG',
+			width: 800,
+			height: 600
+		}
+	],
 	sprite: {
 		palette: { g: '#7da848', G: '#4f6e2c', k: '#1f2226', y: '#e9e2b0' },
 		rows: [

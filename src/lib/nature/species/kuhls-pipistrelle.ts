@@ -43,6 +43,20 @@ export const species = animal({
 			{ phase: 'breeding', from: 'jun', to: 'jul' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Pipistrellus_kuhlii_adult.jpg/960px-Pipistrellus_kuhlii_adult.jpg',
+			alt: {
+				it: 'Pipistrello albolimbato (Pipistrellus kuhlii)',
+				en: "Kuhl's pipistrelle (Pipistrellus kuhlii)"
+			},
+			author: 'Leonardoancillotto86',
+			license: 'CC BY 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Pipistrellus_kuhlii_adult.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { k: '#3b2e2a', b: '#6a5246', p: '#c99a8a' },
 		rows: [

@@ -42,6 +42,18 @@ export const species = animal({
 	},
 	activeAt: ['dawn', 'day', 'dusk'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'mar', to: 'jun' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Anas_platyrhynchos_male_female_quadrat.jpg/960px-Anas_platyrhynchos_male_female_quadrat.jpg',
+			alt: { it: 'Germano reale (Anas platyrhynchos)', en: 'Mallard (Anas platyrhynchos)' },
+			author: 'Richard Bartz',
+			license: 'CC BY-SA 2.5',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_male_female_quadrat.jpg',
+			width: 800,
+			height: 800
+		}
+	],
 	sprite: {
 		palette: { m: '#2f7a52', k: '#1f2226', y: '#f0b030', w: '#f4f1e6', b: '#9a6a4a', B: '#8d8a80' },
 		rows: [

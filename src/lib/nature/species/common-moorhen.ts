@@ -38,6 +38,21 @@ export const species = animal({
 	},
 	activeAt: ['dawn', 'day', 'dusk'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'apr', to: 'aug' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Common_moorhen_%28Gallinula_chloropus%29_France.jpg/960px-Common_moorhen_%28Gallinula_chloropus%29_France.jpg',
+			alt: {
+				it: "Gallinella d'acqua (Gallinula chloropus)",
+				en: 'Common moorhen (Gallinula chloropus)'
+			},
+			author: 'Alexis Lours',
+			license: 'CC BY 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Common_moorhen_(Gallinula_chloropus)_France.jpg',
+			width: 800,
+			height: 563
+		}
+	],
 	sprite: {
 		palette: { k: '#2a2a32', b: '#4a4436', w: '#f4f1e6', r: '#c0302a', y: '#e8d040', g: '#9ab040' },
 		rows: [

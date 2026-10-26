@@ -39,6 +39,17 @@ export const species = plant({
 			{ phase: 'fruiting', from: 'jul', to: 'aug' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Papaver_rhoeas_Lincolnshire_2026.jpg/960px-Papaver_rhoeas_Lincolnshire_2026.jpg',
+			alt: { it: 'Papavero comune (Papaver rhoeas)', en: 'Common poppy (Papaver rhoeas)' },
+			author: 'Kieran Roy Powell',
+			license: 'CC BY 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Papaver_rhoeas_Lincolnshire_2026.jpg',
+			width: 800,
+			height: 600
+		}
+	],
 	sprite: {
 		palette: { r: '#d8352a', R: '#a82418', k: '#1f2226', g: '#6a9a3a' },
 		rows: [

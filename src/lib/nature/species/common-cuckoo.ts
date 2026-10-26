@@ -45,6 +45,17 @@ export const species = animal({
 			{ phase: 'passage', from: 'aug', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Cuckoo_%2851169010335%29.jpg/960px-Cuckoo_%2851169010335%29.jpg',
+			alt: { it: 'Cuculo (Cuculus canorus)', en: 'Common cuckoo (Cuculus canorus)' },
+			author: 'Andy Morffew from Itchen Abbas, Hampshire, UK',
+			license: 'CC BY 2.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Cuckoo_(51169010335).jpg',
+			width: 800,
+			height: 640
+		}
+	],
 	sprite: {
 		palette: { g: '#7a8088', w: '#f4f1e6', k: '#3a3d42', y: '#e8b23a' },
 		rows: [

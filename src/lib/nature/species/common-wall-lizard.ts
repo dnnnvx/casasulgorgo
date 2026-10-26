@@ -40,6 +40,21 @@ export const species = animal({
 			{ phase: 'breeding', from: 'apr', to: 'jun' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Podarcis_muralis_near_Entella_river_006.jpg/960px-Podarcis_muralis_near_Entella_river_006.jpg',
+			alt: {
+				it: 'Lucertola muraiola (Podarcis muralis)',
+				en: 'Common wall lizard (Podarcis muralis)'
+			},
+			author: 'Mariomassone',
+			license: 'CC BY-SA 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Podarcis_muralis_near_Entella_river_006.jpg',
+			width: 800,
+			height: 600
+		}
+	],
 	sprite: {
 		palette: { b: '#8a6a48', B: '#5a4430', k: '#1f2226' },
 		rows: ['............bbb.', '.....bBbBbBbbkbb', 'BBbbbBbBbBbbbbb.', '....b..b..b..b..']

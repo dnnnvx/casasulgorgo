@@ -40,6 +40,17 @@ export const species = plant({
 			{ phase: 'fruiting', from: 'sep', to: 'nov' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Hawthorn_fruit.JPG/960px-Hawthorn_fruit.JPG',
+			alt: { it: 'Biancospino (Crataegus monogyna)', en: 'Hawthorn (Crataegus monogyna)' },
+			author: 'Elstro',
+			license: 'CC BY 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Hawthorn_fruit.JPG',
+			width: 800,
+			height: 600
+		}
+	],
 	sprite: {
 		palette: { g: '#5b8f45', G: '#3c6a37', w: '#f6f3ea', r: '#c0392b', t: '#5a4030' },
 		rows: [

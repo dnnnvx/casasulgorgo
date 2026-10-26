@@ -40,6 +40,18 @@ export const species = animal({
 			{ phase: 'wintering', from: 'nov', to: 'feb' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Common_Buzzard_by_caroline_legg_%28cropped%29.jpg/960px-Common_Buzzard_by_caroline_legg_%28cropped%29.jpg',
+			alt: { it: 'Poiana (Buteo buteo)', en: 'Common buzzard (Buteo buteo)' },
+			author: 'caroline legg',
+			license: 'CC BY 2.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Common_Buzzard_by_caroline_legg_(cropped).jpg',
+			width: 800,
+			height: 1065
+		}
+	],
 	sprite: {
 		palette: { b: '#6a4a32', f: '#e8d8b8', k: '#1f2226', y: '#e8c030', l: '#8a6a4a' },
 		rows: [

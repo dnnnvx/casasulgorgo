@@ -42,6 +42,17 @@ export const species = animal({
 			{ phase: 'passage', from: 'sep', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Ardpur2_%28cropped%29.jpg/960px-Ardpur2_%28cropped%29.jpg',
+			alt: { it: 'Airone rosso (Ardea purpurea)', en: 'Purple heron (Ardea purpurea)' },
+			author: 'Pierre Dalous',
+			license: 'CC BY-SA 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Ardpur2_(cropped).jpg',
+			width: 800,
+			height: 502
+		}
+	],
 	sprite: {
 		palette: { k: '#1f2226', w: '#c87a4a', g: '#8a6a5a', G: '#5a4a52', y: '#e8b23a', l: '#a8844c' },
 		rows: greyHeron.sprite.rows

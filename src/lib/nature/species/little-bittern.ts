@@ -45,6 +45,17 @@ export const species = animal({
 			{ phase: 'passage', from: 'sep', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Zwergdommel.jpg/960px-Zwergdommel.jpg',
+			alt: { it: 'Tarabusino (Ixobrychus minutus)', en: 'Little bittern (Ixobrychus minutus)' },
+			author: 'Andreas Trepte',
+			license: 'CC BY-SA 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Zwergdommel.jpg',
+			width: 800,
+			height: 1200
+		}
+	],
 	sprite: {
 		palette: { k: '#1f2226', o: '#e0b080', y: '#d8b040', g: '#9ab040', r: '#c8a060' },
 		rows: [

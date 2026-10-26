@@ -144,7 +144,8 @@ export const common = {
 		related: 'Nello stesso gruppo',
 		seasonal: 'Stagionale',
 		resident: 'Tutto l’anno',
-		links: 'Approfondisci'
+		links: 'Approfondisci',
+		photo: 'Foto'
 	},
 	notFound: {
 		title: 'Pagina non trovata',

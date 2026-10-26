@@ -41,6 +41,17 @@ export const species = animal({
 			{ phase: 'passage', from: 'aug', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Crabier_chevelu.jpg/960px-Crabier_chevelu.jpg',
+			alt: { it: 'Sgarza ciuffetto (Ardeola ralloides)', en: 'Squacco heron (Ardeola ralloides)' },
+			author: 'Pierre Dalous',
+			license: 'CC BY-SA 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Crabier_chevelu.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { o: '#d8b07a', O: '#b8905a', w: '#f4f1e6', k: '#1f2226', b: '#5a8ab0', y: '#e8b23a' },
 		rows: [

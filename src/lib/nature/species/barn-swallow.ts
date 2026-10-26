@@ -41,6 +41,17 @@ export const species = animal({
 			{ phase: 'passage', from: 'sep', to: 'oct' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Rauchschwalbe_Hirundo_rustica.jpg/960px-Rauchschwalbe_Hirundo_rustica.jpg',
+			alt: { it: 'Rondine (Hirundo rustica)', en: 'Barn swallow (Hirundo rustica)' },
+			author: 'Andreas Trepte',
+			license: 'CC BY-SA 2.5',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Rauchschwalbe_Hirundo_rustica.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { k: '#1d2a4a', r: '#b8402a', w: '#f4f1e6' },
 		rows: [

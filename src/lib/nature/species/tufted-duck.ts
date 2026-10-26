@@ -34,6 +34,17 @@ export const species = animal({
 	diet: { it: 'Molluschi, insetti acquatici, piante', en: 'Molluscs, water insects, plants' },
 	activeAt: ['dawn', 'day', 'dusk'],
 	calendar: { base: 'absent', periods: [{ phase: 'wintering', from: 'nov', to: 'feb' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Tufted_Duck_09_05_2025_02.jpg/960px-Tufted_Duck_09_05_2025_02.jpg',
+			alt: { it: 'Moretta (Aythya fuligula)', en: 'Tufted duck (Aythya fuligula)' },
+			author: 'Alexis Lours',
+			license: 'CC BY 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Tufted_Duck_09_05_2025_02.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { k: '#1f2226', y: '#e8d040', b: '#7a8aa0', w: '#f4f1e6' },
 		rows: [

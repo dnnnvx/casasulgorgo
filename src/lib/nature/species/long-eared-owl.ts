@@ -38,6 +38,18 @@ export const species = animal({
 	diet: { it: 'Arvicole, topi, piccoli uccelli', en: 'Voles, mice, small birds' },
 	activeAt: ['dusk', 'night'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'mar', to: 'jun' }] },
+	photos: [
+		{
+			src: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Long-eared_Owl_-_Kisjuszallas_-_Hungary_S4E0920_%2815671750198%29.jpg',
+			alt: { it: 'Gufo comune (Asio otus)', en: 'Long-eared owl (Asio otus)' },
+			author: 'Francesco Veronesi from Italy',
+			license: 'CC BY-SA 2.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Long-eared_Owl_-_Kisjuszallas_-_Hungary_S4E0920_(15671750198).jpg',
+			width: 800,
+			height: 1199
+		}
+	],
 	sprite: {
 		palette: { b: '#8a6a42', B: '#5a4428', o: '#e8742c', k: '#1f2226', f: '#d8b88a', l: '#6a4a32' },
 		rows: [

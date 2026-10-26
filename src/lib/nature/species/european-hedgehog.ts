@@ -47,6 +47,20 @@ export const species = animal({
 			{ phase: 'breeding', from: 'may', to: 'jul' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Erinaceus_europaeus_LC0119.jpg/960px-Erinaceus_europaeus_LC0119.jpg',
+			alt: {
+				it: 'Riccio europeo occidentale (Erinaceus europaeus)',
+				en: 'European hedgehog (Erinaceus europaeus)'
+			},
+			author: 'Jörg Hempel',
+			license: 'CC BY-SA 2.0 de',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Erinaceus_europaeus_LC0119.jpg',
+			width: 800,
+			height: 599
+		}
+	],
 	sprite: {
 		palette: { b: '#6a4e34', B: '#a8845c', f: '#d9b98c', k: '#1f2226' },
 		rows: [

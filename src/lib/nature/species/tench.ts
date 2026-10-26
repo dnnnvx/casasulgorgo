@@ -43,6 +43,18 @@ export const species = animal({
 			{ phase: 'breeding', from: 'may', to: 'jul' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Tinca_tinca_Natural_History_Museum_University_of_Pisa.jpg/960px-Tinca_tinca_Natural_History_Museum_University_of_Pisa.jpg',
+			alt: { it: 'Tinca (Tinca tinca)', en: 'Tench (Tinca tinca)' },
+			author: 'Mattia Nocciola',
+			license: 'CC BY-SA 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Tinca_tinca_Natural_History_Museum_University_of_Pisa.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { g: '#6b7a3a', G: '#4f5a2a', y: '#b8b060', r: '#c0392b' },
 		rows: [

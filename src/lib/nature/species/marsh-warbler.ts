@@ -39,6 +39,20 @@ export const species = animal({
 	diet: { it: 'Insetti, ragni', en: 'Insects, spiders' },
 	activeAt: ['dawn', 'day', 'dusk', 'night'],
 	calendar: { base: 'absent', periods: [{ phase: 'breeding', from: 'may', to: 'jul' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Acrocephalus_palustris_Irpin6.JPG/960px-Acrocephalus_palustris_Irpin6.JPG',
+			alt: {
+				it: 'Cannaiola verdognola (Acrocephalus palustris)',
+				en: 'Marsh warbler (Acrocephalus palustris)'
+			},
+			author: 'Аимаина хикари',
+			license: 'CC0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Acrocephalus_palustris_Irpin6.JPG',
+			width: 800,
+			height: 621
+		}
+	],
 	sprite: {
 		palette: { b: '#8a8a5a', f: '#eee8c4', k: '#1f2226', y: '#b8a870', g: '#8aa04a' },
 		rows: reedWarbler.sprite.rows

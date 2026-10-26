@@ -40,6 +40,18 @@ export const species = animal({
 	diet: { it: 'Pesci, rane, anguille, insetti', en: 'Fish, frogs, eels, insects' },
 	activeAt: ['dawn', 'dusk', 'night'],
 	calendar: { base: 'absent', periods: [{ phase: 'wintering', from: 'nov', to: 'feb' }] },
+	photos: [
+		{
+			src: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Eurasian_Bittern_-_Torrile_-_Italy_4528_%2815409347121%29.jpg',
+			alt: { it: 'Tarabuso (Botaurus stellaris)', en: 'Eurasian bittern (Botaurus stellaris)' },
+			author: 'Francesco Veronesi from Italy',
+			license: 'CC BY-SA 2.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Eurasian_Bittern_-_Torrile_-_Italy_4528_(15409347121).jpg',
+			width: 800,
+			height: 1200
+		}
+	],
 	sprite: {
 		palette: { k: '#4a3a26', o: '#c8a06a', y: '#c8b050', g: '#8a9a40', r: '#8a6a40' },
 		rows: littleBittern.sprite.rows

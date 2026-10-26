@@ -39,6 +39,17 @@ export const species = animal({
 	diet: { it: 'Piante acquatiche, radici, colture', en: 'Water plants, roots, crops' },
 	activeAt: ['dawn', 'dusk', 'night'],
 	calendar: { base: 'present' },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Myocastor_coypus_02.jpg/960px-Myocastor_coypus_02.jpg',
+			alt: { it: 'Nutria (Myocastor coypus)', en: 'Coypu (Myocastor coypus)' },
+			author: 'Petar Milošević',
+			license: 'CC BY-SA 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Myocastor_coypus_02.jpg',
+			width: 800,
+			height: 613
+		}
+	],
 	sprite: {
 		palette: { b: '#7a5a3a', B: '#5a4028', o: '#e8742c', w: '#f4f1e6', k: '#1f2226' },
 		rows: [

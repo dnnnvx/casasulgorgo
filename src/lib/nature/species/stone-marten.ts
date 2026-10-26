@@ -41,6 +41,17 @@ export const species = animal({
 	},
 	activeAt: ['dusk', 'night'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'mar', to: 'may' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Stone_marten_%28Martes_foina%29_Drenthe.jpg/960px-Stone_marten_%28Martes_foina%29_Drenthe.jpg',
+			alt: { it: 'Faina (Martes foina)', en: 'Stone marten (Martes foina)' },
+			author: 'Charles J. Sharp',
+			license: 'CC BY-SA 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Stone_marten_(Martes_foina)_Drenthe.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { b: '#6a4a32', B: '#4a3222', w: '#f4f1e6', k: '#1f2226' },
 		rows: [

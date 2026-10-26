@@ -23,6 +23,7 @@
 
 	let s = $derived(data.species)
 	let name = $derived(i18n.t(s.name))
+	let photo = $derived(s.photos?.[0])
 	const rarityColors: Record<Rarity, string> = {
 		common: '#6a9a2a',
 		uncommon: '#e8a530',
@@ -62,11 +63,37 @@
 
 <article class="wrap">
 	<header class="head">
-		<div class="portrait">
-			<Backdrop theme={s.group}>
-				<span class="portrait-sprite"><SpriteIcon art={s.sprite} label={name} /></span>
-			</Backdrop>
-		</div>
+		{#if photo}
+			<figure class="portrait photo">
+				<img
+					src={photo.src}
+					alt={i18n.t(photo.alt)}
+					width={photo.width}
+					height={photo.height}
+					fetchpriority="high"
+				>
+				<figcaption>
+					{#if photo.caption}
+						{i18n.t(photo.caption)}
+						·
+					{/if}
+					{i18n.m.species.photo}:
+					{#if photo.sourceUrl}
+						<a href={photo.sourceUrl} target="_blank" rel="noopener"
+							>{photo.author}, {photo.license}</a
+						>
+					{:else}
+						{photo.author}, {photo.license}
+					{/if}
+				</figcaption>
+			</figure>
+		{:else}
+			<div class="portrait">
+				<Backdrop theme={s.group}>
+					<span class="portrait-sprite"><SpriteIcon art={s.sprite} label={name} /></span>
+				</Backdrop>
+			</div>
+		{/if}
 		<div>
 			<h1>{name}</h1>
 			<p class="latin">{s.scientificName}</p>
@@ -176,6 +203,39 @@
 
 	.portrait :global(.backdrop) {
 		aspect-ratio: 1;
+	}
+
+	/* A real photo earns more room than the sprite. */
+	.portrait.photo {
+		width: clamp(10rem, 30vw, 20rem);
+		margin: 0;
+		overflow: visible;
+	}
+
+	.portrait.photo img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: var(--radius-m);
+	}
+
+	figcaption {
+		margin-top: var(--space-1);
+		color: var(--muted);
+		font-size: var(--text-xs);
+		overflow-wrap: anywhere;
+	}
+
+	@media (max-width: 40rem) {
+		.head:has(.photo) {
+			grid-template-columns: 1fr;
+		}
+
+		.portrait.photo {
+			width: 100%;
+		}
 	}
 
 	.portrait-sprite {

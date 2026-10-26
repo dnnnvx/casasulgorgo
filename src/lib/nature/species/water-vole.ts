@@ -38,6 +38,17 @@ export const species = animal({
 	diet: { it: 'Erbe, giunchi, radici, cortecce', en: 'Grasses, rushes, roots, bark' },
 	activeAt: ['dawn', 'day', 'dusk'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'mar', to: 'sep' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Water_Vole_on_Boot_Hill_%285592665124%29.jpg/960px-Water_Vole_on_Boot_Hill_%285592665124%29.jpg',
+			alt: { it: 'Arvicola acquatica (Arvicola amphibius)', en: 'Water vole (Arvicola amphibius)' },
+			author: 'Peter Trimming from Croydon, England',
+			license: 'CC BY 2.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Water_Vole_on_Boot_Hill_(5592665124).jpg',
+			width: 800,
+			height: 553
+		}
+	],
 	sprite: {
 		palette: { b: '#6a4e36', B: '#4a3626', k: '#1f2226', w: '#5aa0c8' },
 		rows: [

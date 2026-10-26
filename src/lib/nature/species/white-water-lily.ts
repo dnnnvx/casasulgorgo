@@ -42,6 +42,17 @@ export const species = plant({
 			{ phase: 'flowering', from: 'jun', to: 'aug' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/2016_Kwiat_grzybieni_bia%C5%82ych_2.jpg/960px-2016_Kwiat_grzybieni_bia%C5%82ych_2.jpg',
+			alt: { it: 'Ninfea bianca (Nymphaea alba)', en: 'White water lily (Nymphaea alba)' },
+			author: 'Jacek Halicki',
+			license: 'CC BY-SA 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:2016_Kwiat_grzybieni_bia%C5%82ych_2.jpg',
+			width: 800,
+			height: 653
+		}
+	],
 	sprite: {
 		palette: { g: '#4f8f4f', G: '#3d7440', w: '#f6f3ea', W: '#e0d8c8', y: '#f0c030' },
 		rows: [

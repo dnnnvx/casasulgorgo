@@ -19,13 +19,26 @@
 	const i18n = getI18n()
 
 	let year = $derived(phases(species.calendar))
+	let photo = $derived(species.photos?.[0])
 </script>
 
 <a class="card" href={i18n.path(speciesPath(species))}>
 	<span class="habitat">
-		<Backdrop theme={species.group}>
-			<span class="sprite"><SpriteIcon art={species.sprite} /></span>
-		</Backdrop>
+		{#if photo}
+			<!-- The name sits right next to it, so the photo is decorative here. -->
+			<img
+				class="photo"
+				src={photo.src}
+				alt=""
+				width={photo.width}
+				height={photo.height}
+				loading="lazy"
+			>
+		{:else}
+			<Backdrop theme={species.group}>
+				<span class="sprite"><SpriteIcon art={species.sprite} /></span>
+			</Backdrop>
+		{/if}
 	</span>
 	<span class="body">
 		<span class="name">{i18n.t(species.name)}</span>
@@ -69,8 +82,25 @@
 		background: var(--panel-hover);
 	}
 
+	.habitat {
+		overflow: hidden;
+	}
+
 	.habitat :global(.backdrop) {
 		height: 100%;
+	}
+
+	.photo {
+		display: block;
+		width: 100%;
+		height: 100%;
+		min-height: 6rem;
+		object-fit: cover;
+		transition: transform 0.2s;
+	}
+
+	.card:hover .photo {
+		transform: scale(1.04);
 	}
 
 	.sprite {

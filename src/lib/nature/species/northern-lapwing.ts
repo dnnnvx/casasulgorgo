@@ -40,6 +40,17 @@ export const species = animal({
 			{ phase: 'wintering', from: 'nov', to: 'feb' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Northern-Lapwing-Vanellus-vanellus.jpg/960px-Northern-Lapwing-Vanellus-vanellus.jpg',
+			alt: { it: 'Pavoncella (Vanellus vanellus)', en: 'Northern lapwing (Vanellus vanellus)' },
+			author: 'Andreas Trepte',
+			license: 'CC BY-SA 2.5',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Northern-Lapwing-Vanellus-vanellus.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { k: '#1f2226', g: '#2f6a52', w: '#f4f1e6', o: '#c87a3a', l: '#d48a8a' },
 		rows: [

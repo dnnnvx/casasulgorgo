@@ -45,6 +45,17 @@ export const species = animal({
 			{ phase: 'passage', from: 'aug', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Garganey%2C_Israel.jpg/960px-Garganey%2C_Israel.jpg',
+			alt: { it: 'Marzaiola (Spatula querquedula)', en: 'Garganey (Spatula querquedula)' },
+			author: 'YedidyaPopper',
+			license: 'CC BY 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Garganey,_Israel.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { m: '#6a4a32', k: '#f4f1e6', y: '#3a3a3a', w: '#6a4a32', b: '#b8b0a0', B: '#8a9aa8' },
 		rows: mallard.sprite.rows

@@ -38,6 +38,17 @@ export const species = plant({
 			{ phase: 'flowering', from: 'jul', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Cichorium_intybus-alvesgaspar1.jpg/960px-Cichorium_intybus-alvesgaspar1.jpg',
+			alt: { it: 'Cicoria selvatica (Cichorium intybus)', en: 'Chicory (Cichorium intybus)' },
+			author: 'Alvesgaspar',
+			license: 'CC BY 2.5',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Cichorium_intybus-alvesgaspar1.jpg',
+			width: 800,
+			height: 633
+		}
+	],
 	sprite: {
 		palette: { b: '#6a8ad8', B: '#4a6ac0', w: '#f6f3ea', g: '#6a9a3a' },
 		rows: [

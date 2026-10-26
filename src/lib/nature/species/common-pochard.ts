@@ -49,6 +49,17 @@ export const species = animal({
 			{ phase: 'passage', from: 'mar', to: 'mar' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Common_Pochard_2025_11_15_04.jpg/960px-Common_Pochard_2025_11_15_04.jpg',
+			alt: { it: 'Moriglione (Aythya ferina)', en: 'Common pochard (Aythya ferina)' },
+			author: 'Alexis Lours',
+			license: 'CC BY 4.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Common_Pochard_2025_11_15_04.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { m: '#9a3a22', k: '#c0302a', y: '#4a4a52', w: '#1f2226', b: '#b8b8b0', B: '#8a8a88' },
 		rows: mallard.sprite.rows

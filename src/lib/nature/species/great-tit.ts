@@ -34,6 +34,18 @@ export const species = animal({
 	diet: { it: 'Insetti, bruchi, semi', en: 'Insects, caterpillars, seeds' },
 	activeAt: ['dawn', 'day'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'mar', to: 'jun' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Great_tit_%28Parus_major%29%2C_Parc_du_Rouge-Cloitre%2C_For%C3%AAt_de_Soignes%2C_Brussels_%2826194636951%29.jpg/960px-Great_tit_%28Parus_major%29%2C_Parc_du_Rouge-Cloitre%2C_For%C3%AAt_de_Soignes%2C_Brussels_%2826194636951%29.jpg',
+			alt: { it: 'Cinciallegra (Parus major)', en: 'Great tit (Parus major)' },
+			author: 'Frank Vassen from Brussels, Belgium',
+			license: 'CC BY 2.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Great_tit_(Parus_major),_Parc_du_Rouge-Cloitre,_For%C3%AAt_de_Soignes,_Brussels_(26194636951).jpg',
+			width: 800,
+			height: 489
+		}
+	],
 	sprite: {
 		palette: { k: '#1f2226', w: '#f4f1e6', y: '#e8c830', g: '#7a9a4a', b: '#6a7a9a', l: '#8a6a4a' },
 		rows: [

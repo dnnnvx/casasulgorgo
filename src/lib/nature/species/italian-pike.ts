@@ -33,6 +33,17 @@ export const species = animal({
 	diet: { it: 'Pesci, rane, talvolta piccoli uccelli', en: 'Fish, frogs, sometimes small birds' },
 	activeAt: ['dawn', 'day'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'feb', to: 'apr' }] },
+	photos: [
+		{
+			src: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Esox_cisalpinus.jpg',
+			alt: { it: 'Luccio italico (Esox cisalpinus)', en: 'Italian pike (Esox cisalpinus)' },
+			author: 'Etrusko25',
+			license: 'CC BY-SA 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Esox_cisalpinus.jpg',
+			width: 800,
+			height: 494
+		}
+	],
 	sprite: {
 		palette: { g: '#5a7a3a', G: '#3d5a28', y: '#d8d08a', w: '#e8e8d8', k: '#1f2226' },
 		rows: [

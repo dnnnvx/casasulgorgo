@@ -41,6 +41,21 @@ export const species = animal({
 			{ phase: 'passage', from: 'sep', to: 'sep' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Turtle_dove_%28Streptopelia_turtur_turtur%29_Hungary.jpg/960px-Turtle_dove_%28Streptopelia_turtur_turtur%29_Hungary.jpg',
+			alt: {
+				it: 'Tortora selvatica (Streptopelia turtur)',
+				en: 'European turtle dove (Streptopelia turtur)'
+			},
+			author: 'Charles J. Sharp',
+			license: 'CC BY-SA 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Turtle_dove_(Streptopelia_turtur_turtur)_Hungary.jpg',
+			width: 800,
+			height: 800
+		}
+	],
 	sprite: {
 		palette: { g: '#9a9aa8', p: '#d8a8a0', o: '#c8803a', k: '#1f2226', w: '#f4f1e6', r: '#c06a6a' },
 		rows: [

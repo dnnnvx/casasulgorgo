@@ -40,6 +40,17 @@ export const species = animal({
 			{ phase: 'breeding', from: 'jun', to: 'aug' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Anax_imperator_qtl2.jpg/960px-Anax_imperator_qtl2.jpg',
+			alt: { it: 'Imperatore (Anax imperator)', en: 'Emperor dragonfly (Anax imperator)' },
+			author: 'Quartl',
+			license: 'CC BY 3.0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Anax_imperator_qtl2.jpg',
+			width: 800,
+			height: 613
+		}
+	],
 	sprite: {
 		palette: { b: '#3a8ac4', g: '#6aa84f', w: '#d8eef5', k: '#1f2226' },
 		rows: [

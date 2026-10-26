@@ -37,6 +37,21 @@ export const species = animal({
 	},
 	activeAt: ['day'],
 	calendar: { base: 'present', periods: [{ phase: 'breeding', from: 'apr', to: 'jun' }] },
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Great_spotted_woodpecker_%28Dendrocopos_major%29_male_Drenthe.jpg/960px-Great_spotted_woodpecker_%28Dendrocopos_major%29_male_Drenthe.jpg',
+			alt: {
+				it: 'Picchio rosso maggiore (Dendrocopos major)',
+				en: 'Great spotted woodpecker (Dendrocopos major)'
+			},
+			author: 'Charles J. Sharp',
+			license: 'CC BY-SA 4.0',
+			sourceUrl:
+				'https://commons.wikimedia.org/wiki/File:Great_spotted_woodpecker_(Dendrocopos_major)_male_Drenthe.jpg',
+			width: 800,
+			height: 533
+		}
+	],
 	sprite: {
 		palette: { k: '#1f2226', w: '#f4f1e6', r: '#c0302a', l: '#8a6a4a' },
 		rows: [

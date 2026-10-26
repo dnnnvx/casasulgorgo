@@ -40,6 +40,20 @@ export const species = plant({
 			{ phase: 'fruiting', from: 'oct', to: 'nov' }
 		]
 	},
+	photos: [
+		{
+			src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Reed_panicle_at_Brodalen_1.jpg/960px-Reed_panicle_at_Brodalen_1.jpg',
+			alt: {
+				it: 'Cannuccia di palude (Phragmites australis)',
+				en: 'Common reed (Phragmites australis)'
+			},
+			author: 'W.carter',
+			license: 'CC0',
+			sourceUrl: 'https://commons.wikimedia.org/wiki/File:Reed_panicle_at_Brodalen_1.jpg',
+			width: 800,
+			height: 634
+		}
+	],
 	sprite: {
 		palette: { g: '#7aa34a', G: '#5a8038', p: '#a07850', P: '#c9a77a' },
 		rows: [
