@@ -61,9 +61,9 @@
 
 	.panel {
 		overflow: hidden;
-		border-radius: var(--radius-m);
+		clip-path: var(--pixel-corners);
 		background:
-			var(--noise), radial-gradient(circle at 85% 0%, rgb(172 196 86 / 0.28), transparent 55%),
+			var(--dither), radial-gradient(circle at 85% 0%, rgb(172 196 86 / 0.28), transparent 55%),
 			linear-gradient(160deg, #26462f, var(--forest) 60%, #182e21);
 		background-blend-mode: soft-light, normal, normal;
 		color: var(--on-forest);

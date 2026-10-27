@@ -14,7 +14,7 @@
 
 <div class="seasons">
 	{#each seasonsFrom(current) as season (season)}
-		<article class:current={season === current}>
+		<article class="pixel-box" class:current={season === current}>
 			<Backdrop theme={season}>
 				<header>
 					<h3>{i18n.m.seasons[season]}</h3>
@@ -68,12 +68,14 @@
 	article {
 		display: flex;
 		flex-direction: column;
-		overflow: hidden;
-		border-radius: var(--radius-m);
-		background: var(--panel);
-		border: var(--border-width) solid var(--border);
-		box-shadow: var(--shadow);
-		position: relative;
+		--fill: var(--panel);
+		--edge: var(--border);
+		--drop: var(--shadow-color);
+		border: var(--border-width) solid transparent;
+	}
+
+	article > :global(.backdrop) {
+		clip-path: var(--pixel-corners-top);
 	}
 
 	header {
@@ -133,13 +135,11 @@
 
 	/* Same forest treatment as the "before you come" card, so it reads as "now". */
 	article.current {
-		background: var(--fill-forest);
-		background-blend-mode: soft-light, normal;
+		--fill: var(--fill-forest);
+		--edge: var(--forest-edge);
+		--drop: var(--forest-drop);
+		--card-sheen: var(--dark-card-sheen);
 		color: var(--on-forest);
-		border-color: var(--forest-edge);
-		box-shadow:
-			0 var(--card-drop) 0 var(--forest-drop),
-			var(--dark-card-sheen);
 	}
 
 	article.current .note {

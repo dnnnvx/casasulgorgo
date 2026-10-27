@@ -198,7 +198,7 @@
 	.portrait {
 		width: clamp(6.5rem, 16vw, 10rem);
 		overflow: hidden;
-		border-radius: var(--radius-m);
+		clip-path: var(--pixel-corners);
 	}
 
 	.portrait :global(.backdrop) {
@@ -210,6 +210,8 @@
 		width: clamp(10rem, 30vw, 20rem);
 		margin: 0;
 		overflow: visible;
+		/* The caption hangs below the photo, so the photo clips itself. */
+		clip-path: none;
 	}
 
 	.portrait.photo img {
@@ -218,7 +220,7 @@
 		height: auto;
 		aspect-ratio: 4 / 3;
 		object-fit: cover;
-		border-radius: var(--radius-m);
+		clip-path: var(--pixel-corners);
 	}
 
 	figcaption {

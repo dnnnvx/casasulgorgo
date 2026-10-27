@@ -53,7 +53,7 @@
 		height: 16rem;
 		margin: 0;
 		overflow: hidden;
-		border-radius: var(--radius-m);
+		clip-path: var(--pixel-corners);
 		background: var(--tile);
 	}
 

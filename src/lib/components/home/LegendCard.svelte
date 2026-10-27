@@ -37,8 +37,8 @@
 		overflow: hidden;
 		min-height: 11rem;
 		padding: var(--space-fluid-s);
-		border-radius: var(--radius-m);
-		background: var(--noise), linear-gradient(170deg, var(--night-from), var(--night-to));
+		clip-path: var(--pixel-corners);
+		background: var(--dither), linear-gradient(170deg, var(--night-from), var(--night-to));
 		background-blend-mode: soft-light, normal;
 		color: var(--on-forest);
 	}

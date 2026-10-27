@@ -41,7 +41,11 @@
 <div class="wrap seasons">
 	{#each ordered as season (season)}
 		{@const stars = starsOf(season, 8)}
-		<section class="season" class:current={season === current} aria-labelledby="season-{season}">
+		<section
+			class="season pixel-box"
+			class:current={season === current}
+			aria-labelledby="season-{season}"
+		>
 			<Backdrop theme={season}>
 				<header>
 					<h2 id="season-{season}">{i18n.m.seasons[season]}</h2>
@@ -109,11 +113,14 @@
 		--chip-bg: var(--chip-on-panel);
 		display: flex;
 		flex-direction: column;
-		overflow: hidden;
-		border-radius: var(--radius-m);
-		background: var(--panel);
-		border: var(--border-width) solid var(--border);
-		box-shadow: var(--shadow);
+		--fill: var(--panel);
+		--edge: var(--border);
+		--drop: var(--shadow-color);
+		border: var(--border-width) solid transparent;
+	}
+
+	.season > :global(.backdrop) {
+		clip-path: var(--pixel-corners-top);
 	}
 
 	/* Same forest treatment as the "before you come" card, so it reads as "now". */
@@ -121,13 +128,11 @@
 		--chip-bg: rgb(255 255 255 / 0.12);
 		--chip-bg-hover: rgb(255 255 255 / 0.2);
 		--chip-ink: var(--on-forest);
-		background: var(--fill-forest);
-		background-blend-mode: soft-light, normal;
+		--fill: var(--fill-forest);
+		--edge: var(--forest-edge);
+		--drop: var(--forest-drop);
+		--card-sheen: var(--dark-card-sheen);
 		color: var(--on-forest);
-		border-color: var(--forest-edge);
-		box-shadow:
-			0 var(--card-drop) 0 var(--forest-drop),
-			var(--dark-card-sheen);
 	}
 
 	header {

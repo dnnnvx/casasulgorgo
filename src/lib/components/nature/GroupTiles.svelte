@@ -15,7 +15,7 @@
 	{#each groups as group (group)}
 		{@const members = inGroup(group)}
 		<li>
-			<a href={i18n.path(groupPath(group))}>
+			<a class="pixel-box" href={i18n.path(groupPath(group))}>
 				<span class="art">
 					<Backdrop theme={group}>
 						{#if members[0]}
@@ -45,27 +45,28 @@
 		grid-template-columns: auto 1fr;
 		grid-template-rows: auto auto;
 		column-gap: var(--space-3);
+		align-content: center;
 		align-items: center;
+		/* Fixed, so every tile matches whatever its name's length: room for a two-line name. */
+		height: 4.75rem;
 		padding: var(--space-2);
-		border-radius: var(--radius-m);
-		background: var(--panel);
-		border: var(--border-width) solid var(--border);
-		box-shadow: var(--shadow);
+		--fill: var(--panel);
+		--edge: var(--border);
+		--drop: var(--shadow-color);
+		border: var(--border-width) solid transparent;
 		color: var(--ink);
 		text-decoration: none;
-		transition: background-color 0.15s;
 	}
 
 	a:hover {
-		background: var(--panel-hover);
+		--fill: var(--panel-hover);
 	}
 
 	.art {
 		grid-row: span 2;
 		width: 3rem;
 		height: 3rem;
-		overflow: hidden;
-		border-radius: var(--radius-s);
+		clip-path: var(--pixel-corners);
 	}
 
 	.art :global(.backdrop) {
@@ -84,6 +85,11 @@
 	}
 
 	.name {
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
 		font-size: var(--text-s);
 		font-weight: 600;
 		line-height: 1.2;

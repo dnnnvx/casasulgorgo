@@ -42,9 +42,61 @@
 /* Small uppercase label above a group: "Fauna", "Highlights", fact names. */
 .overline {
 	color: var(--muted);
-	font-family: var(--font-body);
+	font-family: var(--font-mono);
 	font-size: var(--text-xs);
-	font-weight: 700;
-	letter-spacing: 0.08em;
+	font-weight: 600;
+	letter-spacing: 0.06em;
 	text-transform: uppercase;
+}
+
+/* Fades and rises into place as it scrolls into view; browsers without scroll timelines just show it. */
+@media (prefers-reduced-motion: no-preference) {
+	@supports (animation-timeline: view()) {
+		.reveal {
+			animation: reveal linear both;
+			animation-timeline: view();
+			animation-range: entry 0% entry 60%;
+		}
+	}
+}
+
+@keyframes reveal {
+	from {
+		opacity: 0;
+		transform: translateY(1.5rem);
+	}
+}
+
+/*
+ * Pixel-art box: stepped corners on the 2px grid. clip-path would cut off a border and
+ * box-shadow, so ::before draws the edge plus the hard drop and ::after the fill.
+ * The box sets --fill (any background), --edge and --drop, and a transparent border for spacing.
+ * It must not clip its overflow (that would cut the edge off): media flush with its sides clip
+ * themselves with --pixel-corners-top / -left instead.
+ */
+.pixel-box {
+	position: relative;
+	isolation: isolate;
+}
+
+.pixel-box::before,
+.pixel-box::after {
+	position: absolute;
+	z-index: -1;
+	clip-path: var(--pixel-corners);
+	content: "";
+	pointer-events: none;
+}
+
+.pixel-box::before {
+	inset: calc(-1 * var(--border-width)) calc(-1 * var(--border-width))
+		calc(-1 * (var(--border-width) + var(--card-drop)));
+	background: linear-gradient(var(--edge) calc(100% - var(--card-drop)), var(--drop) 0);
+}
+
+.pixel-box::after {
+	inset: 0;
+	background: var(--fill);
+	background-blend-mode: soft-light, normal;
+	box-shadow: var(--card-sheen, var(--sheen));
 }

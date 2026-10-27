@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Dither from '#lib/components/art/Dither.svelte'
 	import Scene from '#lib/components/art/Scene.svelte'
 	import LegendCard from '#lib/components/home/LegendCard.svelte'
 	import NowAtGorgo from '#lib/components/home/NowAtGorgo.svelte'
@@ -28,6 +29,7 @@
 		{ label: i18n.m.home.stats.groups, value: groups.length },
 		{ label: i18n.m.home.stats.seasons, value: seasons.length }
 	])
+	let heroHeight = $state(0)
 </script>
 
 <Seo
@@ -63,10 +65,22 @@
 	}}
 />
 
-<section class="hero">
+<section class="hero" bind:clientHeight={heroHeight} style:--hero-height="{heroHeight}px">
+	<!-- Each pair of colours gets an equal share of the height: repeating the green keeps the pink
+	     in the top fifth, so the text sits on flat green instead of the dither. -->
+	<Dither
+		colors={[
+			'#ffd1c3',
+			'var(--primary)',
+			'var(--primary)',
+			'var(--primary)',
+			'var(--primary)',
+			'var(--primary-hover)'
+		]}
+	/>
 	<div class="wrap hero-grid">
 		<div>
-			<p class="eyebrow">{i18n.m.home.eyebrow}</p>
+			<p class="eyebrow">[ {i18n.m.home.eyebrow} ]</p>
 			<h1>{i18n.m.home.heading}</h1>
 			<p class="lead">{i18n.m.home.lead}</p>
 			<div class="cluster actions">
@@ -86,70 +100,133 @@
 		</div>
 		<figure class="scene">
 			<Scene label={i18n.m.home.scene} withSky={false} />
+			<figcaption aria-hidden="true">
+				{place.lat.toFixed(4)}°N · {place.lon.toFixed(4)}°E
+			</figcaption>
 		</figure>
 	</div>
 </section>
 
-<section class="wrap dash">
-	<SpeciesOfDay day={data.today} />
-	<NowAtGorgo month={data.today.month} />
-	<VisitTeaser />
-</section>
+<!-- The rest of the page slides up over the pinned hero, entering through a dithered edge. -->
+<div class="cover">
+	<div class="edge"><Dither colors={['transparent', 'var(--bg)']} /></div>
 
-<section class="wrap section" aria-labelledby="groups">
-	<SectionHeading
-		id="groups"
-		title={i18n.m.home.groupsTitle}
-		lead={i18n.m.home.groupsLead}
-		action={{ href: i18n.path('/nature'), label: i18n.m.common.seeAll }}
-	/>
-	<h3 class="overline kingdom">{i18n.m.kinds.animal}</h3>
-	<GroupTiles groups={animalGroups} />
-	<h3 class="overline kingdom">{i18n.m.kinds.plant}</h3>
-	<GroupTiles groups={plantGroups} />
-</section>
+	<section class="wrap dash reveal">
+		<SpeciesOfDay day={data.today} />
+		<NowAtGorgo month={data.today.month} />
+		<VisitTeaser />
+	</section>
 
-<section class="wrap section" aria-labelledby="year">
-	<SectionHeading
-		id="year"
-		title={i18n.m.home.yearTitle}
-		lead={i18n.m.home.yearLead}
-		action={{ href: i18n.path('/seasons'), label: i18n.m.nav.seasons }}
-	/>
-	<SeasonCards current={seasonOf(data.today.month)} />
-</section>
+	<section class="wrap section reveal" aria-labelledby="groups">
+		<SectionHeading
+			id="groups"
+			title={i18n.m.home.groupsTitle}
+			lead={i18n.m.home.groupsLead}
+			action={{ href: i18n.path('/nature'), label: i18n.m.common.seeAll }}
+		/>
+		<h3 class="overline kingdom">{i18n.m.kinds.animal}</h3>
+		<GroupTiles groups={animalGroups} />
+		<h3 class="overline kingdom">{i18n.m.kinds.plant}</h3>
+		<GroupTiles groups={plantGroups} />
+	</section>
 
-<section class="wrap section about" aria-labelledby="about">
-	<Card tone="soft">
-		<div class="about-grid">
-			<div>
-				<h2 id="about">{i18n.m.home.aboutTitle}</h2>
-				<p>{i18n.m.home.origin}</p>
-				<p>{i18n.m.home.about}</p>
+	<section class="wrap section reveal" aria-labelledby="year">
+		<SectionHeading
+			id="year"
+			title={i18n.m.home.yearTitle}
+			lead={i18n.m.home.yearLead}
+			action={{ href: i18n.path('/seasons'), label: i18n.m.nav.seasons }}
+		/>
+		<SeasonCards current={seasonOf(data.today.month)} />
+	</section>
+
+	<section class="wrap section about reveal" aria-labelledby="about">
+		<Card tone="soft">
+			<div class="about-grid">
+				<div>
+					<h2 id="about">{i18n.m.home.aboutTitle}</h2>
+					<p>{i18n.m.home.origin}</p>
+					<p>{i18n.m.home.about}</p>
+				</div>
+				<dl class="facts">
+					{#each i18n.m.home.facts as fact (fact.value)}
+						<div>
+							<dt>{fact.value}</dt>
+							<dd>{fact.label}</dd>
+						</div>
+					{/each}
+				</dl>
 			</div>
-			<dl class="facts">
-				{#each i18n.m.home.facts as fact (fact.value)}
-					<div>
-						<dt>{fact.value}</dt>
-						<dd>{fact.label}</dd>
-					</div>
-				{/each}
-			</dl>
-		</div>
-		<p class="draft"><Icon name="info" size={16} /> {i18n.m.common.draft}</p>
-	</Card>
-	<LegendCard title={i18n.m.home.legendTitle} text={i18n.m.home.legend} />
-</section>
+			<p class="draft"><Icon name="info" size={16} /> {i18n.m.common.draft}</p>
+		</Card>
+		<LegendCard title={i18n.m.home.legendTitle} text={i18n.m.home.legend} />
+	</section>
+</div>
 
 <style>
 	.hero {
 		position: relative;
 		overflow: hidden;
 		padding-block: var(--space-fluid-l) var(--space-fluid-xl);
-		background:
-			var(--noise), linear-gradient(160deg, #ffd1c3, var(--primary) 55%, var(--primary-hover));
-		background-blend-mode: soft-light, normal;
+		background: var(--primary);
 		color: var(--on-primary);
+	}
+
+	/*
+	 * Pinned where it already starts, right under the header, so it never moves. When it is taller
+	 * than the screen (phones) it instead scrolls only until its bottom, the drawing, meets the
+	 * screen's bottom edge, and pins there.
+	 */
+	.hero {
+		position: sticky;
+		top: min(calc(var(--header-height) + 1px), calc(100svh - var(--hero-height)));
+	}
+
+	/* As the page covers it, the text drifts up and fades while the land slowly zooms in. */
+	@media (prefers-reduced-motion: no-preference) {
+		@supports (animation-timeline: scroll()) {
+			.hero-grid > div,
+			.scene {
+				animation: linear both;
+				animation-timeline: scroll();
+				animation-range: 0 80vh;
+			}
+
+			.hero-grid > div {
+				animation-name: hero-text;
+			}
+
+			.scene {
+				animation-name: hero-scene;
+			}
+		}
+	}
+
+	@keyframes hero-text {
+		to {
+			opacity: 0;
+			transform: translateY(-3rem);
+		}
+	}
+
+	@keyframes hero-scene {
+		to {
+			transform: scale(1.12);
+			filter: saturate(0.6) brightness(0.85);
+		}
+	}
+
+	.cover {
+		position: relative;
+		z-index: 1;
+		margin-top: calc(-1 * var(--space-7));
+		background: linear-gradient(transparent var(--space-7), var(--bg) 0);
+	}
+
+	.edge {
+		position: absolute;
+		inset: 0 0 auto;
+		height: var(--space-7);
 	}
 
 	.hero-grid > div {
@@ -171,11 +248,12 @@
 	}
 
 	.eyebrow {
+		font-family: var(--font-mono);
 		font-size: var(--text-s);
-		font-weight: 700;
-		letter-spacing: 0.1em;
+		font-weight: 600;
+		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		opacity: 0.75;
+		opacity: 0.85;
 	}
 
 	h1 {
@@ -207,15 +285,20 @@
 	}
 
 	.stats dt {
-		font-size: var(--text-s);
-		opacity: 0.75;
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		opacity: 0.85;
 	}
 
 	.stats dd {
 		margin: 0;
-		font-family: var(--font-display);
+		font-family: var(--font-mono);
 		font-size: var(--text-2xl);
 		font-weight: 600;
+		font-variant-numeric: tabular-nums;
 		line-height: 1.1;
 	}
 
@@ -225,6 +308,38 @@
 		inset: 0 0 0 auto;
 		width: 55%;
 		margin: 0;
+	}
+
+	/* Viewfinder crop marks and a coordinate readout over the land. */
+	.scene::before {
+		position: absolute;
+		inset: 14% 12% 18% 30%;
+		z-index: 1;
+		background:
+			linear-gradient(currentColor, currentColor) 0 0 / 1.25rem 3px,
+			linear-gradient(currentColor, currentColor) 0 0 / 3px 1.25rem,
+			linear-gradient(currentColor, currentColor) 100% 0 / 1.25rem 3px,
+			linear-gradient(currentColor, currentColor) 100% 0 / 3px 1.25rem,
+			linear-gradient(currentColor, currentColor) 0 100% / 1.25rem 3px,
+			linear-gradient(currentColor, currentColor) 0 100% / 3px 1.25rem,
+			linear-gradient(currentColor, currentColor) 100% 100% / 1.25rem 3px,
+			linear-gradient(currentColor, currentColor) 100% 100% / 3px 1.25rem;
+		background-repeat: no-repeat;
+		opacity: 0.9;
+		content: "";
+		pointer-events: none;
+	}
+
+	/* Sits just inside the frame's bottom-right corner. */
+	figcaption {
+		position: absolute;
+		right: calc(12% + var(--space-3));
+		bottom: calc(18% + var(--space-2));
+		z-index: 1;
+		font-family: var(--font-mono);
+		font-size: var(--text-s);
+		font-weight: 700;
+		letter-spacing: 0.06em;
 	}
 
 	@media (max-width: 52rem) {
@@ -243,7 +358,6 @@
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: var(--stack-gap) var(--card-gap);
 		position: relative;
-		margin-top: calc(-1 * var(--space-7));
 	}
 
 	@media (max-width: 60rem) {
@@ -308,7 +422,7 @@
 
 	.facts div {
 		padding: var(--space-3) var(--space-3);
-		border-radius: var(--radius-m);
+		clip-path: var(--pixel-corners);
 		background: var(--surface);
 	}
 

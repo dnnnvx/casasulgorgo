@@ -92,7 +92,7 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: var(--space-4);
-		min-height: 3.75rem;
+		min-height: var(--header-height);
 	}
 
 	.brand {

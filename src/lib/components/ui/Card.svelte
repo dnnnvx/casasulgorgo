@@ -13,9 +13,9 @@
 </script>
 
 {#if href}
-	<a class="card link {tone} {padding}" {href}>{@render children()}</a>
+	<a class="card pixel-box link {tone} {padding}" {href}>{@render children()}</a>
 {:else}
-	<div class="card {tone} {padding}">{@render children()}</div>
+	<div class="card pixel-box {tone} {padding}">{@render children()}</div>
 {/if}
 
 <style>
@@ -24,14 +24,12 @@
 		flex-direction: column;
 		gap: var(--space-2);
 		min-width: 0;
-		border-radius: var(--radius-m);
 		color: var(--ink);
 		text-decoration: none;
-		/* Each tone sets --edge to a darker shade of its own background. */
-		border: var(--border-width) solid var(--edge, var(--border));
-		box-shadow:
-			0 var(--card-drop) 0 var(--drop, var(--edge, var(--shadow-color))),
-			var(--card-sheen, var(--sheen));
+		/* The edge, drop and fill are drawn by .pixel-box; the border only keeps the spacing. */
+		border: var(--border-width) solid transparent;
+		/* Each tone sets --edge to a darker shade of its own --fill; the drop defaults to the edge. */
+		--drop: var(--edge);
 	}
 
 	.m {
@@ -44,20 +42,19 @@
 
 	.surface {
 		--chip-bg: var(--chip-on-panel);
-		background: var(--panel);
+		--fill: var(--panel);
 		--edge: var(--border);
-		box-shadow: var(--shadow);
+		--drop: var(--shadow-color);
 	}
 
 	.soft {
 		--edge: light-dark(#bccb8a, #4a5c2a);
-		background: var(--primary-soft);
+		--fill: var(--primary-soft);
 	}
 
 	.primary {
 		--edge: #7f9638;
-		background: var(--fill-primary);
-		background-blend-mode: soft-light, normal;
+		--fill: var(--fill-primary);
 		color: var(--on-primary);
 	}
 
@@ -65,16 +62,11 @@
 		--edge: var(--forest-edge);
 		--drop: var(--forest-drop);
 		--card-sheen: var(--dark-card-sheen);
-		background: var(--fill-forest);
-		background-blend-mode: soft-light, normal;
+		--fill: var(--fill-forest);
 		color: var(--on-forest);
 	}
 
-	.link {
-		transition: background-color 0.15s;
-	}
-
 	.link.surface:hover {
-		background: var(--panel-hover);
+		--fill: var(--panel-hover);
 	}
 </style>

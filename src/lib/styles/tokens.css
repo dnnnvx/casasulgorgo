@@ -44,13 +44,13 @@
 	/* The light edge along the top of a raised panel: faint in dark mode. */
 	--sheen: inset 0 2px 0 light-dark(rgb(255 255 255 / 0.35), rgb(255 255 255 / 0.05));
 
-	/* Film grain, layered over gradients with background-blend-mode: soft-light. */
-	--noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1.5 0 0 0 -.25 1.5 0 0 0 -.25 1.5 0 0 0 -.25 0 0 0 0 .8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	/* Ordered (Bayer 4×4) dither screen, layered over gradients with background-blend-mode: soft-light. */
+	--dither: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='2' height='2' fill='rgb(72,72,72)'/%3E%3Crect x='2' y='0' width='2' height='2' fill='rgb(132,132,132)'/%3E%3Crect x='4' y='0' width='2' height='2' fill='rgb(87,87,87)'/%3E%3Crect x='6' y='0' width='2' height='2' fill='rgb(147,147,147)'/%3E%3Crect x='0' y='2' width='2' height='2' fill='rgb(162,162,162)'/%3E%3Crect x='2' y='2' width='2' height='2' fill='rgb(102,102,102)'/%3E%3Crect x='4' y='2' width='2' height='2' fill='rgb(177,177,177)'/%3E%3Crect x='6' y='2' width='2' height='2' fill='rgb(117,117,117)'/%3E%3Crect x='0' y='4' width='2' height='2' fill='rgb(94,94,94)'/%3E%3Crect x='2' y='4' width='2' height='2' fill='rgb(154,154,154)'/%3E%3Crect x='4' y='4' width='2' height='2' fill='rgb(79,79,79)'/%3E%3Crect x='6' y='4' width='2' height='2' fill='rgb(139,139,139)'/%3E%3Crect x='0' y='6' width='2' height='2' fill='rgb(184,184,184)'/%3E%3Crect x='2' y='6' width='2' height='2' fill='rgb(124,124,124)'/%3E%3Crect x='4' y='6' width='2' height='2' fill='rgb(169,169,169)'/%3E%3Crect x='6' y='6' width='2' height='2' fill='rgb(109,109,109)'/%3E%3C/svg%3E");
 	--on-forest: #f3efdf;
 
 	/* Textured fills for the brand's two "special" surfaces; pair with background-blend-mode: soft-light, normal. */
-	--fill-forest: var(--noise), linear-gradient(160deg, #26462f, var(--forest) 60%, #182e21);
-	--fill-primary: var(--noise), linear-gradient(150deg, #c2d778, var(--primary) 55%, #93ad45);
+	--fill-forest: var(--dither), linear-gradient(160deg, #26462f, var(--forest) 60%, #182e21);
+	--fill-primary: var(--dither), linear-gradient(150deg, #c2d778, var(--primary) 55%, #93ad45);
 
 	/* Seasons */
 	--winter: #9db8c6;
@@ -135,12 +135,98 @@
 	--space-fluid-l: clamp(var(--space-6), 5vw, var(--space-7));
 	--space-fluid-xl: clamp(var(--space-7), 8vw, 5rem);
 
+	/* Height of the sticky site header's bar (its 1px bottom border comes on top). */
+	--header-height: 3.75rem;
+
 	/* Header switches (language, theme): every option is the same circle. */
 	--switch-size: 2rem;
 
+	/* A rounded corner drawn as pixel-art steps on the 2px border grid; see .pixel-box. */
+	--pixel-corners: polygon(
+		0 10px,
+		2px 10px,
+		2px 6px,
+		4px 6px,
+		4px 4px,
+		6px 4px,
+		6px 2px,
+		10px 2px,
+		10px 0,
+		calc(100% - 10px) 0,
+		calc(100% - 10px) 2px,
+		calc(100% - 6px) 2px,
+		calc(100% - 6px) 4px,
+		calc(100% - 4px) 4px,
+		calc(100% - 4px) 6px,
+		calc(100% - 2px) 6px,
+		calc(100% - 2px) 10px,
+		100% 10px,
+		100% calc(100% - 10px),
+		calc(100% - 2px) calc(100% - 10px),
+		calc(100% - 2px) calc(100% - 6px),
+		calc(100% - 4px) calc(100% - 6px),
+		calc(100% - 4px) calc(100% - 4px),
+		calc(100% - 6px) calc(100% - 4px),
+		calc(100% - 6px) calc(100% - 2px),
+		calc(100% - 10px) calc(100% - 2px),
+		calc(100% - 10px) 100%,
+		10px 100%,
+		10px calc(100% - 2px),
+		6px calc(100% - 2px),
+		6px calc(100% - 4px),
+		4px calc(100% - 4px),
+		4px calc(100% - 6px),
+		2px calc(100% - 6px),
+		2px calc(100% - 10px),
+		0 calc(100% - 10px)
+	);
+	/* The same steps on only the top or the left corners, for media flush with one side of a pixel box. */
+	--pixel-corners-top: polygon(
+		0 10px,
+		2px 10px,
+		2px 6px,
+		4px 6px,
+		4px 4px,
+		6px 4px,
+		6px 2px,
+		10px 2px,
+		10px 0,
+		calc(100% - 10px) 0,
+		calc(100% - 10px) 2px,
+		calc(100% - 6px) 2px,
+		calc(100% - 6px) 4px,
+		calc(100% - 4px) 4px,
+		calc(100% - 4px) 6px,
+		calc(100% - 2px) 6px,
+		calc(100% - 2px) 10px,
+		100% 10px,
+		100% 100%,
+		0 100%
+	);
+	--pixel-corners-left: polygon(
+		0 10px,
+		2px 10px,
+		2px 6px,
+		4px 6px,
+		4px 4px,
+		6px 4px,
+		6px 2px,
+		10px 2px,
+		10px 0,
+		100% 0,
+		100% 100%,
+		10px 100%,
+		10px calc(100% - 2px),
+		6px calc(100% - 2px),
+		6px calc(100% - 4px),
+		4px calc(100% - 4px),
+		4px calc(100% - 6px),
+		2px calc(100% - 6px),
+		2px calc(100% - 10px),
+		0 calc(100% - 10px)
+	);
+
 	--radius-s: 10px;
-	--radius-m: 16px;
-	--radius-l: 26px;
 	--radius-pill: 999px;
 	/* Hard, unblurred drop plus a light inner top edge so panels look raised. */
 	--shadow: 0 var(--card-drop) 0 var(--shadow-color), var(--sheen);
@@ -148,6 +234,7 @@
 
 	--font-display: Fraunces, Georgia, "Times New Roman", serif;
 	--font-body: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 	--wrap: 76rem;
 
 	font-family: var(--font-body);

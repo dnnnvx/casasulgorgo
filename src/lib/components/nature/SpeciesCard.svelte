@@ -22,7 +22,7 @@
 	let photo = $derived(species.photos?.[0])
 </script>
 
-<a class="card" href={i18n.path(speciesPath(species))}>
+<a class="card pixel-box" href={i18n.path(speciesPath(species))}>
 	<span class="habitat">
 		{#if photo}
 			<!-- The name sits right next to it, so the photo is decorative here. -->
@@ -68,22 +68,21 @@
 		display: grid;
 		grid-template-columns: minmax(5.5rem, 1fr) 2fr;
 		min-width: 0;
-		overflow: hidden;
-		border-radius: var(--radius-m);
-		background: var(--panel);
-		border: var(--border-width) solid var(--border);
-		box-shadow: var(--shadow);
+		--fill: var(--panel);
+		--edge: var(--border);
+		--drop: var(--shadow-color);
+		border: var(--border-width) solid transparent;
 		color: var(--ink);
 		text-decoration: none;
-		transition: background-color 0.15s;
 	}
 
 	.card:hover {
-		background: var(--panel-hover);
+		--fill: var(--panel-hover);
 	}
 
 	.habitat {
 		overflow: hidden;
+		clip-path: var(--pixel-corners-left);
 	}
 
 	.habitat :global(.backdrop) {

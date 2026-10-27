@@ -96,7 +96,7 @@
 	.backdrop {
 		position: relative;
 		overflow: hidden;
-		background: var(--noise), linear-gradient(150deg, var(--from), var(--to));
+		background: var(--dither), linear-gradient(150deg, var(--from), var(--to));
 		background-blend-mode: soft-light, normal;
 		color: #1c2610;
 	}
