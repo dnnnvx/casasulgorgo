@@ -1,7 +1,0 @@
-*
-!/src
-!/static
-!/package.json
-!/package-lock.json
-!/vite.config.ts
-!/.npmrc

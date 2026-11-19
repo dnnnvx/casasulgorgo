@@ -31,7 +31,6 @@ result
 !.gitignore
 !.npmrc
 !.envrc
-!.dockerignore
 
 # temporary notes, docs and todos
 /*.md
