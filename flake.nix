@@ -87,6 +87,8 @@
               ];
               ExposedPorts."3000/tcp" = { };
               User = "65532:65532";
+              # Commit date (git+file flake source); infra's release-image never moves a tag back to an older one
+              Labels."ci.casasulgorgo.net/commit-timestamp" = toString self.lastModified;
             };
           };
         }
