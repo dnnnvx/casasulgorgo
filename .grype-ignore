@@ -1,0 +1,13 @@
+# Time-boxed grype exceptions, read by infra's scan-image and scan-source tasks:
+# <CVE/GHSA id> <until YYYY-MM-DD> <reason>. A line past its date fails CI again.
+
+# openssl 3.5.9: 3.5.10 isn't in nixpkgs yet (master/staging, 2026-11-23); High only, Medium doesn't fail
+CVE-2026-124709 2026-12-23 openssl 3.5.10 not in nixpkgs yet
+CVE-2026-95692 2026-12-23 openssl 3.5.10 not in nixpkgs yet
+CVE-2026-107496 2026-12-23 openssl 3.5.10 not in nixpkgs yet
+CVE-2026-107494 2026-12-23 openssl 3.5.10 not in nixpkgs yet
+CVE-2026-121482 2026-12-23 openssl 3.5.10 not in nixpkgs yet
+CVE-2026-95691 2026-12-23 openssl 3.5.10 not in nixpkgs yet
+CVE-2026-88823 2026-12-23 openssl 3.5.10 not in nixpkgs yet
+CVE-2026-84786 2026-12-23 openssl 3.5.10 not in nixpkgs yet
+CVE-2026-107493 2026-12-23 openssl 3.5.10 not in nixpkgs yet
