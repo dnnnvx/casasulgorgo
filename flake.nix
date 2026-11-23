@@ -118,6 +118,7 @@
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShellNoCC {
           packages = [
+            pkgs.just
             pkgs.nodejs_26
           ];
           shellHook = ''
