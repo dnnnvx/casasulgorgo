@@ -120,6 +120,7 @@
           packages = [
             pkgs.just
             pkgs.nodejs_26
+            pkgs.vulnix
           ];
           shellHook = ''
             export PATH="$PWD/node_modules/.bin:$PATH"

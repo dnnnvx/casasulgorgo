@@ -1,0 +1,33 @@
+# False positives: vulnix matches on product name, not on the affected fork or architecture
+
+["zlib-1.3.2"]
+cve = ["CVE-2023-6992", "CVE-2026-27820"]
+until = "2026-12-23"
+comment = [
+  "CVE-2023-6992: Cloudflare's zlib fork, not madler/zlib",
+  "CVE-2026-27820: not fixed in nixpkgs 619c39f, re-check on the next bump",
+]
+
+["gcc-16.2.0"]
+cve = ["CVE-2023-4039"]
+until = "2026-12-23"
+comment = "aarch64 -fstack-protector bug, CI images are x86_64; build-time only"
+
+# Not fixed in nixpkgs 619c39f (2026-11-23 flake update)
+
+["brotli-1.2.1"]
+cve = ["CVE-2026-111497"]
+until = "2026-12-23"
+comment = "still matched after 1.2.0 -> 1.2.1: likely a wrong NVD version range, verify"
+
+["glibc-2.44-57"]
+cve = ["CVE-2026-5435", "CVE-2026-6238"]
+until = "2026-12-23"
+
+["sqlite-3.54.0"]
+cve = ["CVE-2026-119586"]
+until = "2026-12-23"
+
+["ada-4.0.0"]
+cve = ["CVE-2024-9410"]
+until = "2026-12-23"

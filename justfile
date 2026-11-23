@@ -9,4 +9,4 @@ vulnix system="aarch64-linux":
     #!/usr/bin/env bash
     set -euo pipefail
     out="$(nix build --no-link --print-out-paths .#packages.{{ system }}.image)"
-    nix run --inputs-from . nixpkgs#vulnix -- --closure --whitelist vulnix.toml "$out"
+    vulnix --closure --whitelist vulnix.toml "$out"
